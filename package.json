@@ -1,0 +1,19 @@
+{
+  "name": "modern-names",
+  "version": "0.1.0",
+  "description": "Foundry VTT module: modern name roll tables and namer macros",
+  "type": "module",
+  "scripts": {
+    "build": "webpack --mode production",
+    "watch": "webpack --mode development",
+    "compendiums-build": "node scripts/compendiums-build.js"
+  },
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "classic-level": "^3.0.0",
+    "copy-webpack-plugin": "^14.0.0",
+    "js-yaml": "^4.1.0",
+    "webpack": "^5.76.1",
+    "webpack-cli": "^5.0.1"
+  }
+}
