@@ -11,9 +11,7 @@ I made these macros because I want to put names directly on tokens. It keeps the
 
 Also it helps reduce player bloodthirstyness when it looks like they are killing people with names.
 
-<video src="readme_media/token_namer.mp4" controls width="720">
-  <a href="readme_media/token_namer.mp4">Token Namer demo</a>
-</video>
+https://github.com/user-attachments/assets/8ca4f94c-9d2e-4f4d-98bc-4bb39ec908a7
 
 I gotta be 100% honest this is the most basic module I could possibly imagine. While also being something I care about and use.
 The real goal is tack on the most ridiculous dev experience features I could possibly dream of to make the DX as nice as possible. 
