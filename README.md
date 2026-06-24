@@ -4,6 +4,17 @@ Roll tables and macros for random modern NPC names (American, Egyptian, French, 
 
 Requires Foundry **v14+**.
 
+Been working on these roll tables for a while, I'm sure there are oddities I have missed: if a name isn't 'quite right' I tend to just roll for another name.
+These are a huge crutch for my keeper style, as I cannot invent names on the fly.
+
+I made these macros because I want to put names directly on tokens. It keeps the chat from getting cluttered up and saves me from needing to copy-paste.
+
+Also it helps reduce player bloodthirstyness when it looks like they are killing people with names.
+
+<video src="readme_media/token_namer.mp4" controls width="720">
+  <a href="readme_media/token_namer.mp4">Token Namer demo</a>
+</video>
+
 I gotta be 100% honest this is the most basic module I could possibly imagine. While also being something I care about and use.
 The real goal is tack on the most ridiculous dev experience features I could possibly dream of to make the DX as nice as possible. 
 The best way to tinker with something complicated is to Make everything around it very simple. 
