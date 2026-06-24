@@ -1,0 +1,24 @@
+# Templates for generate-macros.js (not loaded by Foundry)
+
+folder: |
+  _id: {{_id}}
+  name: {{name}}
+  type: folder
+  color: '{{color}}'
+
+reset: |
+  _id: {{_id}}
+  name: {{name}}
+  type: script
+  scope: global
+  img: {{img}}
+  command: await game.modules.get("modern-names").api.resetTokenNames();
+
+random: |
+  _id: {{_id}}
+  name: Random {{genderLabel}} Name {{cultureLabel}} ({{targetLabel}})
+  type: script
+  scope: global
+  folder: {{folder}}
+  img: {{img}}
+  command: await game.modules.get("modern-names").api.applyRandomName("{{culture}}", "{{gender}}", "{{target}}");

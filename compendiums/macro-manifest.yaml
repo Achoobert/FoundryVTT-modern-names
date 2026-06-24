@@ -1,0 +1,175 @@
+# Macro compendium source — edit this file, then npm run macros-generate
+
+folders:
+  - _id: osUcnVzKwmAKuZel
+    name: Token Namer
+    color: '#75844c'
+  - _id: osUcnVzKwmBGuZel
+    name: Actor Namer
+    color: '#75844c'
+
+reset:
+  _id: coc7macrofixtok1
+  name: Reset Token Name
+  img: icons/sundries/flags/banner-yellow.webp
+
+random:
+  - _id: coc7macrandmaleA
+    gender: male
+    culture: american
+    target: token
+    folder: osUcnVzKwmAKuZel
+    img: icons/sundries/documents/passport-document-identification.webp
+  - _id: coc7macrandfemA2
+    gender: female
+    culture: american
+    target: token
+    folder: osUcnVzKwmAKuZel
+    img: icons/sundries/documents/passport-document-identification.webp
+  - _id: coc7macrandfemA1
+    gender: female
+    culture: american
+    target: actor
+    folder: osUcnVzKwmBGuZel
+    img: icons/commodities/tech/electronics-button-skull-red.webp
+  - _id: coc7mabrandfemA5
+    gender: male
+    culture: american
+    target: actor
+    folder: osUcnVzKwmBGuZel
+    img: icons/commodities/tech/electronics-button-skull-red.webp
+  - _id: c7Tokhisp0001000
+    gender: male
+    culture: hispanic
+    target: token
+    folder: osUcnVzKwmAKuZel
+    img: icons/sundries/documents/passport-document-identification.webp
+  - _id: c7Acthisp0002000
+    gender: male
+    culture: hispanic
+    target: actor
+    folder: osUcnVzKwmBGuZel
+    img: icons/commodities/tech/electronics-button-skull-red.webp
+  - _id: c7Tokhisp0003000
+    gender: female
+    culture: hispanic
+    target: token
+    folder: osUcnVzKwmAKuZel
+    img: icons/sundries/documents/passport-document-identification.webp
+  - _id: c7Acthisp0004000
+    gender: female
+    culture: hispanic
+    target: actor
+    folder: osUcnVzKwmBGuZel
+    img: icons/commodities/tech/electronics-button-skull-red.webp
+  - _id: c7Tokfren0005000
+    gender: male
+    culture: french
+    target: token
+    folder: osUcnVzKwmAKuZel
+    img: icons/sundries/documents/passport-document-identification.webp
+  - _id: c7Actfren0006000
+    gender: male
+    culture: french
+    target: actor
+    folder: osUcnVzKwmBGuZel
+    img: icons/commodities/tech/electronics-button-skull-red.webp
+  - _id: c7Tokfren0007000
+    gender: female
+    culture: french
+    target: token
+    folder: osUcnVzKwmAKuZel
+    img: icons/sundries/documents/passport-document-identification.webp
+  - _id: c7Actfren0008000
+    gender: female
+    culture: french
+    target: actor
+    folder: osUcnVzKwmBGuZel
+    img: icons/commodities/tech/electronics-button-skull-red.webp
+  - _id: c7Tokgerm0009000
+    gender: male
+    culture: german
+    target: token
+    folder: osUcnVzKwmAKuZel
+    img: icons/sundries/documents/passport-document-identification.webp
+  - _id: c7Actgerm000a000
+    gender: male
+    culture: german
+    target: actor
+    folder: osUcnVzKwmBGuZel
+    img: icons/commodities/tech/electronics-button-skull-red.webp
+  - _id: c7Tokgerm000b000
+    gender: female
+    culture: german
+    target: token
+    folder: osUcnVzKwmAKuZel
+    img: icons/sundries/documents/passport-document-identification.webp
+  - _id: c7Actgerm000c000
+    gender: female
+    culture: german
+    target: actor
+    folder: osUcnVzKwmBGuZel
+    img: icons/commodities/tech/electronics-button-skull-red.webp
+  - _id: c7Tokegyp000d000
+    gender: male
+    culture: egypt
+    target: token
+    folder: osUcnVzKwmAKuZel
+    img: icons/sundries/documents/passport-document-identification.webp
+  - _id: c7Actegyp000e000
+    gender: male
+    culture: egypt
+    target: actor
+    folder: osUcnVzKwmBGuZel
+    img: icons/commodities/tech/electronics-button-skull-red.webp
+  - _id: c7Tokegyp000f000
+    gender: female
+    culture: egypt
+    target: token
+    folder: osUcnVzKwmAKuZel
+    img: icons/sundries/documents/passport-document-identification.webp
+  - _id: c7Actegyp0010000
+    gender: female
+    culture: egypt
+    target: actor
+    folder: osUcnVzKwmBGuZel
+    img: icons/commodities/tech/electronics-button-skull-red.webp
+  - _id: c7Tokkeny0011000
+    gender: male
+    culture: kenyan
+    target: token
+    folder: osUcnVzKwmAKuZel
+    img: icons/sundries/documents/passport-document-identification.webp
+  - _id: c7Actkeny0012000
+    gender: male
+    culture: kenyan
+    target: actor
+    folder: osUcnVzKwmBGuZel
+    img: icons/commodities/tech/electronics-button-skull-red.webp
+  - _id: c7Tokkeny0013000
+    gender: female
+    culture: kenyan
+    target: token
+    folder: osUcnVzKwmAKuZel
+    img: icons/sundries/documents/passport-document-identification.webp
+  - _id: c7Actkeny0014000
+    gender: female
+    culture: kenyan
+    target: actor
+    folder: osUcnVzKwmBGuZel
+    img: icons/commodities/tech/electronics-button-skull-red.webp
+
+display:
+  gender:
+    male: Male
+    female: Female
+  culture:
+    american: American
+    hispanic: Hispanic
+    french: French
+    german: German
+    egypt: Egypt
+    kenyan: Kenyan
+  target:
+    token: Token
+    actor: Actor

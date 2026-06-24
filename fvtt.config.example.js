@@ -13,7 +13,16 @@
 
 const developmentOptions = {
   userDataPath: '/Users/YOUR_USERNAME/foundrydata',
-  baseURL: 'http://localhost:30000'
+  baseURL: 'http://localhost:30000',
+  /** World title on Foundry setup screen — Cypress launches this for Quench E2E */
+  testWorldName: 'modern-names-test',
+  /** Optional Foundry admin password if /auth is shown */
+  adminPassword: '',
+  /** Quench release manifest; download URL taken from manifest unless quenchDownloadUrl is set */
+  quenchManifestUrl: 'https://github.com/Ethaks/FVTT-Quench/releases/download/v0.10.0/module.json',
+  /** Test world game system; downloaded into Data/systems/ if missing */
+  testSystemManifestUrl:
+    'https://github.com/deltagreen-foundryvtt/delta-green-foundry-vtt-system/releases/download/v1.7.0/system.json'
 }
 
 export default developmentOptions

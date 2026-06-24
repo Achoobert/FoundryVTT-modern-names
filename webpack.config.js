@@ -9,7 +9,14 @@ const rootFolder = path.dirname(fileURLToPath(import.meta.url))
 /** `webpack --mode production` → argv[3] is `production` */
 const buildMode = process.argv[3] === 'production' ? 'production' : 'development'
 
-const NODE_ONLY_SCRIPTS = new Set(['compendiums-build.js', 'pack-helpers.js'])
+const NODE_ONLY_SCRIPTS = new Set([
+  'compendiums-build.js',
+  'pack-helpers.js',
+  'generate-macros.js',
+  'install-quench.js',
+  'namer.js',
+  'table-ids.js'
+])
 
 function buildDestination() {
   try {
@@ -61,7 +68,7 @@ export default {
   bail: buildMode === 'production',
   context: rootFolder,
   devtool: buildMode === 'development' ? 'inline-source-map' : false,
-  entry: Object.keys(entries).length ? entries : { noop: path.join(rootFolder, 'scripts', 'noop.js') },
+  entry: entries,
   mode: buildMode,
   output: {
     clean: true,

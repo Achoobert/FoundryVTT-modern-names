@@ -23,6 +23,9 @@ jobs:
       - name: Build Compendiums
         run: npm run compendiums-build
 
+      - name: Build Module Scripts
+        run: npm run build
+
       - name: Get Version from module.json
         id: get_version_from_manifest
         run: |
@@ -50,6 +53,7 @@ jobs:
             ./module.zip \
             module.json \
             LICENSE \
+            scripts/ \
             packs/
 
       - name: Create or Update Release

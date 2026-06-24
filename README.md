@@ -1,6 +1,12 @@
 # Modern Names
 
-Roll tables and macros for random modern NPC names (Currently American, Egyptian, French, German, Hispanic, and Kenyan). Earth compendia for realistic settings.
+Roll tables and macros for random modern NPC names (American, Egyptian, French, German, Hispanic, Kenyan). Does not require Call of Cthulhu.
+
+Requires Foundry **v14+**.
+
+I gotta be 100% honest this is the most basic module I could possibly imagine. While also being something I care about and use.
+The real goal is tack on the most ridiculous dev experience features I could possibly dream of to make the DX as nice as possible. 
+The best way to tinker with something complicated is to Make everything around it very simple. 
 
 ## Installation
 
@@ -12,9 +18,44 @@ https://github.com/Achoobert/FoundryVTT-modern-names/releases/latest/download/mo
 
 1. Copy `fvtt.config.example.js` to `fvtt.config.js`. Set `userDataPath` to your Foundry user data folder.
 2. `npm install`
-3. `npm run compendiums-build` — build packs from `compendiums/*.yaml`
-4. `npm run build` or `npm run watch` — copy module into `Data/modules/modern-names` 
+3. `npm run compendiums-build` — runs `macros-generate` first, then builds LevelDB packs from `compendiums/*.yaml`
+4. `npm run build` or `npm run watch` — bundle `scripts/init.js` and copy into `Data/modules/modern-names`
+5. `npm run build:tests` or `npm run watch:tests` — build Quench test module into `Data/modules/modern-names-tests`
+
+### Adding or changing name macros
+
+- Edit [`compendiums/macro-manifest.yaml`](compendiums/macro-manifest.yaml) and [`compendiums/template.yaml`](compendiums/template.yaml)
+- Edit roll table IDs in [`scripts/table-ids.js`](scripts/table-ids.js) when tables change
+- Logic lives in [`scripts/namer.js`](scripts/namer.js)
+- Run `npm run macros-generate` (or `compendiums-build`) — do not hand-edit `compendiums/en-macros.yaml`
+
+## Quench and Cypress tests
+
+1. Set `testWorldName` and `testSystemManifestUrl` in `fvtt.config.js` (see example).
+2. `npm run build:all` (or `build` + `build:tests`). **`build:tests` runs `install-quench` first**, which:
+   - installs [Quench](https://foundryvtt.com/packages/quench) into `Data/modules/quench`
+   - installs the test game system (default: your Delta Green fork) into `Data/systems/deltagreen`
+   - **creates** the test world if no world with `testWorldName` exists, then enables **Quench**, **Modern Names**, and **Modern Names Tests**
+3. Launch the test world — modules should already be on.
+4. In-world: Quench sidebar → batches `modern-names.api`, `modern-names.compendiums`, `modern-names.rolls`.
+5. With Foundry running: `npm run tests` (interactive) or `npm run tests:ci` (headless).
+
+If Cypress says the binary is missing, from repo root run `npm run cypress:install` (or `npx cypress install`) and wait for the download (~1–2 min). Use project `npx`/`npm run`, not a global `cypress` command. `pretests:ci` runs install before headless runs; `postinstall` runs on `npm install` unless scripts were skipped (`npm install --ignore-scripts`).
+
+Optional: `npm run install-quench` alone to refresh Quench and re-patch the world.
+
+### Docker (Foundry 14)
+
+1. `cp .env.example .env` — set `FOUNDRY_USERDATA_HOST` to same path as `userDataPath` in `fvtt.config.js`.
+2. `npm run build:all` on the host so `Data/modules/*` exists under that folder.
+3. `npm run startDevEnv` — `install-quench`, then `docker compose` with repo root `.env` → http://localhost:30000 (`stopDevEnv` to tear down).
+
+| Batch ID | Topic |
+|----------|--------|
+| `modern-names.api` | Module API surface |
+| `modern-names.compendiums` | Roll table and macro packs |
+| `modern-names.rolls` | Draw from name tables |
 
 ## License
 
-GPL-3.0 
+GPL-3.0

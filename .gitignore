@@ -1,4 +1,15 @@
 node_modules/
+foundrydata/
+container_cache/
 build/
 fvtt.config.js
+.env
+docker/foundry_14/.env
 binary-packs/
+cypress/videos/
+cypress/screenshots/
+tests/build/
+LOG/
+*.log
+*.LOG
+*MANIFEST*

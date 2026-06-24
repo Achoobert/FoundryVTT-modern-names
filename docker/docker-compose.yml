@@ -1,0 +1,31 @@
+# Foundry V14 test container — user data bind-mount = fvtt.config.js userDataPath
+# Env: repo root .env (see ../.env.example). ./up.sh passes --env-file ../.env
+
+services:
+  foundry_test:
+    image: felddy/foundryvtt:14
+    container_name: foundry-modern-names-test
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        # source: ${FOUNDRY_USERDATA_HOST}
+        source: /Users/achoobert/repos/foundry_stuff/FoundryVTT-modern-names/docker/foundrydata
+        target: /data
+      - type: bind
+        source: /Users/achoobert/repos/foundry_stuff/FoundryVTT-modern-names/docker/secret # ???
+        target: /data/Config
+    environment:
+      - FOUNDRY_LICENSE_KEY=${FOUNDRY_LICENSE_KEY}
+      - FOUNDRY_WORLD=${FOUNDRY_WORLD}
+      - FOUNDRY_USERNAME=${FOUNDRY_USERNAME}
+      - FOUNDRY_PASSWORD=${FOUNDRY_PASSWORD}
+      - FOUNDRY_ADMIN_KEY=${FOUNDRY_ADMIN_KEY}
+      - CONTAINER_CACHE=./container_cache
+      # - FOUNDRY_AWS_CONFIG=aws.json
+      - FOUNDRY_HOT_RELOAD=true
+      - FOUNDRY_TELEMETRY=true
+      - FOUNDRY_IP_DISCOVERY=false
+      # - FOUNDRY_SSL_CERT=${FOUNDRY_SSL_CERT} TODO
+      # - FOUNDRY_SSL_KEY=${FOUNDRY_SSL_KEY}
+    ports:
+      - '30000:30000'

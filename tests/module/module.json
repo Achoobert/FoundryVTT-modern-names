@@ -1,0 +1,31 @@
+{
+  "id": "modern-names-tests",
+  "title": "Modern Names Tests",
+  "description": "Quench test batches for the Modern Names module",
+  "authors": [
+    {
+      "name": "Achoobert",
+      "url": "https://github.com/Achoobert"
+    }
+  ],
+  "version": "0.1.0",
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14"
+  },
+  "relationships": {
+    "requires": [
+      {
+        "id": "quench",
+        "type": "module",
+        "reason": "Runs Mocha batches in Foundry."
+      },
+      {
+        "id": "modern-names",
+        "type": "module",
+        "reason": "Module under test."
+      }
+    ]
+  },
+  "esmodules": ["module.js"]
+}
