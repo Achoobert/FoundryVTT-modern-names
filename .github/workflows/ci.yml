@@ -53,6 +53,9 @@ jobs:
       - name: Build module and tests
         run: npm run build && npm run build:tests
 
+      - name: Restore userdata ownership for host (install-quench)
+        run: node scripts/chown-foundrydata-for-docker.js --for-host
+
       - name: Install Quench and test world (pre-Docker)
         run: node scripts/install-quench.js
 
@@ -68,6 +71,9 @@ jobs:
 
       - name: Wait for Foundry (first boot)
         run: node scripts/wait-for-foundry.js
+
+      - name: Restore userdata ownership for host (install-quench)
+        run: node scripts/chown-foundrydata-for-docker.js --for-host
 
       - name: Install Quench and test world (post-Docker)
         run: node scripts/install-quench.js
