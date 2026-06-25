@@ -1,5 +1,6 @@
 import { defineConfig } from 'cypress'
 import { resolveAdminPassword, resolveFoundryWorld } from './cypress/load-repo-env.js'
+import { applyChromeLaunchArgs } from './cypress/chrome-launch-args.js'
 import developmentOptions from './fvtt.config.js'
 
 let { baseURL } = developmentOptions
@@ -26,7 +27,7 @@ export default defineConfig({
     setupNodeEvents(on, config) {
       on('before:browser:launch', (browser, launchOptions) => {
         if (browser.name === 'chrome' || browser.name === 'chromium') {
-          launchOptions.args.push('--window-size=1366,768')
+          applyChromeLaunchArgs(launchOptions)
         }
         return launchOptions
       })
