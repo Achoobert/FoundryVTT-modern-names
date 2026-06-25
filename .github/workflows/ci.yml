@@ -12,6 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 45
 
+    env:
+      FOUNDRY_WAIT_MS: '600000'
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v6
@@ -40,8 +43,17 @@ jobs:
       - name: Start Foundry container
         run: docker compose --project-directory docker --env-file .env up -d
 
+      - name: Wait for Foundry (first boot)
+        run: node scripts/wait-for-foundry.js
+
       - name: Install Quench and test world (post-Docker)
         run: node scripts/install-quench.js
+
+      - name: Restart Foundry for world module list
+        run: node scripts/restart-foundry-container.js
+
+      - name: Wait for Foundry (after restart)
+        run: node scripts/wait-for-foundry.js
 
       - name: Install Cypress binary
         run: npm run cypress:install
@@ -50,7 +62,7 @@ jobs:
         uses: browser-actions/setup-chrome@v1
 
       - name: Run Cypress E2E
-        run: npm run test:ci
+        run: npm run test:ci:run
         env:
           CYPRESS_CACHE_FOLDER: ~/.cache/Cypress
 
