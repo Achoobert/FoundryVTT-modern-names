@@ -45,6 +45,11 @@ jobs:
           restore-keys: |
             foundry-dist-${{ env.FOUNDRY_CACHE_VERSION }}-
 
+      - name: Log Foundry cache restore
+        run: |
+          echo "foundry-cache-restore cache-hit=${{ steps.foundry-cache-restore.outputs.cache-hit }}"
+          echo "foundry-cache-restore cache-primary-key=${{ steps.foundry-cache-restore.outputs.cache-primary-key }}"
+
       - name: Restore Quench and Delta Green cache
         uses: actions/cache@v6
         id: e2e-deps-cache
@@ -80,12 +85,15 @@ jobs:
         run: docker compose --project-directory docker --env-file .env up -d
 
       - name: Wait for Foundry (first boot)
+        id: wait-first-boot
         run: node scripts/wait-for-foundry.js
 
       - name: Verify Foundry distribution on disk
+        id: verify-foundry
         run: node scripts/verify-foundry-dist-cache.js
 
       - name: Save Foundry distribution cache
+        if: success() && steps.verify-foundry.outcome == 'success'
         uses: actions/cache/save@v6
         with:
           path: |
@@ -94,7 +102,7 @@ jobs:
           key: ${{ steps.foundry-cache-restore.outputs.cache-primary-key }}
 
       - name: Record Foundry download / cache stats
-        if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+        if: always() && steps.wait-first-boot.outcome == 'success'
         env:
           GH_TOKEN: ${{ github.token }}
           GITHUB_TOKEN: ${{ github.token }}

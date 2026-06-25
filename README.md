@@ -70,9 +70,27 @@ Optional: `npm run install-quench` alone to refresh Quench and re-patch the worl
 2. `npm run build:all` on the host so `Data/modules/*` exists under that folder.
 3. `npm run startDevEnv` — `install-quench`, then `docker compose` with repo root `.env` → http://localhost:30000 (`stopDevEnv` to tear down).
 
-GitHub Actions restores then **saves** the Foundry distribution (`docker/container_cache` zip + `foundrydata/resources`) immediately after first Docker boot (keyed by `FOUNDRY_CACHE_VERSION` in [`.github/workflows/ci.yml`](.github/workflows/ci.yml), aligned with `FOUNDRY_VERSION` in compose). Bump that version when you upgrade the Foundry patch you test against — one site pull, then cache repopulates. CI also caches Quench (`Data/modules/quench`) and Delta Green (`Data/systems/deltagreen`) from the manifest URLs in [`fvtt.config.example.js`](fvtt.config.example.js).
+### Minimizing downloads from foundryvtt.com
 
-**Foundry download counters:** canonical totals live in repo **Actions → Variables** (`FOUNDRY_PULLS`, `FOUNDRY_USED_FROM_CACHE`). For CI to update them, set **Settings → Actions → General → Workflow permissions** to **Read and write permissions**. Badges read [`stats/foundry-badges.json`](stats/foundry-badges.json) on `main` (synced after first boot on default-branch pushes). If you still have the typo variable `FOUNDRY_USED_FROM_CASHE`, rename it to `FOUNDRY_USED_FROM_CACHE` in settings (scripts accept the legacy name until renamed). `FOUNDRY_PULLS` increments when felddy downloads from Foundry’s servers; `FOUNDRY_USED_FROM_CACHE` increments on CI when the GHA distribution cache hits and no site download occurred. Stats failures do not block Cypress. Local `npm run startDevEnv` snapshots `docker/container_cache`, waits for Foundry, then runs `record-foundry-download.js` with `RECORD_FOUNDRY_STATS=1`.
+Felddy involves **two** downloads. Only one is the Foundry **application** from Foundry’s site.
+
+| Layer | What | From | Cached how |
+|-------|------|------|------------|
+| **Felddy image** | `felddy/foundryvtt:14` — container entrypoint, Node, install scripts | Docker Hub | Runner Docker layer cache (automatic; not counted by repo badges) |
+| **Foundry distribution** | Versioned zip (e.g. 14.364) + extracted app under `resources/` | **foundryvtt.com** (via `FOUNDRY_USERNAME` / `FOUNDRY_PASSWORD`) | **This repo optimizes this layer** |
+
+**Local dev:** Compose sets `CONTAINER_CACHE=/container_cache`, bind-mounted to [`docker/container_cache`](docker/docker-compose.yml). After first successful boot, felddy keeps the zip there; later `startDevEnv` runs reuse it and skip the site download unless you delete that folder or change `FOUNDRY_VERSION`.
+
+**CI:** Before Docker starts, [`actions/cache/restore`](.github/workflows/ci.yml) restores `docker/container_cache` and `foundrydata/resources`. After first boot, a verify step checks zip and/or `resources/app`, then [`actions/cache/save`](.github/workflows/ci.yml) uploads the same paths to GitHub’s cache. Key: `foundry-dist-<FOUNDRY_CACHE_VERSION>-<compose hash>`. Exact cache hit → felddy uses restored zip/resources → **no site pull**. Cache miss (new key, first run, or evicted entry) → **one** site pull that run, then save repopulates cache.
+
+**When you must pull from the site again**
+
+- Bump **`FOUNDRY_CACHE_VERSION`** in [`.github/workflows/ci.yml`](.github/workflows/ci.yml) and **`FOUNDRY_VERSION`** in [`docker/docker-compose.yml`](docker/docker-compose.yml) together when you intentionally move to a new Foundry patch.
+- Delete `docker/container_cache` locally, or change the cache key (compose layout change is already in the key via `hashFiles('docker/docker-compose.yml')`).
+
+**Not cached here (separate GHA cache):** Quench and Delta Green under `foundrydata/Data/…` — see `e2e-deps` in CI. Module/webpack output is rebuilt every run.
+
+Badges at the top track **site pulls** (`FOUNDRY_PULLS`) and **CI runs that used the GHA distribution cache without a site pull** (`FOUNDRY_USED_FROM_CACHE`). Use only those two repo variables (do not add `FOUNDRY_GHA_CACHE_HIT` — that name is only the workflow env from `actions/cache/restore`). **Every CI e2e run** (push and pull_request) bumps counters after first boot; Cypress pass/fail does not skip cache save or stats. Proof each run: job **Step summary** → “Foundry distribution cache”. Canonical values: **Settings → Actions → Variables**. CI needs **Settings → Actions → General → Workflow permissions → Read and write** to update variables. [`stats/foundry-badges.json`](stats/foundry-badges.json) on `main` is synced when badge commit runs on default branch. Local: `RECORD_FOUNDRY_STATS=1` on `startDevEnv` when using `gh` auth to bump `FOUNDRY_PULLS` after a real site pull.
 
 | Batch ID | Topic |
 |----------|--------|

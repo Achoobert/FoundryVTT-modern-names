@@ -18,8 +18,6 @@ import { writeBadgesJson } from './sync-foundry-badges-json.js'
 /** felddy/foundryvtt:14 — calibrate if image changes. */
 const SITE_PULL_LOG =
   /(?:download(?:ing)?\s+(?:the\s+)?(?:Foundry|release|build)|Installing\s+Foundry\s+Virtual\s+Tabletop|\.zip\b.*download)/i
-const CACHED_LOG =
-  /(?:using\s+cached|already\s+(?:downloaded|cached)|found\s+in\s+cache|skipping\s+download)/i
 
 function readSnapshot() {
   const p = path.join(REPO_ROOT, SNAPSHOT_FILE)
@@ -55,22 +53,40 @@ function dockerLogs(tail = 200) {
   }
 }
 
-export function classifyFoundryBoot({ logs, zipsBefore, zipsAfter }) {
-  const hadZipBefore = zipsBefore.length > 0
+export function classifyFoundryBoot({ logs, zipsBefore, zipsAfter, ghaCacheHit }) {
   const newZips = zipsAfter.filter((z) => !zipsBefore.includes(z))
   const logSaysPull = SITE_PULL_LOG.test(logs)
-  const logSaysCached = CACHED_LOG.test(logs)
 
-  if (logSaysPull || newZips.length > 0) {
-    return { sitePull: true, ghaCacheHit: false }
+  if (logSaysPull) {
+    return { sitePull: true }
   }
-  if (logSaysCached || (hadZipBefore && zipsAfter.length > 0)) {
-    return { sitePull: false, ghaCacheHit: false }
+  if (ghaCacheHit) {
+    return { sitePull: false }
   }
-  return { sitePull: false, ghaCacheHit: false }
+  if (newZips.length > 0) {
+    return { sitePull: true }
+  }
+  return { sitePull: false }
+}
+
+function isDefaultBranch() {
+  const ref = process.env.GITHUB_REF
+  return ref === 'refs/heads/main' || ref === 'refs/heads/master'
+}
+
+function appendStepSummary(markdown) {
+  const summaryPath = process.env.GITHUB_STEP_SUMMARY
+  if (!summaryPath) {
+    return
+  }
+  fs.appendFileSync(summaryPath, markdown)
 }
 
 function commitBadgesJson() {
+  if (!isDefaultBranch()) {
+    console.log('Skip badge commit (not default branch)')
+    return
+  }
   const badgesPath = path.join(REPO_ROOT, 'stats/foundry-badges.json')
   try {
     execFileSync('git', ['add', badgesPath], { cwd: REPO_ROOT })
@@ -110,17 +126,20 @@ async function main() {
   const zipsBefore = snapshot.zipsBefore ?? []
   const zipsAfter = listZipNames()
   const logs = dockerLogs()
-  const { sitePull } = classifyFoundryBoot({ logs, zipsBefore, zipsAfter })
-
   const ghaCacheHit = process.env.FOUNDRY_GHA_CACHE_HIT === 'true'
+  const { sitePull } = classifyFoundryBoot({ logs, zipsBefore, zipsAfter, ghaCacheHit })
+
   const bump = shouldBumpRepoCounters()
+  let bumpResult = 'none'
+  let bumpError = ''
 
   console.log('Foundry stats:', {
     sitePull,
     ghaCacheHit,
     bump,
     zipsBefore: zipsBefore.length,
-    zipsAfter: zipsAfter.length
+    zipsAfter,
+    zipsAfterCount: zipsAfter.length
   })
 
   if (bump) {
@@ -128,15 +147,19 @@ async function main() {
       if (sitePull) {
         const next = await incrementRepoVariable(VAR_FOUNDRY_PULLS, 1)
         console.log(`${VAR_FOUNDRY_PULLS} → ${next}`)
+        bumpResult = `${VAR_FOUNDRY_PULLS}=${next}`
       } else if (ghaCacheHit && process.env.GITHUB_ACTIONS === 'true') {
         const cacheVar = await resolveGhaCacheVariableName()
         const next = await incrementRepoVariable(cacheVar, 1)
         console.log(`${cacheVar} → ${next}`)
+        bumpResult = `${cacheVar}=${next}`
       } else {
         console.log('No counter change (no site pull; GHA cache miss or not applicable).')
+        bumpResult = 'no change'
       }
     } catch (e) {
-      console.warn('Could not update repository variables:', e.message)
+      bumpError = e instanceof Error ? e.message : String(e)
+      console.warn('Could not update repository variables:', bumpError)
       if (sitePull && process.env.RECORD_FOUNDRY_STATS === '1') {
         console.warn(
           'Local site pull: run `gh auth login` (repo admin) or set GITHUB_TOKEN, then `npm run record-foundry-stats`.'
@@ -145,6 +168,28 @@ async function main() {
     }
   } else if (sitePull) {
     console.log('Foundry site pull detected (stats bump skipped for this context).')
+  }
+
+  if (process.env.GITHUB_ACTIONS === 'true') {
+    appendStepSummary(
+      [
+        '## Foundry distribution cache',
+        '',
+        `| Field | Value |`,
+        `| --- | --- |`,
+        `| GHA restore cache-hit | \`${process.env.FOUNDRY_GHA_CACHE_HIT || '(empty = miss)'}\` |`,
+        `| Site pull this boot | ${sitePull} |`,
+        `| Zips before boot | ${zipsBefore.length} |`,
+        `| Zips after boot | ${zipsAfter.join(', ') || '(none)'} |`,
+        `| Counter bump | ${bumpResult} |`,
+        bumpError ? `| Variable API error | ${bumpError} |` : '',
+        '',
+        'Counters: `FOUNDRY_PULLS` (site download), `FOUNDRY_USED_FROM_CACHE` (GHA dist cache hit, no site pull).',
+        ''
+      ]
+        .filter(Boolean)
+        .join('\n')
+    )
   }
 
   if (syncBadges || bump) {

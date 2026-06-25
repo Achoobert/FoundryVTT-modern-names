@@ -206,14 +206,8 @@ export function shouldBumpRepoCounters() {
   if (process.env.FOUNDRY_STATS_SKIP === '1') {
     return false
   }
-  if (process.env.GITHUB_EVENT_NAME === 'pull_request') {
-    return false
-  }
-  if (process.env.GITHUB_REF) {
-    return (
-      process.env.GITHUB_REF === 'refs/heads/main' ||
-      process.env.GITHUB_REF === 'refs/heads/master'
-    )
+  if (process.env.GITHUB_ACTIONS === 'true') {
+    return true
   }
   return process.env.RECORD_FOUNDRY_STATS === '1'
 }

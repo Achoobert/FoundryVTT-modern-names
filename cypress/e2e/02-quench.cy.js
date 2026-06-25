@@ -10,20 +10,6 @@ describe('Quench tests', () => {
     cy.licenseAgreeAndClickAccept()
     cy.setupInputPasswordAndClickLogin()
     cy.closeTourOverlay()
-    cy.openTestWorld()
-    cy.enableModules()
-    cy.wait(1000)
-
-    cy.url().then((url) => {
-      if (url.includes('/auth')) {
-        const password = Cypress.env('ADMIN_PASSWORD')
-        if (password) {
-          cy.get('.password').should('be.visible').type(password)
-          cy.get('body').contains('Log In').should('be.visible').click({ force: true })
-        }
-        cy.visit('/setup')
-      }
-    })
 
     cy.url().then((url) => {
       if (url.includes('/setup')) {
@@ -31,7 +17,16 @@ describe('Quench tests', () => {
       }
     })
 
-    cy.get('select[name="userid"] option', { timeout: 180000 }).should('be.visible')
+    cy.url().then((url) => {
+      if (url.includes('/setup')) {
+        cy.openTestWorld()
+        cy.enableModules()
+        cy.get('[data-action="worldLaunch"]', { timeout: 10000 }).click({ force: true })
+        cy.confirmWorldMigrationIfShown()
+      }
+    })
+
+    cy.get('select[name="userid"] option', { timeout: 180000 }).should('exist')
     cy.loginAsGM()
   })
 

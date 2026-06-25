@@ -11,42 +11,25 @@ Cypress.Commands.add('loginAsGM', () => {
 
   cy.url().then((url) => {
     if (!url.includes('/join') && !url.includes('/game')) {
-      cy.log('Visiting /join')
       cy.visit('/join')
-    } else {
-      cy.visit('/')
     }
   })
 
-  cy.log('Getting select[name="userid"]')
-  // make sure it exists, othewise this step is unnecessary
-  // name="userid"
-  cy.get('select[name="userid"]', { timeout: 120000 }).then(() => {
-    cy.log('Getting select[name="userid"] options')
-    cy.get('select[name="userid"] option').then((options) => {
-      const opts = options.toArray()
-      expect(opts.length, 'join page users').to.be.greaterThan(0)
-      const gm =
-        opts.find((o) => /gamemaster|\[gm\]/i.test(o.text)) ?? opts[opts.length > 1 ? 1 : 0]
-      cy.get('select[name="userid"]').select(gm.value, { force: true })
-    })
-  })
-  cy.log('Getting select[name="userid"] options')
-  cy.get('select[name="userid"] option').if().then((options) => {
+  cy.get('select[name="userid"]', { timeout: 120000 }).should('exist')
+  cy.get('select[name="userid"] option').then((options) => {
     const opts = options.toArray()
     expect(opts.length, 'join page users').to.be.greaterThan(0)
     const gm =
       opts.find((o) => /gamemaster|\[gm\]/i.test(o.text)) ?? opts[opts.length > 1 ? 1 : 0]
     cy.get('select[name="userid"]').select(gm.value, { force: true })
-    cy.get('button[name="join"]', { timeout: 10000 }).should('be.visible').click({ force: true })
   })
 
-
-  cy.visit('/game')
-
-  cy.log('Getting #interface, #ui-top, #sidebar')
+  cy.get('button[name="join"]', { timeout: 10000 }).should('be.visible').click({ force: true })
 
   cy.get('#interface, #ui-top, #sidebar', { timeout: 120000 }).should('exist')
+  cy.closeTourOverlay()
+  cy.turnOffWarningsIfTheyExist()
+
   cy.window({ timeout: 120000 }).should((win) => {
     expect(win.game, 'Foundry client after Join — is the world running?').to.exist
     expect(win.game.ready, 'game.ready').to.eq(true)
@@ -59,30 +42,16 @@ Cypress.Commands.add('loginAsAdmin', () => {
 
   cy.closeTourOverlay()
 
-  // force start the default world:
-  //data-package-id="modern-names-test"
   cy.get(`[data-package-id="${Cypress.env('FOUNDRY_WORLD') || 'modern-names-test'}"]`, { timeout: 10000 })
     .should('exist')
     .click({ force: true })
 
-  // data-package-id="modern-names-test"
-  // cy.get('[data-package-id="${Cypress.env('FOUNDRY_WORLD') || 'modern-names-test'}"]', { timeout: 10000 })
   cy.get('button[name="join"]', { timeout: 10000 }).should('exist').click({ force: true })
 
-  cy.visit('/game')
-
   cy.loginAsGM()
-  // cy.log('Getting #interface, #ui-top, #sidebar')
-  // cy.get('#interface, #ui-top, #sidebar', { timeout: 120000 }).should('exist')
-  cy.window({ timeout: 120000 }).should((win) => {
-    expect(win.game, 'Foundry client after Join — is the world running?').to.exist
-    expect(win.game.ready, 'game.ready').to.eq(true)
-  })
-  cy.waitForQuench()
 })
 
 Cypress.Commands.add('disableIntercepts', () => {
-  // Pass-through only — never stub responses (stubbing breaks Foundry asset loads).
   cy.intercept({ resourceType: /xhr|fetch/ }, (req) => {
     req.continue()
   })
