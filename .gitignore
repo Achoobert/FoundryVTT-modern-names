@@ -1,5 +1,6 @@
 node_modules/
 foundrydata/
+secret/
 container_cache/
 build/
 fvtt.config.js
