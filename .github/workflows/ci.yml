@@ -1,0 +1,63 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v6
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Write CI config
+        env:
+          FOUNDRY_USERNAME: ${{ secrets.FOUNDRY_USERNAME }}
+          FOUNDRY_PASSWORD: ${{ secrets.FOUNDRY_PASSWORD }}
+          FOUNDRY_ADMIN_KEY: ${{ secrets.FOUNDRY_ADMIN_KEY }}
+          FOUNDRY_WORLD: modern-names-test
+          FOUNDRY_USERDATA_HOST: ${{ github.workspace }}/foundrydata
+        run: node scripts/write-ci-config.js
+
+      - name: Build compendiums
+        run: npm run compendiums-build
+
+      - name: Build module and tests
+        run: npm run build && npm run build:tests
+
+      - name: Install Quench and test world (pre-Docker)
+        run: node scripts/install-quench.js
+
+      - name: Start Foundry container
+        run: docker compose --project-directory docker --env-file .env up -d
+
+      - name: Install Quench and test world (post-Docker)
+        run: node scripts/install-quench.js
+
+      - name: Install Cypress binary
+        run: npm run cypress:install
+
+      - name: Install Chrome
+        uses: browser-actions/setup-chrome@v1
+
+      - name: Run Cypress E2E
+        run: npm run test:ci
+        env:
+          CYPRESS_CACHE_FOLDER: ~/.cache/Cypress
+
+      - name: Upload Cypress screenshots on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+          if-no-files-found: ignore

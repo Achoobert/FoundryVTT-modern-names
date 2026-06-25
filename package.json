@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "webpack --mode production",
+    "macros-generate": "node scripts/generate-macros.js",
+    "compendiums-build": "npm run macros-generate && node scripts/compendiums-build.js",
     "build:all": "npm run build && npm run build:tests",
     "cypress:install": "cypress install",
     "startDevEnv": "node scripts/install-quench.js && docker compose --project-directory docker --env-file .env up -d && node scripts/install-quench.js",

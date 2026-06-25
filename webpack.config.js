@@ -14,6 +14,9 @@ const NODE_ONLY_SCRIPTS = new Set([
   'pack-helpers.js',
   'generate-macros.js',
   'install-quench.js',
+  'write-ci-config.js',
+  'restart-foundry-container.js',
+  'wait-for-foundry.js',
   'namer.js',
   'table-ids.js'
 ])

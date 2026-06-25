@@ -55,7 +55,7 @@ Optional: `npm run install-quench` alone to refresh Quench and re-patch the worl
 
 ### Docker (Foundry 14)
 
-1. `cp .env.example .env` — set `FOUNDRY_USERDATA_HOST` to same path as `userDataPath` in `fvtt.config.js`.
+1. `cp .env.example .env` — set `FOUNDRY_USERDATA_HOST` to the same absolute path as `userDataPath` in `fvtt.config.js`. Compose binds that folder into the container; auth uses `FOUNDRY_USERNAME`, `FOUNDRY_PASSWORD`, and `FOUNDRY_ADMIN_KEY` (no license key in compose).
 2. `npm run build:all` on the host so `Data/modules/*` exists under that folder.
 3. `npm run startDevEnv` — `install-quench`, then `docker compose` with repo root `.env` → http://localhost:30000 (`stopDevEnv` to tear down).
 
