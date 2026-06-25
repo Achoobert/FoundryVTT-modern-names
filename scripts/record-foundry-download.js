@@ -17,7 +17,7 @@ import { writeBadgesJson } from './sync-foundry-badges-json.js'
 
 /** felddy/foundryvtt:14 — calibrate if image changes. */
 const SITE_PULL_LOG =
-  /(?:download(?:ing)?\s+(?:the\s+)?(?:Foundry|release)|fetch(?:ing)?\s+.*release|from\s+https?:\/\/[^/]*foundryvtt\.com)/i
+  /(?:download(?:ing)?\s+(?:the\s+)?(?:Foundry|release|build)|Installing\s+Foundry\s+Virtual\s+Tabletop|\.zip\b.*download)/i
 const CACHED_LOG =
   /(?:using\s+cached|already\s+(?:downloaded|cached)|found\s+in\s+cache|skipping\s+download)/i
 
@@ -132,9 +132,14 @@ async function main() {
         const cacheVar = await resolveGhaCacheVariableName()
         const next = await incrementRepoVariable(cacheVar, 1)
         console.log(`${cacheVar} → ${next}`)
+      } else {
+        console.log('No counter change (no site pull; GHA cache miss or not applicable).')
       }
     } catch (e) {
       console.warn('Could not update repository variables:', e.message)
+      if (process.env.GITHUB_ACTIONS === 'true') {
+        process.exit(1)
+      }
       if (sitePull && process.env.RECORD_FOUNDRY_STATS === '1') {
         console.warn(
           'Local site pull: run `gh auth login` (repo admin) or set GITHUB_TOKEN, then `npm run record-foundry-stats`.'

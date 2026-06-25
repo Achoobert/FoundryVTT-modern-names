@@ -13,12 +13,15 @@ services:
       - type: bind
         source: ${FOUNDRY_CONFIG_HOST:-./secret}
         target: /data/Config
+      - type: bind
+        source: ./container_cache
+        target: /container_cache
     environment:
       - FOUNDRY_WORLD=${FOUNDRY_WORLD}
       - FOUNDRY_USERNAME=${FOUNDRY_USERNAME}
       - FOUNDRY_PASSWORD=${FOUNDRY_PASSWORD}
       - FOUNDRY_ADMIN_KEY=${FOUNDRY_ADMIN_KEY}
-      - CONTAINER_CACHE=./container_cache
+      - CONTAINER_CACHE=/container_cache
       - FOUNDRY_VERSION=14.364
       - FOUNDRY_HOT_RELOAD=true
       - FOUNDRY_TELEMETRY=true

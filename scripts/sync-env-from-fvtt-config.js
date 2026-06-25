@@ -16,6 +16,13 @@ if (!userDataPath) {
   process.exit(1)
 }
 
+if (userDataPath.includes('YOUR_USERNAME')) {
+  console.error(
+    'fvtt.config.js still has placeholder userDataPath. Copy fvtt.config.example.js to fvtt.config.js and set userDataPath, or run node scripts/write-ci-config.js'
+  )
+  process.exit(1)
+}
+
 fs.mkdirSync(userDataPath, { recursive: true })
 
 const envPath = path.join(root, '.env')

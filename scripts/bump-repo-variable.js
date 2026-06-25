@@ -90,8 +90,15 @@ function getVariableViaGh(repo, name) {
 }
 
 function setVariableViaGh(repo, name, value) {
+  const token = authToken()
+  const env = { ...process.env }
+  if (token) {
+    env.GH_TOKEN = token
+    env.GITHUB_TOKEN = token
+  }
   execFileSync('gh', ['variable', 'set', name, '--body', String(value), '-R', repo], {
-    stdio: 'inherit'
+    stdio: 'inherit',
+    env
   })
 }
 
@@ -119,6 +126,9 @@ export async function setRepoVariable(name, value) {
   if (token) {
     await setVariableViaApi(repo, name, value)
     return
+  }
+  if (process.env.GITHUB_ACTIONS === 'true') {
+    throw new Error('GITHUB_TOKEN or GH_TOKEN required in Actions to update repository variables')
   }
   setVariableViaGh(repo, name, value)
 }

@@ -60,6 +60,7 @@ Cypress.Commands.add('setupInputPasswordAndClickLogin', () => {
 // .if()
 // data-action="exit"
 Cypress.Commands.add('closeTourOverlay', () => {
+  cy.log('Closing tour overlay')
   cy.get('[data-action="exit"]', { timeout: 10000 }).if().then(() => {
     cy.get('[data-action="exit"]').click()
   })
@@ -68,7 +69,9 @@ Cypress.Commands.add('closeTourOverlay', () => {
   })
   // class="step-title noborder"
   //Backups Overview
+  // class="tour-overlay"
   cy.get('.step-title.noborder', { timeout: 10000 }).should('not.exist')
+  cy.get('.tour-overlay', { timeout: 10000 }).should('not.exist')
 })
 
 Cypress.Commands.add('confirmWorldMigrationIfShown', () => {
@@ -77,11 +80,22 @@ Cypress.Commands.add('confirmWorldMigrationIfShown', () => {
 
 Cypress.Commands.add('launchTestWorldFromSetup', (worldTitle) => {
   const name = worldTitle ?? Cypress.env('FOUNDRY_WORLD') ?? 'modern-names-test'
-  cy.get('body').contains(name).should('be.visible').rightclick({ force: true })
-  cy.get('body').contains('Launch').should('be.visible').click({ force: true })
-  cy.confirmWorldMigrationIfShown()
-  cy.closeTourOverlay()
-  cy.get('select[name="userid"] option', { timeout: 180000 }).should('have.length.at.least', 1)
+  // if world already running, skip this step
+  cy.url().then((url) => {
+    if (url.includes('/join')) {
+      return
+    } else {
+      cy.get('body').contains(name).should('be.visible').rightclick({ force: true })
+      cy.get('body').contains('Launch').should('be.visible').click({ force: true })
+      cy.confirmWorldMigrationIfShown()
+      cy.closeTourOverlay()
+      // cy.get('select[name="userid"] option', { timeout: 180000 }).should('have.length.at.least', 1)
+      cy.window({ timeout: 120000 }).should((win) => {
+        expect(win.game, 'Foundry client after Join — is the world running?').to.exist
+        expect(win.game.ready, 'game.ready').to.eq(true)
+      })
+    }
+  })
 })
 // class="world-select"
 Cypress.Commands.add('openTestWorld', () => {

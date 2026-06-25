@@ -27,7 +27,7 @@ jobs:
         run: npm run compendiums-build
 
       - name: Build Module Scripts
-        run: npm run build
+        run: npx webpack --mode production
 
       - name: Get Version from module.json
         id: get_version_from_manifest

@@ -83,6 +83,8 @@ jobs:
       - name: Record Foundry download / cache stats
         if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
         env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ github.token }}
           FOUNDRY_GHA_CACHE_HIT: ${{ steps.foundry-cache.outputs.cache-hit }}
         run: node scripts/record-foundry-download.js --sync-badges --commit-badges
 
