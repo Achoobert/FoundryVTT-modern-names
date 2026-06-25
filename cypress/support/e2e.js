@@ -43,6 +43,41 @@ Cypress.Commands.add('loginAsGM', () => {
   cy.waitForQuench()
 })
 
+Cypress.Commands.add('loginAsAdmin', () => {
+  cy.log('Logging in as Admin, to access setup')
+
+  // cy.url().then((url) => {
+  //   if (!url.includes('/join') && !url.includes('/game')) {
+  //     cy.log('Visiting /join')
+  //     cy.visit('/join')
+  //   } else {
+  //     cy.visit('/')
+  //   }
+  // })
+
+  // this isn't working
+  cy.closeTourOverlay()
+
+  // force start the default world:
+  //data-package-id="modern-names-test"
+  cy.get(`[data-package-id="${Cypress.env('FOUNDRY_WORLD') || 'modern-names-test'}"]`, { timeout: 10000 })
+    .if().click({ force: true })
+
+
+  cy.get('button[name="join"]', { timeout: 10000 }).should('be.visible').click({ force: true })
+
+  cy.visit('/game')
+
+  cy.log('Getting #interface, #ui-top, #sidebar')
+
+  cy.get('#interface, #ui-top, #sidebar', { timeout: 120000 }).should('exist')
+  cy.window({ timeout: 120000 }).should((win) => {
+    expect(win.game, 'Foundry client after Join — is the world running?').to.exist
+    expect(win.game.ready, 'game.ready').to.eq(true)
+  })
+  cy.waitForQuench()
+})
+
 Cypress.Commands.add('disableIntercepts', () => {
   // Pass-through only — never stub responses (stubbing breaks Foundry asset loads).
   cy.intercept({ resourceType: /xhr|fetch/ }, (req) => {

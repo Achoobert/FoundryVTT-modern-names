@@ -30,6 +30,7 @@ Cypress.Commands.add('turnOffWarningsIfTheyExist', () => {
 
 // if http://localhost:30000/license, agree and click accept
 Cypress.Commands.add('licenseAgreeAndClickAccept', () => {
+  cy.visit('/')
   // if on license page, agree and click accept
   cy.url().then((url) => {
     if (url.includes('/license')) {
@@ -65,6 +66,9 @@ Cypress.Commands.add('closeTourOverlay', () => {
   cy.get('.tour .header-button.close, [data-action="closeTour"]', { timeout: 5000 }).if().click({
     force: true
   })
+  // class="step-title noborder"
+  //Backups Overview
+  cy.get('.step-title.noborder', { timeout: 10000 }).should('not.exist')
 })
 
 Cypress.Commands.add('confirmWorldMigrationIfShown', () => {

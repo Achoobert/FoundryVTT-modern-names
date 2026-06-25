@@ -7,6 +7,10 @@ on:
       - master
   pull_request:
 
+permissions:
+  actions: write
+  contents: write
+
 jobs:
   e2e:
     runs-on: ubuntu-latest
@@ -63,6 +67,9 @@ jobs:
       - name: Fix userdata ownership for felddy (uid 1000)
         run: node scripts/chown-foundrydata-for-docker.js
 
+      - name: Snapshot Foundry container cache (pre-boot)
+        run: node scripts/foundry-cache-snapshot.js
+
       - name: Start Foundry container
         env:
           FOUNDRY_USERNAME: ${{ secrets.FOUNDRY_USERNAME }}
@@ -72,6 +79,12 @@ jobs:
 
       - name: Wait for Foundry (first boot)
         run: node scripts/wait-for-foundry.js
+
+      - name: Record Foundry download / cache stats
+        if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+        env:
+          FOUNDRY_GHA_CACHE_HIT: ${{ steps.foundry-cache.outputs.cache-hit }}
+        run: node scripts/record-foundry-download.js --sync-badges --commit-badges
 
       - name: Restore userdata ownership for host (install-quench)
         run: node scripts/chown-foundrydata-for-docker.js --for-host

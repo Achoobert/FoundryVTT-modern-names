@@ -3,6 +3,7 @@ import * as fs from 'fs'
 import * as path from 'path'
 import CopyWebpackPlugin from 'copy-webpack-plugin'
 import developmentOptions from './fvtt.config.js'
+import { ensureModuleOutputDir } from './scripts/fvtt-paths.js'
 
 const rootFolder = path.dirname(fileURLToPath(import.meta.url))
 
@@ -18,24 +19,36 @@ const NODE_ONLY_SCRIPTS = new Set([
   'restart-foundry-container.js',
   'wait-for-foundry.js',
   'chown-foundrydata-for-docker.js',
+  'sync-env-from-fvtt-config.js',
+  'foundry-cache-snapshot.js',
+  'record-foundry-download.js',
+  'foundry-stats-constants.js',
+  'bump-repo-variable.js',
+  'sync-foundry-badges-json.js',
+  'fvtt-paths.js',
   'namer.js',
   'table-ids.js'
 ])
 
 function buildDestination() {
+  const manifestPath = path.join(rootFolder, 'module.json')
   try {
-    const { userDataPath } = developmentOptions
-    const manifestPath = path.join(rootFolder, 'module.json')
-    if (fs.existsSync(manifestPath)) {
-      const json = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
-      if (json.id && fs.existsSync(userDataPath)) {
-        return path.join(userDataPath, 'Data', 'modules', json.id)
+    const json = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
+    if (json.id) {
+      const dest = ensureModuleOutputDir(developmentOptions, json.id)
+      if (dest) {
+        console.log(`[webpack] module output → ${dest}`)
+        return dest
       }
     }
-  } catch {
-    //
+  } catch (err) {
+    console.warn('[webpack] could not read module.json for output path:', err.message)
   }
-  return path.join(rootFolder, 'build')
+  const fallback = path.join(rootFolder, 'build')
+  console.warn(
+    `[webpack] fvtt.config.js userDataPath not set — output → ${fallback} (set userDataPath for Docker/Foundry)`
+  )
+  return fallback
 }
 
 function scriptEntries() {

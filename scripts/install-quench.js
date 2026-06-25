@@ -8,6 +8,7 @@ import * as fs from 'node:fs'
 import * as os from 'node:os'
 import * as path from 'node:path'
 import developmentOptions from '../fvtt.config.js'
+import { resolveUserDataPath } from './fvtt-paths.js'
 
 const DEFAULT_QUENCH_MANIFEST =
   'https://github.com/Ethaks/FVTT-Quench/releases/download/v0.10.0/module.json'
@@ -291,7 +292,6 @@ function patchQuenchForCore14(quenchDir) {
 
 async function main() {
   const {
-    userDataPath,
     testWorldName,
     quenchManifestUrl,
     quenchDownloadUrl,
@@ -299,17 +299,34 @@ async function main() {
     testSystemDownloadUrl
   } = developmentOptions
 
-  if (!userDataPath || !fs.existsSync(userDataPath)) {
-    console.error('fvtt.config.js: userDataPath missing or not found:', userDataPath)
+  const resolvedUserData = resolveUserDataPath(developmentOptions)
+  if (!resolvedUserData) {
+    console.error('fvtt.config.js: userDataPath missing or invalid')
     process.exit(1)
   }
+  fs.mkdirSync(resolvedUserData, { recursive: true })
 
   if (!testWorldName) {
     console.error('fvtt.config.js: testWorldName is required')
     process.exit(1)
   }
+  try {
+    const { loadRepoEnv } = await import('../cypress/load-repo-env.js')
+    const envHost = loadRepoEnv().FOUNDRY_USERDATA_HOST
+    if (envHost && path.resolve(envHost) !== resolvedUserData) {
+      console.error(
+        'Mismatch: fvtt.config.js userDataPath !== .env FOUNDRY_USERDATA_HOST\n',
+        '  fvtt.config.js:', resolvedUserData,
+        '\n  .env:', path.resolve(envHost),
+        '\nRun: node scripts/sync-env-from-fvtt-config.js'
+      )
+      process.exit(1)
+    }
+  } catch {
+    //
+  }
 
-  const dataRoot = path.join(userDataPath, 'Data')
+  const dataRoot = path.join(resolvedUserData, 'Data')
   const modulesDir = path.join(dataRoot, 'modules')
   const systemsRoot = path.join(dataRoot, 'systems')
   const worldsRoot = path.join(dataRoot, 'worlds')

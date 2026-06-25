@@ -14,3 +14,4 @@ LOG/
 *.log
 *.LOG
 *MANIFEST*
+.foundry-cache-snapshot.json

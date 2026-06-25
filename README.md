@@ -1,9 +1,9 @@
 # Modern Names
 
+![Foundry pulls](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/Achoobert/FoundryVTT-modern-names/main/stats/foundry-badges.json&label=Foundry%20pulls&query=$.pulls&color=orange)
+![Foundry from GHA cache](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/Achoobert/FoundryVTT-modern-names/main/stats/foundry-badges.json&label=GHA%20cache%20hits&query=$.ghaCacheHits&color=green)
+
 Roll tables and macros for random modern NPC names (American, Egyptian, French, German, Hispanic, Kenyan). Does not require Call of Cthulhu.
-```
-https://github.com/Achoobert/FoundryVTT-modern-names/releases/download/latest/module.json
-```
 
 Requires Foundry **v14+**.
 
@@ -22,8 +22,16 @@ The best way to tinker with something complicated is to Make everything around i
 
 ## Installation
 
+In Foundry → **Install Module** → paste manifest URL:
+
 ```
 https://github.com/Achoobert/FoundryVTT-modern-names/releases/latest/download/module.json
+```
+
+Use **`latest/download`**, not `download/latest`. Tags include a **`v`** prefix (e.g. `v0.1.0`, not `0.1.0`):
+
+```
+https://github.com/Achoobert/FoundryVTT-modern-names/releases/download/v0.1.0/module.json
 ```
 
 ## Development
@@ -31,7 +39,7 @@ https://github.com/Achoobert/FoundryVTT-modern-names/releases/latest/download/mo
 1. Copy `fvtt.config.example.js` to `fvtt.config.js`. Set `userDataPath` to your Foundry user data folder.
 2. `npm install`
 3. `npm run compendiums-build` — runs `macros-generate` first, then builds LevelDB packs from `compendiums/*.yaml`
-4. `npm run build` or `npm run watch` — bundle `scripts/init.js` and copy into `Data/modules/modern-names`
+4. `npm run build` or `npm run watch` — bundle `scripts/init.js` into `fvtt.config.js` `userDataPath` → `Data/modules/modern-names` (webpack logs the path; without `userDataPath` it falls back to repo `build/`, which Foundry will not see)
 5. `npm run build:tests` or `npm run watch:tests` — build Quench test module into `Data/modules/modern-names-tests`
 
 ### Adding or changing name macros
@@ -58,11 +66,13 @@ Optional: `npm run install-quench` alone to refresh Quench and re-patch the worl
 
 ### Docker (Foundry 14)
 
-1. `cp .env.example .env` — set `FOUNDRY_USERDATA_HOST` to the same absolute path as `userDataPath` in `fvtt.config.js`. Compose binds that folder into the container; auth uses `FOUNDRY_USERNAME`, `FOUNDRY_PASSWORD`, and `FOUNDRY_ADMIN_KEY` (no license key in compose). The felddy image runs as uid **1000**; on Linux, if the host populated userdata first, run `node scripts/chown-foundrydata-for-docker.js` (or `sudo chown -R 1000:1000` on that path, `docker/secret`, and `docker/container_cache`) before `docker compose up`.
+1. `cp .env.example .env` — `npm run startDevEnv` runs `sync-env-from-fvtt-config.js` so `FOUNDRY_USERDATA_HOST` matches `userDataPath` in `fvtt.config.js`. Compose binds that folder into the container; auth uses `FOUNDRY_USERNAME`, `FOUNDRY_PASSWORD`, and `FOUNDRY_ADMIN_KEY` (no license key in compose). The felddy image runs as uid **1000**; on Linux, if the host populated userdata first, run `node scripts/chown-foundrydata-for-docker.js` (or `sudo chown -R 1000:1000` on that path, `docker/secret`, and `docker/container_cache`) before `docker compose up`.
 2. `npm run build:all` on the host so `Data/modules/*` exists under that folder.
 3. `npm run startDevEnv` — `install-quench`, then `docker compose` with repo root `.env` → http://localhost:30000 (`stopDevEnv` to tear down).
 
 GitHub Actions caches `docker/container_cache` and `foundrydata/resources` between runs (keyed by `FOUNDRY_CACHE_VERSION` in [`.github/workflows/ci.yml`](.github/workflows/ci.yml), aligned with `FOUNDRY_VERSION` in compose). Bump that version when you upgrade the Foundry patch you test against. CI also caches Quench (`Data/modules/quench`) and Delta Green (`Data/systems/deltagreen`) from the manifest URLs in [`fvtt.config.example.js`](fvtt.config.example.js).
+
+**Foundry download counters:** canonical totals live in repo **Actions → Variables** (`FOUNDRY_PULLS`, `FOUNDRY_USED_FROM_CACHE`). Badges above read [`stats/foundry-badges.json`](stats/foundry-badges.json) on `main` (synced on default-branch CI after first Docker boot). If you still have the typo variable `FOUNDRY_USED_FROM_CASHE`, rename it to `FOUNDRY_USED_FROM_CACHE` in settings (scripts accept the legacy name until renamed). `FOUNDRY_PULLS` increments when felddy downloads from Foundry’s servers; `FOUNDRY_USED_FROM_CACHE` increments on CI when the GHA distribution cache hits and no site download occurred. Local `npm run startDevEnv` snapshots `docker/container_cache`, waits for Foundry, then runs `record-foundry-download.js` with `RECORD_FOUNDRY_STATS=1` (bumps `FOUNDRY_PULLS` via `gh` or `GITHUB_TOKEN` when a site pull is detected; local felddy zip cache does not count as GHA cache).
 
 | Batch ID | Topic |
 |----------|--------|

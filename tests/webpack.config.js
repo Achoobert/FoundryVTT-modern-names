@@ -3,26 +3,32 @@ import * as fs from 'fs'
 import * as path from 'path'
 import CopyWebpackPlugin from 'copy-webpack-plugin'
 import developmentOptions from '../fvtt.config.js'
+import { ensureModuleOutputDir } from '../scripts/fvtt-paths.js'
 
 const rootFolder = path.dirname(fileURLToPath(import.meta.url))
 const repoRoot = path.dirname(rootFolder)
 
 const buildMode = process.argv.includes('production') ? 'production' : 'development'
 
-function buildDestination () {
+function buildDestination() {
+  const manifestPath = path.join(rootFolder, 'module/module.json')
   try {
-    const { userDataPath } = developmentOptions
-    const manifestPath = path.join(rootFolder, 'module/module.json')
-    if (fs.existsSync(manifestPath)) {
-      const json = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
-      if (json.id && fs.existsSync(userDataPath)) {
-        return path.join(userDataPath, 'Data', 'modules', json.id)
+    const json = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
+    if (json.id) {
+      const dest = ensureModuleOutputDir(developmentOptions, json.id)
+      if (dest) {
+        console.log(`[webpack:tests] module output → ${dest}`)
+        return dest
       }
     }
-  } catch {
-    //
+  } catch (err) {
+    console.warn('[webpack:tests] could not read module.json for output path:', err.message)
   }
-  return path.join(rootFolder, 'build')
+  const fallback = path.join(rootFolder, 'build')
+  console.warn(
+    `[webpack:tests] fvtt.config.js userDataPath not set — output → ${fallback}`
+  )
+  return fallback
 }
 
 export default {
