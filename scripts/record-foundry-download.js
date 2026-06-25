@@ -137,9 +137,6 @@ async function main() {
       }
     } catch (e) {
       console.warn('Could not update repository variables:', e.message)
-      if (process.env.GITHUB_ACTIONS === 'true') {
-        process.exit(1)
-      }
       if (sitePull && process.env.RECORD_FOUNDRY_STATS === '1') {
         console.warn(
           'Local site pull: run `gh auth login` (repo admin) or set GITHUB_TOKEN, then `npm run record-foundry-stats`.'

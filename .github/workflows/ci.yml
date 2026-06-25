@@ -35,13 +35,15 @@ jobs:
         run: node scripts/write-ci-config.js
 
       - name: Restore Foundry distribution cache
-        uses: actions/cache@v6
-        id: foundry-cache
+        uses: actions/cache/restore@v6
+        id: foundry-cache-restore
         with:
           path: |
             docker/container_cache
             foundrydata/resources
           key: foundry-dist-${{ env.FOUNDRY_CACHE_VERSION }}-${{ hashFiles('docker/docker-compose.yml') }}
+          restore-keys: |
+            foundry-dist-${{ env.FOUNDRY_CACHE_VERSION }}-
 
       - name: Restore Quench and Delta Green cache
         uses: actions/cache@v6
@@ -80,12 +82,23 @@ jobs:
       - name: Wait for Foundry (first boot)
         run: node scripts/wait-for-foundry.js
 
+      - name: Verify Foundry distribution on disk
+        run: node scripts/verify-foundry-dist-cache.js
+
+      - name: Save Foundry distribution cache
+        uses: actions/cache/save@v6
+        with:
+          path: |
+            docker/container_cache
+            foundrydata/resources
+          key: ${{ steps.foundry-cache-restore.outputs.cache-primary-key }}
+
       - name: Record Foundry download / cache stats
         if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
         env:
           GH_TOKEN: ${{ github.token }}
           GITHUB_TOKEN: ${{ github.token }}
-          FOUNDRY_GHA_CACHE_HIT: ${{ steps.foundry-cache.outputs.cache-hit }}
+          FOUNDRY_GHA_CACHE_HIT: ${{ steps.foundry-cache-restore.outputs.cache-hit }}
         run: node scripts/record-foundry-download.js --sync-badges --commit-badges
 
       - name: Restore userdata ownership for host (install-quench)

@@ -28,6 +28,14 @@ function authToken() {
   return process.env.GITHUB_TOKEN || process.env.GH_TOKEN || ''
 }
 
+const VARIABLES_PERMS_HINT =
+  'Enable Settings → Actions → General → Workflow permissions → Read and write permissions (GITHUB_TOKEN needs actions: write).'
+
+function isVariablesAccessError(err) {
+  const msg = err instanceof Error ? err.message : String(err)
+  return msg.includes('403') || msg.includes('Resource not accessible by integration')
+}
+
 async function getVariableViaApi(repo, name) {
   const token = authToken()
   if (!token) {
@@ -109,9 +117,16 @@ export async function getRepoVariable(name) {
   }
   const token = authToken()
   if (token) {
-    const api = await getVariableViaApi(repo, name)
-    if (api != null) {
-      return api
+    try {
+      const api = await getVariableViaApi(repo, name)
+      if (api != null) {
+        return api
+      }
+    } catch (e) {
+      if (!isVariablesAccessError(e)) {
+        throw e
+      }
+      console.warn(`REST get ${name} denied; trying gh. ${VARIABLES_PERMS_HINT}`)
     }
   }
   return getVariableViaGh(repo, name)
@@ -124,11 +139,26 @@ export async function setRepoVariable(name, value) {
   }
   const token = authToken()
   if (token) {
-    await setVariableViaApi(repo, name, value)
-    return
+    try {
+      await setVariableViaApi(repo, name, value)
+      return
+    } catch (e) {
+      if (!isVariablesAccessError(e)) {
+        throw e
+      }
+      console.warn(`REST set ${name} denied; trying gh. ${VARIABLES_PERMS_HINT}`)
+      try {
+        setVariableViaGh(repo, name, value)
+        return
+      } catch (ghErr) {
+        throw new Error(
+          `${ghErr instanceof Error ? ghErr.message : ghErr}. ${VARIABLES_PERMS_HINT}`
+        )
+      }
+    }
   }
   if (process.env.GITHUB_ACTIONS === 'true') {
-    throw new Error('GITHUB_TOKEN or GH_TOKEN required in Actions to update repository variables')
+    throw new Error(`GITHUB_TOKEN or GH_TOKEN required in Actions. ${VARIABLES_PERMS_HINT}`)
   }
   setVariableViaGh(repo, name, value)
 }
@@ -148,13 +178,19 @@ export async function resolveGhaCacheVariableName() {
   }
   const token = authToken()
   if (token) {
-    const primary = await getVariableViaApi(repo, VAR_FOUNDRY_GHA_CACHE)
-    if (primary != null) {
-      return VAR_FOUNDRY_GHA_CACHE
-    }
-    const legacy = await getVariableViaApi(repo, VAR_FOUNDRY_GHA_CACHE_LEGACY)
-    if (legacy != null) {
-      return VAR_FOUNDRY_GHA_CACHE_LEGACY
+    try {
+      const primary = await getVariableViaApi(repo, VAR_FOUNDRY_GHA_CACHE)
+      if (primary != null) {
+        return VAR_FOUNDRY_GHA_CACHE
+      }
+      const legacy = await getVariableViaApi(repo, VAR_FOUNDRY_GHA_CACHE_LEGACY)
+      if (legacy != null) {
+        return VAR_FOUNDRY_GHA_CACHE_LEGACY
+      }
+    } catch (e) {
+      if (!isVariablesAccessError(e)) {
+        throw e
+      }
     }
   }
   if (getVariableViaGh(repo, VAR_FOUNDRY_GHA_CACHE) != null) {

@@ -25,6 +25,7 @@ const NODE_ONLY_SCRIPTS = new Set([
   'foundry-stats-constants.js',
   'bump-repo-variable.js',
   'sync-foundry-badges-json.js',
+  'verify-foundry-dist-cache.js',
   'fvtt-paths.js',
   'namer.js',
   'table-ids.js'
