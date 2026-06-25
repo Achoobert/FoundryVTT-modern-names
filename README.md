@@ -66,9 +66,11 @@ Optional: `npm run install-quench` alone to refresh Quench and re-patch the worl
 
 ### Docker (Foundry 14)
 
-1. `cp .env.example .env` — `npm run startDevEnv` runs `sync-env-from-fvtt-config.js` so `FOUNDRY_USERDATA_HOST` matches `userDataPath` in `fvtt.config.js`. Compose binds that folder into the container; auth uses `FOUNDRY_USERNAME`, `FOUNDRY_PASSWORD`, and `FOUNDRY_ADMIN_KEY` (no license key in compose). The felddy image runs as uid **1000**; on Linux, if the host populated userdata first, run `node scripts/chown-foundrydata-for-docker.js` (or `sudo chown -R 1000:1000` on that path, `docker/secret`, and `docker/container_cache`) before `docker compose up`.
+1. `cp .env.example .env` — `npm run startDevEnv` runs `scripts/sync-env-from-fvtt-config.js` so `FOUNDRY_USERDATA_HOST` matches `userDataPath` in `fvtt.config.js`. Compose binds that folder into the container; auth uses `FOUNDRY_USERNAME`, `FOUNDRY_PASSWORD`, and `FOUNDRY_ADMIN_KEY` (no license key in compose). The felddy image runs as uid **1000**; on Linux, if the host populated userdata first, run `node ci_scripts/chown-foundrydata-for-docker.js` (or `sudo chown -R 1000:1000` on that path, `docker/secret`, and `docker/container_cache`) before `docker compose up`.
 2. `npm run build:all` on the host so `Data/modules/*` exists under that folder.
-3. `npm run startDevEnv` — `install-quench`, then `docker compose` with repo root `.env` → http://localhost:30000 (`stopDevEnv` to tear down).
+3. `npm run startDevEnv` — `ci_scripts/install-quench`, then `docker compose` with repo root `.env` → http://localhost:30000 (`stopDevEnv` to tear down).
+
+Docker, GHA, and Cypress bootstrap scripts live under [`ci_scripts/`](ci_scripts/) (not included in the release `module.zip`; only [`scripts/`](scripts/) + `packs/` are).
 
 ### Minimizing downloads from foundryvtt.com
 

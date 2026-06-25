@@ -10,9 +10,9 @@ attempt=0
 while true; do
   attempt=$((attempt + 1))
   echo "=== test:ci attempt $attempt ==="
-  node scripts/install-quench.js
-  node scripts/restart-foundry-container.js
-  node scripts/wait-for-foundry.js
+  node ci_scripts/install-quench.js
+  node ci_scripts/restart-foundry-container.js
+  node ci_scripts/wait-for-foundry.js
   if npm run test:ci; then
     echo "=== PASSED on attempt $attempt ==="
     exit 0

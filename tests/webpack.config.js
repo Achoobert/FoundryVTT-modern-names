@@ -3,7 +3,7 @@ import * as fs from 'fs'
 import * as path from 'path'
 import CopyWebpackPlugin from 'copy-webpack-plugin'
 import developmentOptions from '../fvtt.config.js'
-import { ensureModuleOutputDir } from '../scripts/fvtt-paths.js'
+import { ensureModuleOutputDir } from '../ci_scripts/fvtt-paths.js'
 
 const rootFolder = path.dirname(fileURLToPath(import.meta.url))
 const repoRoot = path.dirname(rootFolder)

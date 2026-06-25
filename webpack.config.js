@@ -3,7 +3,7 @@ import * as fs from 'fs'
 import * as path from 'path'
 import CopyWebpackPlugin from 'copy-webpack-plugin'
 import developmentOptions from './fvtt.config.js'
-import { ensureModuleOutputDir } from './scripts/fvtt-paths.js'
+import { ensureModuleOutputDir } from './ci_scripts/fvtt-paths.js'
 
 const rootFolder = path.dirname(fileURLToPath(import.meta.url))
 
@@ -14,19 +14,7 @@ const NODE_ONLY_SCRIPTS = new Set([
   'compendiums-build.js',
   'pack-helpers.js',
   'generate-macros.js',
-  'install-quench.js',
-  'write-ci-config.js',
-  'restart-foundry-container.js',
-  'wait-for-foundry.js',
-  'chown-foundrydata-for-docker.js',
   'sync-env-from-fvtt-config.js',
-  'foundry-cache-snapshot.js',
-  'record-foundry-download.js',
-  'foundry-stats-constants.js',
-  'bump-repo-variable.js',
-  'sync-foundry-badges-json.js',
-  'verify-foundry-dist-cache.js',
-  'fvtt-paths.js',
   'namer.js',
   'table-ids.js'
 ])

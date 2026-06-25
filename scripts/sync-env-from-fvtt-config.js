@@ -5,7 +5,7 @@ import * as fs from 'node:fs'
 import * as path from 'node:path'
 import developmentOptions from '../fvtt.config.js'
 import { loadRepoEnv } from '../cypress/load-repo-env.js'
-import { REPO_ROOT, resolveUserDataPath } from './fvtt-paths.js'
+import { REPO_ROOT, resolveUserDataPath } from '../ci_scripts/fvtt-paths.js'
 
 const root = REPO_ROOT
 process.chdir(root)
@@ -18,7 +18,7 @@ if (!userDataPath) {
 
 if (userDataPath.includes('YOUR_USERNAME')) {
   console.error(
-    'fvtt.config.js still has placeholder userDataPath. Copy fvtt.config.example.js to fvtt.config.js and set userDataPath, or run node scripts/write-ci-config.js'
+    'fvtt.config.js still has placeholder userDataPath. Copy fvtt.config.example.js to fvtt.config.js and set userDataPath, or run node ci_scripts/write-ci-config.js'
   )
   process.exit(1)
 }

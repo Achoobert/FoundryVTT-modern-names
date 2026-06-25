@@ -1,4 +1,5 @@
 import { execFileSync } from 'node:child_process'
+import { pathToFileURL } from 'node:url'
 import * as fs from 'node:fs'
 import * as path from 'node:path'
 import { REPO_ROOT } from './fvtt-paths.js'
@@ -15,9 +16,9 @@ import {
 } from './bump-repo-variable.js'
 import { writeBadgesJson } from './sync-foundry-badges-json.js'
 
-/** felddy/foundryvtt:14 — calibrate if image changes. */
+/** felddy/foundryvtt:14 — calibrate if image changes. Auth/install lines are not site pulls. */
 const SITE_PULL_LOG =
-  /(?:download(?:ing)?\s+(?:the\s+)?(?:Foundry|release|build)|Installing\s+Foundry\s+Virtual\s+Tabletop|\.zip\b.*download)/i
+  /download(?:ing)?\s+(?:the\s+)?(?:Foundry|release|build)/i
 
 function readSnapshot() {
   const p = path.join(REPO_ROOT, SNAPSHOT_FILE)
@@ -55,18 +56,17 @@ function dockerLogs(tail = 200) {
 
 export function classifyFoundryBoot({ logs, zipsBefore, zipsAfter, ghaCacheHit }) {
   const newZips = zipsAfter.filter((z) => !zipsBefore.includes(z))
-  const logSaysPull = SITE_PULL_LOG.test(logs)
 
-  if (logSaysPull) {
-    return { sitePull: true }
-  }
-  if (ghaCacheHit) {
-    return { sitePull: false }
-  }
   if (newZips.length > 0) {
-    return { sitePull: true }
+    return { sitePull: true, reason: 'new_zip' }
   }
-  return { sitePull: false }
+  if (ghaCacheHit && newZips.length === 0) {
+    return { sitePull: false, reason: 'gha_cache_hit' }
+  }
+  if (SITE_PULL_LOG.test(logs)) {
+    return { sitePull: true, reason: 'log' }
+  }
+  return { sitePull: false, reason: 'none' }
 }
 
 function isDefaultBranch() {
@@ -127,7 +127,12 @@ async function main() {
   const zipsAfter = listZipNames()
   const logs = dockerLogs()
   const ghaCacheHit = process.env.FOUNDRY_GHA_CACHE_HIT === 'true'
-  const { sitePull } = classifyFoundryBoot({ logs, zipsBefore, zipsAfter, ghaCacheHit })
+  const { sitePull, reason: classificationReason } = classifyFoundryBoot({
+    logs,
+    zipsBefore,
+    zipsAfter,
+    ghaCacheHit
+  })
 
   const bump = shouldBumpRepoCounters()
   let bumpResult = 'none'
@@ -135,6 +140,7 @@ async function main() {
 
   console.log('Foundry stats:', {
     sitePull,
+    classificationReason,
     ghaCacheHit,
     bump,
     zipsBefore: zipsBefore.length,
@@ -179,6 +185,7 @@ async function main() {
         `| --- | --- |`,
         `| GHA restore cache-hit | \`${process.env.FOUNDRY_GHA_CACHE_HIT || '(empty = miss)'}\` |`,
         `| Site pull this boot | ${sitePull} |`,
+        `| Classification | \`${classificationReason}\` |`,
         `| Zips before boot | ${zipsBefore.length} |`,
         `| Zips after boot | ${zipsAfter.join(', ') || '(none)'} |`,
         `| Counter bump | ${bumpResult} |`,
@@ -201,7 +208,13 @@ async function main() {
   }
 }
 
-main().catch((e) => {
-  console.error(e)
-  process.exit(1)
-})
+const isMain =
+  process.argv[1] &&
+  import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href
+
+if (isMain) {
+  main().catch((e) => {
+    console.error(e)
+    process.exit(1)
+  })
+}
