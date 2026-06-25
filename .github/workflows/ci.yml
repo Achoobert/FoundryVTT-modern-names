@@ -9,8 +9,7 @@ on:
 
 permissions:
   actions: write
-  contents: write
-  vars: write   # Required to update repository variables
+
 jobs:
   e2e:
     runs-on: ubuntu-latest
@@ -101,13 +100,12 @@ jobs:
             foundrydata/resources
           key: ${{ steps.foundry-cache-restore.outputs.cache-primary-key }}
 
-      - name: Record Foundry download / cache stats
+      - name: Classify Foundry distribution source
+        id: foundry-access
         if: always() && steps.wait-first-boot.outcome == 'success'
         env:
-          GH_TOKEN: ${{ github.token }}
-          GITHUB_TOKEN: ${{ github.token }}
           FOUNDRY_GHA_CACHE_HIT: ${{ steps.foundry-cache-restore.outputs.cache-hit }}
-        run: node ci_scripts/record-foundry-download.js --sync-badges --commit-badges
+        run: node ci_scripts/record-foundry-download.js
 
       - name: Restore userdata ownership for host (install-quench)
         run: node ci_scripts/chown-foundrydata-for-docker.js --for-host
@@ -144,3 +142,8 @@ jobs:
           name: cypress-screenshots
           path: cypress/screenshots
           if-no-files-found: ignore
+
+      - name: Report Foundry access
+        if: always() && steps.wait-first-boot.outcome == 'success'
+        run: |
+          echo "foundry accessed via: ${{ steps.foundry-access.outputs.foundry-access-via }}"

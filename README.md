@@ -1,8 +1,5 @@
 # Modern Names
 
-![Foundry pulls](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/Achoobert/FoundryVTT-modern-names/main/stats/foundry-badges.json&label=Foundry%20pulls&query=$.pulls&color=orange)
-![Foundry from GHA cache](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/Achoobert/FoundryVTT-modern-names/main/stats/foundry-badges.json&label=GHA%20cache%20hits&query=$.ghaCacheHits&color=green)
-
 Roll tables and macros for random modern NPC names (American, Egyptian, French, German, Hispanic, Kenyan). Does not require Call of Cthulhu.
 
 Requires Foundry **v14+**.
@@ -78,7 +75,7 @@ Felddy involves **two** downloads. Only one is the Foundry **application** from 
 
 | Layer | What | From | Cached how |
 |-------|------|------|------------|
-| **Felddy image** | `felddy/foundryvtt:14` — container entrypoint, Node, install scripts | Docker Hub | Runner Docker layer cache (automatic; not counted by repo badges) |
+| **Felddy image** | `felddy/foundryvtt:14` — container entrypoint, Node, install scripts | Docker Hub | Runner Docker layer cache (automatic) |
 | **Foundry distribution** | Versioned zip (e.g. 14.364) + extracted app under `resources/` | **foundryvtt.com** (via `FOUNDRY_USERNAME` / `FOUNDRY_PASSWORD`) | **This repo optimizes this layer** |
 
 **Local dev:** Compose sets `CONTAINER_CACHE=/container_cache`, bind-mounted to [`docker/container_cache`](docker/docker-compose.yml). After first successful boot, felddy keeps the zip there; later `startDevEnv` runs reuse it and skip the site download unless you delete that folder or change `FOUNDRY_VERSION`.
@@ -92,7 +89,7 @@ Felddy involves **two** downloads. Only one is the Foundry **application** from 
 
 **Not cached here (separate GHA cache):** Quench and Delta Green under `foundrydata/Data/…` — see `e2e-deps` in CI. Module/webpack output is rebuilt every run.
 
-Badges at the top track **site pulls** (`FOUNDRY_PULLS`) and **CI runs that used the GHA distribution cache without a site pull** (`FOUNDRY_USED_FROM_CACHE`). Use only those two repo variables (do not add `FOUNDRY_GHA_CACHE_HIT` — that name is only the workflow env from `actions/cache/restore`). **Every CI e2e run** (push and pull_request) bumps counters after first boot; Cypress pass/fail does not skip cache save or stats. Proof each run: job **Step summary** → “Foundry distribution cache”. Canonical values: **Settings → Actions → Variables**. CI needs **Settings → Actions → General → Workflow permissions → Read and write** to update variables. [`stats/foundry-badges.json`](stats/foundry-badges.json) on `main` is synced when badge commit runs on default branch. Local: `RECORD_FOUNDRY_STATS=1` on `startDevEnv` when using `gh` auth to bump `FOUNDRY_PULLS` after a real site pull.
+After each CI e2e run, the job log ends with `foundry accessed via: …` (`github-actions-cache`, `foundry.com`, or `local-container-cache`). Local: `npm run record-foundry-stats` after a boot classifies the same way in the console.
 
 | Batch ID | Topic |
 |----------|--------|

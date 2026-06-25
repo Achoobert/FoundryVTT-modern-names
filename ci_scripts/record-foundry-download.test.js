@@ -1,6 +1,9 @@
 import { describe, it } from 'node:test'
 import assert from 'node:assert/strict'
-import { classifyFoundryBoot } from './record-foundry-download.js'
+import {
+  classifyFoundryBoot,
+  foundryAccessVia
+} from './record-foundry-download.js'
 
 const FELDDY_NOISY_BOOT = `
 Requesting CSRF tokens from foundryvtt.com
@@ -53,5 +56,35 @@ describe('classifyFoundryBoot', () => {
     })
     assert.equal(result.sitePull, true)
     assert.equal(result.reason, 'log')
+  })
+})
+
+describe('foundryAccessVia', () => {
+  it('gha_cache_hit → github-actions-cache', () => {
+    assert.equal(
+      foundryAccessVia({ sitePull: false, reason: 'gha_cache_hit' }),
+      'github-actions-cache'
+    )
+  })
+
+  it('site pull (new_zip) → foundry.com', () => {
+    assert.equal(
+      foundryAccessVia({ sitePull: true, reason: 'new_zip' }),
+      'foundry.com'
+    )
+  })
+
+  it('site pull (log) → foundry.com', () => {
+    assert.equal(
+      foundryAccessVia({ sitePull: true, reason: 'log' }),
+      'foundry.com'
+    )
+  })
+
+  it('none → local-container-cache', () => {
+    assert.equal(
+      foundryAccessVia({ sitePull: false, reason: 'none' }),
+      'local-container-cache'
+    )
   })
 })
