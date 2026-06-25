@@ -34,7 +34,6 @@ Cypress.Commands.add('loginAsGM', () => {
     expect(win.game, 'Foundry client after Join — is the world running?').to.exist
     expect(win.game.ready, 'game.ready').to.eq(true)
   })
-  cy.waitForQuench()
 })
 
 Cypress.Commands.add('loginAsAdmin', () => {

@@ -10,7 +10,7 @@ on:
 permissions:
   actions: write
   contents: write
-
+  vars: write   # Required to update repository variables
 jobs:
   e2e:
     runs-on: ubuntu-latest

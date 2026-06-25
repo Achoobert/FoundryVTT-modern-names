@@ -28,6 +28,7 @@ describe('Quench tests', () => {
 
     cy.get('select[name="userid"] option', { timeout: 180000 }).should('exist')
     cy.loginAsGM()
+    cy.waitForQuench()
   })
 
   it('run quench tests', () => {
