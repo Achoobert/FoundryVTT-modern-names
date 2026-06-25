@@ -36,28 +36,26 @@ jobs:
           echo "version=$version" >> $GITHUB_OUTPUT
           echo "tag=v$version" >> $GITHUB_OUTPUT
 
-      - name: Modify Module Manifest With Release-Specific Values
-        id: sub_manifest_link_version
+      - name: Prepare release manifest and module archive
         run: |
-          manifest_url="${{ github.server_url }}/${{ github.repository }}/releases/latest/download/module.json"
-          download_url="${{ github.server_url }}/${{ github.repository }}/releases/download/v${{ steps.get_version_from_manifest.outputs.version }}/module.zip"
-          tmp_file=$(mktemp)
+          version="${{ steps.get_version_from_manifest.outputs.version }}"
+          repo="${{ github.server_url }}/${{ github.repository }}"
+          manifest_url="${repo}/releases/latest/download/module.json"
+          download_url="${repo}/releases/download/v${version}/module.zip"
+
           jq \
             --arg manifest "$manifest_url" \
             --arg download "$download_url" \
             '.manifest = $manifest | .download = $download' \
-            ./module.json > "$tmp_file"
-          mv "$tmp_file" ./module.json
+            ./module.json > ./module-release.json
 
-      - name: Create Module Archive
-        run: |
-          zip \
-            --recurse-paths \
-            ./module.zip \
-            module.json \
-            LICENSE \
-            scripts/ \
-            packs/
+          staging=$(mktemp -d)
+          jq 'del(.manifest, .download)' ./module.json > "$staging/module.json"
+          cp LICENSE "$staging/"
+          cp -r scripts packs "$staging/"
+          (cd "$staging" && zip -r "$GITHUB_WORKSPACE/module.zip" .)
+
+          mv ./module-release.json ./module.json
 
       - name: Create or Update Release
         uses: ncipollo/release-action@v1

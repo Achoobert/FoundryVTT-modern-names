@@ -1,6 +1,9 @@
 # Modern Names
 
 Roll tables and macros for random modern NPC names (American, Egyptian, French, German, Hispanic, Kenyan). Does not require Call of Cthulhu.
+```
+https://github.com/Achoobert/FoundryVTT-modern-names/releases/download/latest/module.json
+```
 
 Requires Foundry **v14+**.
 
