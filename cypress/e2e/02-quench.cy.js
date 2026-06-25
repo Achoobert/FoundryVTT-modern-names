@@ -26,6 +26,7 @@ describe('Quench tests', () => {
       }
     })
 
+    // I want to reduce this, but firstitme worl load seems to take a while?!?
     cy.get('select[name="userid"] option', { timeout: 180000 }).should('exist')
     cy.loginAsGM()
     cy.waitForQuench()

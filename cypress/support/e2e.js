@@ -26,7 +26,10 @@ Cypress.Commands.add('loginAsGM', () => {
 
   cy.get('button[name="join"]', { timeout: 10000 }).should('be.visible').click({ force: true })
 
-  cy.get('#interface, #ui-top, #sidebar', { timeout: 120000 }).should('exist')
+  // cypress hates redirects I guess?
+  cy.visit('/game')
+
+  cy.get('#interface, #ui-top, #sidebar', { timeout: 1200 }).should('exist')
   cy.closeTourOverlay()
   cy.turnOffWarningsIfTheyExist()
 
