@@ -30,6 +30,8 @@ export function loadRepoEnv() {
 export function resolveAdminPassword(developmentOptions) {
   const repoEnv = loadRepoEnv()
   return (
+    process.env.FOUNDRY_ADMIN_KEY ||
+    process.env.FOUNDRY_PASSWORD ||
     developmentOptions.adminPassword ||
     repoEnv.FOUNDRY_ADMIN_KEY ||
     repoEnv.FOUNDRY_PASSWORD ||

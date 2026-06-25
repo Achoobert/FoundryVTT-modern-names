@@ -17,6 +17,7 @@ const NODE_ONLY_SCRIPTS = new Set([
   'write-ci-config.js',
   'restart-foundry-container.js',
   'wait-for-foundry.js',
+  'chown-foundrydata-for-docker.js',
   'namer.js',
   'table-ids.js'
 ])

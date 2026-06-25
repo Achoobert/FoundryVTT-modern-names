@@ -24,9 +24,6 @@ jobs:
 
       - name: Write CI config
         env:
-          FOUNDRY_USERNAME: ${{ secrets.FOUNDRY_USERNAME }}
-          FOUNDRY_PASSWORD: ${{ secrets.FOUNDRY_PASSWORD }}
-          FOUNDRY_ADMIN_KEY: ${{ secrets.FOUNDRY_ADMIN_KEY }}
           FOUNDRY_WORLD: modern-names-test
           FOUNDRY_USERDATA_HOST: ${{ github.workspace }}/foundrydata
         run: node scripts/write-ci-config.js
@@ -40,7 +37,14 @@ jobs:
       - name: Install Quench and test world (pre-Docker)
         run: node scripts/install-quench.js
 
+      - name: Fix userdata ownership for felddy (uid 1000)
+        run: node scripts/chown-foundrydata-for-docker.js
+
       - name: Start Foundry container
+        env:
+          FOUNDRY_USERNAME: ${{ secrets.FOUNDRY_USERNAME }}
+          FOUNDRY_PASSWORD: ${{ secrets.FOUNDRY_PASSWORD }}
+          FOUNDRY_ADMIN_KEY: ${{ secrets.FOUNDRY_ADMIN_KEY }}
         run: docker compose --project-directory docker --env-file .env up -d
 
       - name: Wait for Foundry (first boot)
@@ -48,6 +52,9 @@ jobs:
 
       - name: Install Quench and test world (post-Docker)
         run: node scripts/install-quench.js
+
+      - name: Fix userdata ownership for felddy (uid 1000)
+        run: node scripts/chown-foundrydata-for-docker.js
 
       - name: Restart Foundry for world module list
         run: node scripts/restart-foundry-container.js
@@ -65,10 +72,12 @@ jobs:
         run: npm run test:ci:run
         env:
           CYPRESS_CACHE_FOLDER: ~/.cache/Cypress
+          FOUNDRY_ADMIN_KEY: ${{ secrets.FOUNDRY_ADMIN_KEY }}
+          FOUNDRY_PASSWORD: ${{ secrets.FOUNDRY_PASSWORD }}
 
       - name: Upload Cypress screenshots on failure
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: cypress-screenshots
           path: cypress/screenshots
