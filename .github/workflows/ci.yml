@@ -38,6 +38,15 @@ jobs:
             foundrydata/resources
           key: foundry-dist-${{ env.FOUNDRY_CACHE_VERSION }}-${{ hashFiles('docker/docker-compose.yml') }}
 
+      - name: Restore Quench and Delta Green cache
+        uses: actions/cache@v6
+        id: e2e-deps-cache
+        with:
+          path: |
+            foundrydata/Data/modules/quench
+            foundrydata/Data/systems/deltagreen
+          key: e2e-deps-${{ hashFiles('fvtt.config.example.js') }}
+
       - name: Build compendiums
         run: npm run compendiums-build
 

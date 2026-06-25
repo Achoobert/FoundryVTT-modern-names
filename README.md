@@ -59,7 +59,7 @@ Optional: `npm run install-quench` alone to refresh Quench and re-patch the worl
 2. `npm run build:all` on the host so `Data/modules/*` exists under that folder.
 3. `npm run startDevEnv` — `install-quench`, then `docker compose` with repo root `.env` → http://localhost:30000 (`stopDevEnv` to tear down).
 
-GitHub Actions caches `docker/container_cache` and `foundrydata/resources` between runs (keyed by `FOUNDRY_CACHE_VERSION` in [`.github/workflows/ci.yml`](.github/workflows/ci.yml), aligned with `FOUNDRY_VERSION` in compose). Bump that version when you upgrade the Foundry patch you test against.
+GitHub Actions caches `docker/container_cache` and `foundrydata/resources` between runs (keyed by `FOUNDRY_CACHE_VERSION` in [`.github/workflows/ci.yml`](.github/workflows/ci.yml), aligned with `FOUNDRY_VERSION` in compose). Bump that version when you upgrade the Foundry patch you test against. CI also caches Quench (`Data/modules/quench`) and Delta Green (`Data/systems/deltagreen`) from the manifest URLs in [`fvtt.config.example.js`](fvtt.config.example.js).
 
 | Batch ID | Topic |
 |----------|--------|
