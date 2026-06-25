@@ -91,7 +91,7 @@ jobs:
         run: npm run cypress:install
 
       - name: Install Chrome
-        uses: browser-actions/setup-chrome@v1
+        uses: browser-actions/setup-chrome@v2
 
       - name: Run Cypress E2E
         run: npm run test:ci:run
