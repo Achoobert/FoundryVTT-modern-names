@@ -55,9 +55,11 @@ Optional: `npm run install-quench` alone to refresh Quench and re-patch the worl
 
 ### Docker (Foundry 14)
 
-1. `cp .env.example .env` — set `FOUNDRY_USERDATA_HOST` to the same absolute path as `userDataPath` in `fvtt.config.js`. Compose binds that folder into the container; auth uses `FOUNDRY_USERNAME`, `FOUNDRY_PASSWORD`, and `FOUNDRY_ADMIN_KEY` (no license key in compose). The felddy image runs as uid **1000**; on Linux, if the host populated userdata first, run `node scripts/chown-foundrydata-for-docker.js` (or `sudo chown -R 1000:1000` on that path and `docker/secret`) before `docker compose up`.
+1. `cp .env.example .env` — set `FOUNDRY_USERDATA_HOST` to the same absolute path as `userDataPath` in `fvtt.config.js`. Compose binds that folder into the container; auth uses `FOUNDRY_USERNAME`, `FOUNDRY_PASSWORD`, and `FOUNDRY_ADMIN_KEY` (no license key in compose). The felddy image runs as uid **1000**; on Linux, if the host populated userdata first, run `node scripts/chown-foundrydata-for-docker.js` (or `sudo chown -R 1000:1000` on that path, `docker/secret`, and `docker/container_cache`) before `docker compose up`.
 2. `npm run build:all` on the host so `Data/modules/*` exists under that folder.
 3. `npm run startDevEnv` — `install-quench`, then `docker compose` with repo root `.env` → http://localhost:30000 (`stopDevEnv` to tear down).
+
+GitHub Actions caches `docker/container_cache` and `foundrydata/resources` between runs (keyed by `FOUNDRY_CACHE_VERSION` in [`.github/workflows/ci.yml`](.github/workflows/ci.yml), aligned with `FOUNDRY_VERSION` in compose). Bump that version when you upgrade the Foundry patch you test against.
 
 | Batch ID | Topic |
 |----------|--------|

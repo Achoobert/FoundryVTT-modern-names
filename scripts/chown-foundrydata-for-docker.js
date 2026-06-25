@@ -19,12 +19,13 @@ const userDataPath = path.resolve(
   env.FOUNDRY_USERDATA_HOST || path.join(root, 'foundrydata')
 )
 const secretDir = path.join(root, 'docker', 'secret')
+const containerCacheDir = path.join(root, 'docker', 'container_cache')
 
-for (const dir of [userDataPath, secretDir]) {
+for (const dir of [userDataPath, secretDir, containerCacheDir]) {
   fs.mkdirSync(dir, { recursive: true })
 }
 
-for (const target of [userDataPath, secretDir]) {
+for (const target of [userDataPath, secretDir, containerCacheDir]) {
   console.log(`chown -R ${FELDDY_UID}:${FELDDY_GID}`, target)
   execFileSync('sudo', ['chown', '-R', `${FELDDY_UID}:${FELDDY_GID}`, target], {
     stdio: 'inherit'
