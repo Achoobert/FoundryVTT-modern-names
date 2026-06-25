@@ -27,13 +27,11 @@ describe('Quench tests', () => {
 
     cy.url().then((url) => {
       if (url.includes('/setup')) {
-        cy.get('body').contains(testWorldName).should('be.visible').rightclick({ force: true })
-        cy.get('body').contains('Launch').should('be.visible').click({ force: true })
-        cy.get('select[name="userid"] option', { timeout: 120000 }).should('have.length.at.least', 1)
+        cy.launchTestWorldFromSetup(testWorldName)
       }
     })
 
-    cy.get('select[name="userid"] option', { timeout: 120000 }).should('be.visible')
+    cy.get('select[name="userid"] option', { timeout: 180000 }).should('be.visible')
     cy.loginAsGM()
   })
 

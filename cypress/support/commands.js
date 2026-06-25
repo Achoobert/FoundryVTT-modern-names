@@ -59,10 +59,25 @@ Cypress.Commands.add('setupInputPasswordAndClickLogin', () => {
 // .if()
 // data-action="exit"
 Cypress.Commands.add('closeTourOverlay', () => {
-
   cy.get('[data-action="exit"]', { timeout: 10000 }).if().then(() => {
     cy.get('[data-action="exit"]').click()
   })
+  cy.get('.tour .header-button.close, [data-action="closeTour"]', { timeout: 5000 }).if().click({
+    force: true
+  })
+})
+
+Cypress.Commands.add('confirmWorldMigrationIfShown', () => {
+  cy.contains('button', 'Begin Migration', { timeout: 15000 }).if().click({ force: true })
+})
+
+Cypress.Commands.add('launchTestWorldFromSetup', (worldTitle) => {
+  const name = worldTitle ?? Cypress.env('FOUNDRY_WORLD') ?? 'modern-names-test'
+  cy.get('body').contains(name).should('be.visible').rightclick({ force: true })
+  cy.get('body').contains('Launch').should('be.visible').click({ force: true })
+  cy.confirmWorldMigrationIfShown()
+  cy.closeTourOverlay()
+  cy.get('select[name="userid"] option', { timeout: 180000 }).should('have.length.at.least', 1)
 })
 // class="world-select"
 Cypress.Commands.add('openTestWorld', () => {
@@ -75,6 +90,8 @@ Cypress.Commands.add('openTestWorld', () => {
     })
     cy.get('[data-action="yes"]', { timeout: 10000 }).if().click({ force: true })
     cy.get('[data-action="ok"]', { timeout: 10000 }).if().click({ force: true })
+    cy.confirmWorldMigrationIfShown()
+    cy.closeTourOverlay()
   })
 
 })

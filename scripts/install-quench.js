@@ -17,6 +17,9 @@ const DEFAULT_TEST_SYSTEM_MANIFEST =
 
 const TEST_MODULE_IDS = ['quench', 'modern-names', 'modern-names-tests']
 
+/** Match docker-compose FOUNDRY_VERSION / CI FOUNDRY_CACHE_VERSION to avoid migration prompts. */
+const FOUNDRY_CORE_VERSION = process.env.FOUNDRY_CORE_VERSION || '14.364'
+
 const WORLD_DATA_DIRS = [
   'actors',
   'cards',
@@ -169,9 +172,19 @@ function worldIdFromTitle(title) {
   return slug || 'test-world'
 }
 
+function syncWorldCoreVersion(world) {
+  world.coreVersion = FOUNDRY_CORE_VERSION
+  world.compatibility = {
+    ...(world.compatibility ?? {}),
+    minimum: '14',
+    verified: '14'
+  }
+}
+
 function enableModulesInWorld(worldJsonPath, moduleVersions) {
   const raw = fs.readFileSync(worldJsonPath, 'utf8')
   const world = JSON.parse(raw)
+  syncWorldCoreVersion(world)
   world.modules = world.modules ?? {}
   for (const id of TEST_MODULE_IDS) {
     const version = moduleVersions[id]
@@ -237,7 +250,7 @@ function createTestWorld(worldsRoot, title, systemManifest) {
     id: worldId,
     system: systemManifest.id,
     systemVersion: systemManifest.version,
-    coreVersion: '14',
+    coreVersion: FOUNDRY_CORE_VERSION,
     compatibility: {
       minimum: '14',
       verified: '14'

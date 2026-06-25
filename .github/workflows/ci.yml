@@ -15,6 +15,7 @@ jobs:
     env:
       FOUNDRY_WAIT_MS: '600000'
       FOUNDRY_CACHE_VERSION: '14.364'
+      FOUNDRY_CORE_VERSION: '14.364'
 
     steps:
       - name: Checkout Repository
