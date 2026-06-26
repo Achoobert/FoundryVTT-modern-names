@@ -91,8 +91,11 @@ Cypress.Commands.add('launchTestWorldFromSetup', (worldTitle) => {
     cy.get('body').contains(name).should('be.visible').rightclick({ force: true })
     cy.get('body').contains('Launch').should('be.visible').click({ force: true })
     cy.confirmWorldMigrationIfShown()
+    cy.get('.progress-bar', { timeout: 180000 }).should('not.exist')
     cy.closeTourOverlay()
-    cy.get('select[name="userid"] option', { timeout: 180000 }).should('have.length.at.least', 1)
+    // expect the 
+    cy.get('select[name="userid"] option', { timeout: 180000 }).should('exist')
+    cy.get('select[name="userid"] option').should('have.length.at.least', 1)
   })
 })
 // class="world-select"
