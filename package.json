@@ -11,7 +11,7 @@
     "compendiums-build": "npm run macros-generate && node scripts/compendiums-build.js",
     "build:all": "npm run build && npm run build:tests",
     "cypress:install": "cypress install",
-    "startDevEnv": "node scripts/sync-env-from-fvtt-config.js && node ci_scripts/install-quench.js && node ci_scripts/verify-e2e-userdata.js && node ci_scripts/foundry-cache-snapshot.js && node ci_scripts/ensure-docker-userdata-mount.js && node ci_scripts/docker-compose-run.js up -d && node ci_scripts/install-quench.js && node ci_scripts/wait-for-foundry.js && node ci_scripts/record-foundry-download.js",
+    "startDevEnv": "node scripts/sync-env-from-fvtt-config.js && node ci_scripts/install-quench.js && node ci_scripts/verify-e2e-userdata.js && node ci_scripts/foundry-cache-snapshot.js && node ci_scripts/ensure-docker-userdata-mount.js && node ci_scripts/docker-compose-run.js up -d && node ci_scripts/wait-for-foundry.js && node ci_scripts/record-foundry-download.js",
     "record-foundry-stats": "node ci_scripts/record-foundry-download.js",
     "stopDevEnv": "node ci_scripts/docker-compose-run.js down -v & docker container rm foundry-modern-names-test",
     "prebuild:tests": "node scripts/sync-env-from-fvtt-config.js",

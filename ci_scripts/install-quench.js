@@ -4,9 +4,11 @@
  */
 
 import { execFileSync } from 'node:child_process'
+import * as crypto from 'node:crypto'
 import * as fs from 'node:fs'
 import * as os from 'node:os'
 import * as path from 'node:path'
+import { ClassicLevel } from 'classic-level'
 import developmentOptions from '../fvtt.config.js'
 import { resolveUserDataPath } from './fvtt-paths.js'
 
@@ -182,7 +184,119 @@ function syncWorldCoreVersion(world) {
   }
 }
 
-function enableModulesInWorld(worldJsonPath, moduleVersions) {
+const MODULE_CONFIGURATION_KEY = 'core.moduleConfiguration'
+
+function generateSettingId() {
+  return crypto
+    .randomBytes(12)
+    .toString('base64')
+    .replace(/[\\+=/]/g, '')
+    .substring(0, 16)
+}
+
+function assertSettingsDbNotLocked(settingsDir) {
+  const lockPath = path.join(settingsDir, 'LOCK')
+  if (!fs.existsSync(lockPath)) return
+  const lockBody = fs.readFileSync(lockPath, 'utf8').trim()
+  if (lockBody) {
+    throw new Error(
+      `settings DB locked at ${settingsDir} — stop Foundry first (LOCK held)`
+    )
+  }
+}
+
+function moduleConfigurationFromIds() {
+  return Object.fromEntries(TEST_MODULE_IDS.map((id) => [id, true]))
+}
+
+function parseModuleConfigurationValue(rawValue) {
+  if (rawValue == null || rawValue === '') return {}
+  if (typeof rawValue === 'object') return { ...rawValue }
+  try {
+    return JSON.parse(rawValue)
+  } catch {
+    return {}
+  }
+}
+
+async function upsertModuleConfigurationSetting(settingsDir, world) {
+  assertSettingsDbNotLocked(settingsDir)
+  fs.mkdirSync(settingsDir, { recursive: true })
+
+  let db
+  try {
+    db = new ClassicLevel(settingsDir, { keyEncoding: 'utf8', valueEncoding: 'json' })
+  } catch (err) {
+    if (/lock|LOCK|busy/i.test(String(err.message))) {
+      throw new Error(
+        `settings DB locked at ${settingsDir} — stop Foundry first (${err.message})`
+      )
+    }
+    throw err
+  }
+
+  try {
+    let existingKey = null
+    let doc = null
+
+    for await (const [key, entry] of db.iterator({ gte: '!settings!', lt: '!settings!~' })) {
+      if (entry?.key === MODULE_CONFIGURATION_KEY) {
+        existingKey = key
+        doc = entry
+        break
+      }
+    }
+
+    const merged = {
+      ...parseModuleConfigurationValue(doc?.value),
+      ...moduleConfigurationFromIds()
+    }
+    const now = Date.now()
+
+    if (doc && existingKey) {
+      doc.value = JSON.stringify(merged)
+      doc._stats = {
+        ...(doc._stats ?? {}),
+        coreVersion: FOUNDRY_CORE_VERSION,
+        systemId: world.system,
+        systemVersion: world.systemVersion,
+        modifiedTime: now
+      }
+      await db.put(existingKey, doc)
+    } else {
+      const _id = generateSettingId()
+      doc = {
+        key: MODULE_CONFIGURATION_KEY,
+        value: JSON.stringify(merged),
+        _id,
+        user: null,
+        _stats: {
+          coreVersion: FOUNDRY_CORE_VERSION,
+          systemId: world.system,
+          systemVersion: world.systemVersion,
+          createdTime: now,
+          modifiedTime: now,
+          lastModifiedBy: null,
+          compendiumSource: null,
+          duplicateSource: null,
+          exportSource: null
+        }
+      }
+      await db.put(`!settings!${_id}`, doc)
+    }
+  } catch (err) {
+    if (/lock|LOCK|busy/i.test(String(err.message))) {
+      throw new Error(
+        `settings DB locked at ${settingsDir} — stop Foundry first (${err.message})`
+      )
+    }
+    throw err
+  } finally {
+    await db.close()
+  }
+}
+
+async function enableModulesInWorld(worldJsonPath, moduleVersions) {
   const raw = fs.readFileSync(worldJsonPath, 'utf8')
   const world = JSON.parse(raw)
   syncWorldCoreVersion(world)
@@ -199,6 +313,10 @@ function enableModulesInWorld(worldJsonPath, moduleVersions) {
     delete world.modules[id].disabled
   }
   fs.writeFileSync(worldJsonPath, JSON.stringify(world, null, 2) + '\n', 'utf8')
+
+  const settingsDir = path.join(path.dirname(worldJsonPath), 'data', 'settings')
+  await upsertModuleConfigurationSetting(settingsDir, world)
+  console.log('Wrote', MODULE_CONFIGURATION_KEY, 'in', settingsDir)
 }
 
 function findWorldJsonPath(worldsRoot, testWorldName) {
@@ -267,12 +385,12 @@ function createTestWorld(worldsRoot, title, systemManifest) {
   return worldJsonPath
 }
 
-function ensureTestWorld(worldsRoot, title, systemManifest, moduleVersions) {
+async function ensureTestWorld(worldsRoot, title, systemManifest, moduleVersions) {
   let worldJsonPath = findWorldJsonPath(worldsRoot, title)
   if (!worldJsonPath) {
     worldJsonPath = createTestWorld(worldsRoot, title, systemManifest)
   }
-  enableModulesInWorld(worldJsonPath, moduleVersions)
+  await enableModulesInWorld(worldJsonPath, moduleVersions)
   console.log('Enabled test modules in world:', title, worldJsonPath)
   return worldJsonPath
 }
@@ -354,7 +472,7 @@ async function main() {
     )
   }
 
-  ensureTestWorld(worldsRoot, testWorldName, systemManifest, moduleVersions)
+  await ensureTestWorld(worldsRoot, testWorldName, systemManifest, moduleVersions)
 }
 
 function readLocalModuleVersion(moduleJsonPath) {

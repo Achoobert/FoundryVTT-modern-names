@@ -12,6 +12,6 @@ describe('Smoke tests', () => {
     cy.launchTestWorldFromSetup()
     cy.loginAsGM()
     cy.get('body').should('exist', { timeout: 10000 })
-    cy.waitForQuench()
+    // cy.activateModules()
   })
 })

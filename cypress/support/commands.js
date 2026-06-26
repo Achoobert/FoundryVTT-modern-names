@@ -111,36 +111,7 @@ Cypress.Commands.add('openTestWorld', () => {
   })
 
 })
-// enable modules
+/** Test modules enabled offline by ci_scripts/install-quench.js (settings LevelDB). */
 Cypress.Commands.add('enableModules', () => {
-// if not already active
-  // cy.get('.quench-button, [data-tooltip="QUENCH.Title"]').if().then(() => {
-  //   cy.get('.quench-button, [data-tooltip="QUENCH.Title"]').click()
-  // })
-
-  // data-tab="settings"
-  cy.get('[data-tab="settings"]', { timeout: 10000 }).if().then(() => {
-    cy.get('[data-tab="settings"]').click()
-  })
-  // data-app="modules"
-  cy.get('[data-app="modules"]', { timeout: 10000 }).if().then(() => {
-    cy.get('[data-app="modules"]').click()
-  })
-  // type="checkbox"
-  // name="modern-names"
-  cy.get('input[type="checkbox"][name="modern-names"]', { timeout: 10000 }).if().then(() => {
-    cy.get('input[type="checkbox"][name="modern-names"]').click()
-  })
-  // quench
-  cy.get('input[type="checkbox"][name="quench"]', { timeout: 10000 }).if().then(() => {
-    cy.get('input[type="checkbox"][name="quench"]').click()
-  })
-  // modern-names-tests
-  cy.get('input[type="checkbox"][name="modern-names-tests"]', { timeout: 10000 }).if().then(() => {
-    cy.get('input[type="checkbox"][name="modern-names-tests"]').click()
-  })
-  // type="submit"
-  cy.get('input[type="submit"]', { timeout: 10000 }).if().then(() => {
-    cy.get('input[type="submit"]').click()
-  })
+  cy.log('Test modules pre-enabled via install-quench (core.moduleConfiguration)')
 })
