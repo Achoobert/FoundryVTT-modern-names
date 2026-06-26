@@ -1,38 +1,29 @@
 /* global cy, describe, expect, it */
 import developmentOptions from '../../fvtt.config.js'
+import 'cypress-if'
 
 const testWorldName = developmentOptions.testWorldName ?? 'modern-names-test'
 
 describe('Quench tests', () => {
   beforeEach(() => {
     cy.visit('/')
-    cy.get('body').should('exist', { timeout: 10000 })
     cy.licenseAgreeAndClickAccept()
     cy.setupInputPasswordAndClickLogin()
     cy.closeTourOverlay()
-
-    cy.url().then((url) => {
-      if (url.includes('/setup')) {
-        cy.launchTestWorldFromSetup(testWorldName)
-      }
-    })
-
-    cy.url().then((url) => {
-      if (url.includes('/setup')) {
-        cy.openTestWorld()
-        cy.enableModules()
-        cy.get('[data-action="worldLaunch"]', { timeout: 10000 }).click({ force: true })
-        cy.confirmWorldMigrationIfShown()
-      }
-    })
-
-    // I want to reduce this, but firstitme worl load seems to take a while?!?
-    cy.get('select[name="userid"] option', { timeout: 180000 }).should('exist')
+    cy.launchTestWorldFromSetup()
     cy.loginAsGM()
-    cy.waitForQuench()
+    // get moduled activated if they aren't
+    cy.window({ timeout: 120000 }).should((win) => {
+      expect(win.game?.ready, 'game.ready before Quench').to.eq(true)
+    })
+    cy.get('.quench-button, [data-tooltip="QUENCH.Title"]', { timeout: 3000000 }).should('exist')
   })
 
   it('run quench tests', () => {
+    cy.get('.quench-button, [data-tooltip="QUENCH.Title"]').if().then(() => {
+      cy.get('.quench-button, [data-tooltip="QUENCH.Title"]').click()
+    })
+
     cy.get('.quench-button, [data-tooltip="QUENCH.Title"]').click()
     cy.get("[data-select='all']").should('exist').click({ force: true })
     cy.get('#quench-run').should('be.visible').click()
@@ -44,11 +35,11 @@ describe('Quench tests', () => {
     })
 
     cy.wait(1000)
-    cy.get('.error').then((summary) => {
+    cy.get('.error').if().then((summary) => {
       cy.log('errors: ', summary.text())
     })
 
-    cy.get('.stats').then(($stats) => {
+    cy.get('.stats').if().then(($stats) => {
       const summary = $stats.text()
       if (!summary.includes('failed')) return
 

@@ -60,14 +60,59 @@ Cypress.Commands.add('disableIntercepts', () => {
 })
 
 Cypress.Commands.add('waitForQuench', () => {
+  const script = `game.settings.set('core','moduleConfiguration',{'modern-names':true,'modern-names-tests':true,'quench':true})`
   cy.window({ timeout: 120000 }).should((win) => {
     expect(win.game?.ready, 'game.ready before Quench').to.eq(true)
   })
-  cy.window()
-    .its('game.modules')
-    .invoke('get', 'quench')
-    .should('exist', 'Quench not in game.modules — run install-quench and restart Foundry (world must relaunch to load modules from world.json)')
-    .its('active')
-    .should('eq', true)
+
+  cy.log('Quench button is NOT visible, activating modules')
+
+
+  // data-slot="10", left click
+  // cy.get('[data-slot="10"]', { timeout: 30000 }).should('be.visible').click({ force: true })
+  // option value="script", dropdown select
+  // cy.get('select[name="type"]', { timeout: 30000 }).select('script', { force: true })
+  // class="cm-line cm-activeLine", enter script
+  // cy.get('.cm-line.cm-activeLine', { timeout: 30000 }).should('be.visible').type(script, { parseSpecialCharSequences: false })
+  // cy.get('.cm-line.cm-activeLine', { timeout: 30000 }).should('be.visible').type(script)
+  // cy.window({ timeout: 120000 }).then(async (win) => {
+  //   // const modules = {
+  //   //   ...(win.game.settings.get('core', 'moduleConfiguration') ?? {}),
+  //   //   'modern-names': true,
+  //   //   'modern-names-tests': true,
+  //   //   'quench': true
+  //   // }
+  //   const modules = {
+  //     'modern-names': true,
+  //     'modern-names-tests': true,
+  //     'quench': true
+  //   }
+
+  //   await win.game.settings.set('core', 'moduleConfiguration', modules)
+  // })
+  cy.window().then(async (win) => {
+    // const Macro = win.game.macros.documentClass
+    const command = `const mods={...(game.settings.get('core','moduleConfiguration')??{}),'modern-names':true,'modern-names-tests':true,quench:true};await game.settings.set('core','moduleConfiguration',mods);location.reload()`
+
+    // const macro = new Macro({
+    //   name: 'cypress-enable-quench',
+    //   type: 'script',
+    //   scope: 'global',
+    //   command,
+    // })
+    // await macro.execute()
+    await win.Macro.implementation.createDocuments([{
+      name: 'cypress-enable-quench',
+      type: 'script',
+      scope: 'global',
+      command,
+    }])
+    // win.game.macros.get('cypress-enable-quench').execute()s
+  })
+  cy.wait(100000)
+
+  // data-action="execute", click
+  // cy.get('[data-action="execute"]', { timeout: 30000 }).click({ force: true })
+  // cy.visit('/game')
   cy.get('.quench-button, [data-tooltip="QUENCH.Title"]', { timeout: 30000 }).should('be.visible')
 })

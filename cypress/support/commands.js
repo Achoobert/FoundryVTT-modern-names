@@ -20,7 +20,7 @@ Cypress.Commands.add('loginViaUi', (user) => {
 })
 
 Cypress.Commands.add('turnOffWarningsIfTheyExist', () => {
-  cy.get('#notifications').then((notifications) => {
+  cy.get('#notifications').if().then((notifications) => {
     const buttons = notifications.find('li.notification')
     if (buttons.length) {
       buttons.trigger('click')
@@ -114,6 +114,10 @@ Cypress.Commands.add('openTestWorld', () => {
 // enable modules
 Cypress.Commands.add('enableModules', () => {
 // if not already active
+  // cy.get('.quench-button, [data-tooltip="QUENCH.Title"]').if().then(() => {
+  //   cy.get('.quench-button, [data-tooltip="QUENCH.Title"]').click()
+  // })
+
   // data-tab="settings"
   cy.get('[data-tab="settings"]', { timeout: 10000 }).if().then(() => {
     cy.get('[data-tab="settings"]').click()
