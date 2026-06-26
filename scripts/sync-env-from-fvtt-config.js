@@ -10,11 +10,12 @@ import { REPO_ROOT, resolveUserDataPath } from '../ci_scripts/fvtt-paths.js'
 const root = REPO_ROOT
 process.chdir(root)
 
-const userDataPath = resolveUserDataPath(developmentOptions)
-if (!userDataPath) {
+const rawUserDataPath = resolveUserDataPath(developmentOptions)
+if (!rawUserDataPath) {
   console.error('fvtt.config.js: userDataPath is required')
   process.exit(1)
 }
+const userDataPath = path.resolve(rawUserDataPath)
 
 if (userDataPath.includes('YOUR_USERNAME')) {
   console.error(
@@ -69,6 +70,6 @@ console.log('Wrote .env FOUNDRY_USERDATA_HOST=', userDataPath)
 const prev = existing.FOUNDRY_USERDATA_HOST ? path.resolve(existing.FOUNDRY_USERDATA_HOST) : null
 if (prev && prev !== userDataPath) {
   console.warn(
-    'Note: Docker was using a different userdata folder before. Restart the container after startDevEnv.'
+    'Note: Docker was using a different userdata folder before. Run npm run startDevEnv — ensure-docker-userdata-mount will recreate the container if /data still points at the old path.'
   )
 }

@@ -17,6 +17,14 @@ I gotta be 100% honest this is the most basic module I could possibly imagine. W
 The real goal is tack on the most ridiculous dev experience features I could possibly dream of to make the DX as nice as possible. 
 The best way to tinker with something complicated is to Make everything around it very simple. 
 
+My goal is to kill this question:
+> Is it safe to upgrade to v14? 
+
+Many people don't want to maintain multiple versions of foundry on their main device. I don't actually back-test my module with old versions of foundry!
+By automating these tests, community created content will be more stable and of better quality. Thus the average player will have a better experience
+
+I run paid games on Start Playing. I need the modules and sytems I use to be reliable, and stay up to date. 
+
 ## Installation
 
 In Foundry → **Install Module** → paste manifest URL:
@@ -63,9 +71,11 @@ Optional: `npm run install-quench` alone to refresh Quench and re-patch the worl
 
 ### Docker (Foundry 14)
 
-1. `cp .env.example .env` — `npm run startDevEnv` runs `scripts/sync-env-from-fvtt-config.js` so `FOUNDRY_USERDATA_HOST` matches `userDataPath` in `fvtt.config.js`. Compose binds that folder into the container; auth uses `FOUNDRY_USERNAME`, `FOUNDRY_PASSWORD`, and `FOUNDRY_ADMIN_KEY` (no license key in compose). The felddy image runs as uid **1000**; on Linux, if the host populated userdata first, run `node ci_scripts/chown-foundrydata-for-docker.js` (or `sudo chown -R 1000:1000` on that path, `docker/secret`, and `docker/container_cache`) before `docker compose up`.
+1. `cp .env.example .env` — `npm run startDevEnv` runs `scripts/sync-env-from-fvtt-config.js` so **absolute** `FOUNDRY_USERDATA_HOST` in `.env` matches `userDataPath` in `fvtt.config.js` (do not use a relative path here: compose uses `--project-directory docker`, so `./foundrydata` would bind `docker/foundrydata`, not repo `foundrydata/`). Compose binds that folder into the container; auth uses `FOUNDRY_USERNAME`, `FOUNDRY_PASSWORD`, and `FOUNDRY_ADMIN_KEY` (no license key in compose). The felddy image runs as uid **1000**; on Linux, if the host populated userdata first, run `node ci_scripts/chown-foundrydata-for-docker.js` (or `sudo chown -R 1000:1000` on that path, `docker/secret`, and `docker/container_cache`) before `docker compose up`.
 2. `npm run build:all` on the host so `Data/modules/*` exists under that folder.
-3. `npm run startDevEnv` — `ci_scripts/install-quench`, then `docker compose` with repo root `.env` → http://localhost:30000 (`stopDevEnv` to tear down).
+3. `npm run startDevEnv` — `install-quench`, `verify-e2e-userdata`, `ensure-docker-userdata-mount` (recreates the container if `/data` still points at an old folder), then `docker compose` → http://localhost:30000 (`stopDevEnv` to tear down).
+
+**Troubleshooting — empty Game Worlds / 0 systems in setup:** `install-quench` writes to `fvtt.config.js` `userDataPath`, but Docker may still mount `docker/foundrydata/` if `FOUNDRY_USERDATA_HOST` in your **shell** overrides `.env` (e.g. `./foundrydata` with `--project-directory docker`). `npm run startDevEnv` uses `docker-compose-run.js` to force the absolute path from `.env`. Check: `docker inspect foundry-modern-names-test --format '{{range .Mounts}}{{if eq .Destination \"/data\"}}{{.Source}}{{end}}{{end}}'` — must equal your `userDataPath`.
 
 Docker, GHA, and Cypress bootstrap scripts live under [`ci_scripts/`](ci_scripts/) (not included in the release `module.zip`; only [`scripts/`](scripts/) + `packs/` are).
 

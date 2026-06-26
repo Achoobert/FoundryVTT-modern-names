@@ -11,9 +11,9 @@
     "compendiums-build": "npm run macros-generate && node scripts/compendiums-build.js",
     "build:all": "npm run build && npm run build:tests",
     "cypress:install": "cypress install",
-    "startDevEnv": "node scripts/sync-env-from-fvtt-config.js && node ci_scripts/install-quench.js && node ci_scripts/foundry-cache-snapshot.js && docker compose --project-directory docker --env-file .env up -d && node ci_scripts/install-quench.js && node ci_scripts/wait-for-foundry.js && node ci_scripts/record-foundry-download.js",
+    "startDevEnv": "node scripts/sync-env-from-fvtt-config.js && node ci_scripts/install-quench.js && node ci_scripts/verify-e2e-userdata.js && node ci_scripts/foundry-cache-snapshot.js && node ci_scripts/ensure-docker-userdata-mount.js && node ci_scripts/docker-compose-run.js up -d && node ci_scripts/install-quench.js && node ci_scripts/wait-for-foundry.js && node ci_scripts/record-foundry-download.js",
     "record-foundry-stats": "node ci_scripts/record-foundry-download.js",
-    "stopDevEnv": "docker compose --project-directory docker --env-file .env down -v & docker container rm foundry-modern-names-test",
+    "stopDevEnv": "node ci_scripts/docker-compose-run.js down -v & docker container rm foundry-modern-names-test",
     "prebuild:tests": "node scripts/sync-env-from-fvtt-config.js",
     "build:tests": "webpack --config tests/webpack.config.js --mode production",
     "watch": "webpack --mode development",
@@ -25,7 +25,7 @@
     "test:ci:run": "cypress run --headless --browser chrome --config-file cypress.config.ci.js",
     "test:ci:until-green": "bash ci_scripts/test-ci-until-green.sh",
     "tests:ci": "npm run test:ci",
-    "test:scripts": "node --test ci_scripts/record-foundry-download.test.js"
+    "test:scripts": "node --test ci_scripts/record-foundry-download.test.js ci_scripts/ensure-docker-userdata-mount.test.js"
   },
   "license": "GPL-3.0",
   "devDependencies": {
