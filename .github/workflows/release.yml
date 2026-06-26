@@ -18,16 +18,13 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
       - name: Bootstrap FVTT config for build
         run: node ci_scripts/write-ci-config.js --release
 
-      - name: Build Compendiums
-        run: npm run compendiums-build
-
-      - name: Build Module Scripts
-        run: npx webpack --mode production
+      - name: Build compendiums and module
+        run: npm run compendiums-build && npm run build
 
       - name: Get Version from module.json
         id: get_version_from_manifest

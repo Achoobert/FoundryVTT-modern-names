@@ -65,34 +65,28 @@ jobs:
         run: npm run build && npm run build:tests
 
       - name: Restore userdata ownership for host (install-quench)
-        run: node ci_scripts/chown-foundrydata-for-docker.js --for-host
+        run: sudo chown -R "$(id -u):$(id -g)" foundrydata
 
       - name: Install Quench and test world (pre-Docker)
         run: node ci_scripts/install-quench.js
 
       - name: Fix userdata ownership for felddy (uid 1000)
-        run: node ci_scripts/chown-foundrydata-for-docker.js
-
-      - name: Snapshot Foundry container cache (pre-boot)
-        run: node ci_scripts/foundry-cache-snapshot.js
+        run: |
+          mkdir -p foundrydata docker/secret docker/container_cache
+          sudo chown -R 1000:1000 foundrydata docker/secret docker/container_cache
 
       - name: Start Foundry container
         env:
           FOUNDRY_USERNAME: ${{ secrets.FOUNDRY_USERNAME }}
           FOUNDRY_PASSWORD: ${{ secrets.FOUNDRY_PASSWORD }}
           FOUNDRY_ADMIN_KEY: ${{ secrets.FOUNDRY_ADMIN_KEY }}
-        run: docker compose --project-directory docker --env-file .env up -d
+        run: docker compose --project-directory docker --env-file .env up -d --force-recreate
 
       - name: Wait for Foundry (first boot)
-        id: wait-first-boot
         run: node ci_scripts/wait-for-foundry.js
 
-      - name: Verify Foundry distribution on disk
-        id: verify-foundry
-        run: node ci_scripts/verify-foundry-dist-cache.js
-
       - name: Save Foundry distribution cache
-        if: success() && steps.verify-foundry.outcome == 'success'
+        if: success()
         uses: actions/cache/save@v6
         with:
           path: |
@@ -100,24 +94,19 @@ jobs:
             foundrydata/resources
           key: ${{ steps.foundry-cache-restore.outputs.cache-primary-key }}
 
-      - name: Classify Foundry distribution source
-        id: foundry-access
-        if: always() && steps.wait-first-boot.outcome == 'success'
-        env:
-          FOUNDRY_GHA_CACHE_HIT: ${{ steps.foundry-cache-restore.outputs.cache-hit }}
-        run: node ci_scripts/record-foundry-download.js
-
       - name: Restore userdata ownership for host (install-quench)
-        run: node ci_scripts/chown-foundrydata-for-docker.js --for-host
+        run: sudo chown -R "$(id -u):$(id -g)" foundrydata
 
       - name: Install Quench and test world (post-Docker)
         run: node ci_scripts/install-quench.js
 
       - name: Fix userdata ownership for felddy (uid 1000)
-        run: node ci_scripts/chown-foundrydata-for-docker.js
+        run: |
+          mkdir -p foundrydata docker/secret docker/container_cache
+          sudo chown -R 1000:1000 foundrydata docker/secret docker/container_cache
 
       - name: Restart Foundry for world module list
-        run: node ci_scripts/restart-foundry-container.js
+        run: docker restart foundry-modern-names-test
 
       - name: Wait for Foundry (after restart)
         run: node ci_scripts/wait-for-foundry.js
@@ -129,7 +118,7 @@ jobs:
         uses: browser-actions/setup-chrome@v2
 
       - name: Run Cypress E2E
-        run: npm run test:ci:run
+        run: npm run test:ci
         env:
           CYPRESS_CACHE_FOLDER: ~/.cache/Cypress
           FOUNDRY_ADMIN_KEY: ${{ secrets.FOUNDRY_ADMIN_KEY }}
@@ -142,8 +131,3 @@ jobs:
           name: cypress-screenshots
           path: cypress/screenshots
           if-no-files-found: ignore
-
-      - name: Report Foundry access
-        if: always() && steps.wait-first-boot.outcome == 'success'
-        run: |
-          echo "foundry accessed via: ${{ steps.foundry-access.outputs.foundry-access-via }}"

@@ -1,5 +1,5 @@
 # Foundry V14 test container — user data bind-mount = fvtt.config.js userDataPath
-# Env: repo root .env (see ../.env.example). ./up.sh passes --env-file ../.env
+# Env: repo root .env (see ../.env.example). Use npm run startDevEnv or docker compose --project-directory docker --env-file ../.env
 
 services:
   foundry_test:
