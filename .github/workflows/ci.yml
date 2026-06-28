@@ -27,107 +27,21 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Write CI config
-        env:
-          FOUNDRY_WORLD: modern-names-test
-          FOUNDRY_USERDATA_HOST: ${{ github.workspace }}/foundrydata
-        run: node ci_scripts/write-ci-config.js
-
-      - name: Restore Foundry distribution cache
-        uses: actions/cache/restore@v6
-        id: foundry-cache-restore
+      - name: Run Foundry E2E
+        uses: Achoobert/FoundryvttTestEnv@0.0.11
         with:
-          path: |
-            docker/container_cache
-            foundrydata/resources
-          key: foundry-dist-${{ env.FOUNDRY_CACHE_VERSION }}-${{ hashFiles('docker/docker-compose.yml') }}
-          restore-keys: |
-            foundry-dist-${{ env.FOUNDRY_CACHE_VERSION }}-
-
-      - name: Log Foundry cache restore
-        run: |
-          echo "foundry-cache-restore cache-hit=${{ steps.foundry-cache-restore.outputs.cache-hit }}"
-          echo "foundry-cache-restore cache-primary-key=${{ steps.foundry-cache-restore.outputs.cache-primary-key }}"
-
-      - name: Restore Quench and Delta Green cache
-        uses: actions/cache@v6
-        id: e2e-deps-cache
-        with:
-          path: |
-            foundrydata/Data/modules/quench
-            foundrydata/Data/systems/deltagreen
-          key: e2e-deps-${{ hashFiles('fvtt.config.example.js') }}
-
-      - name: Build compendiums
-        run: npm run compendiums-build
-
-      - name: Build module and tests
-        run: npm run build && npm run build:tests
-
-      - name: Restore userdata ownership for host (install-quench)
-        run: sudo chown -R "$(id -u):$(id -g)" foundrydata
-
-      - name: Install Quench and test world (pre-Docker)
-        run: node ci_scripts/install-quench.js
-
-      - name: Fix userdata ownership for felddy (uid 1000)
-        run: |
-          mkdir -p foundrydata docker/secret docker/container_cache
-          sudo chown -R 1000:1000 foundrydata docker/secret docker/container_cache
-
-      - name: Start Foundry container
-        env:
-          FOUNDRY_USERNAME: ${{ secrets.FOUNDRY_USERNAME }}
-          FOUNDRY_PASSWORD: ${{ secrets.FOUNDRY_PASSWORD }}
-          FOUNDRY_ADMIN_KEY: ${{ secrets.FOUNDRY_ADMIN_KEY }}
-        run: docker compose --project-directory docker --env-file .env up -d --force-recreate
-
-      - name: Wait for Foundry (first boot)
-        run: node ci_scripts/wait-for-foundry.js
-
-      - name: Save Foundry distribution cache
-        if: success()
-        uses: actions/cache/save@v6
-        with:
-          path: |
-            docker/container_cache
-            foundrydata/resources
-          key: ${{ steps.foundry-cache-restore.outputs.cache-primary-key }}
-
-      - name: Restore userdata ownership for host (install-quench)
-        run: sudo chown -R "$(id -u):$(id -g)" foundrydata
-
-      - name: Install Quench and test world (post-Docker)
-        run: node ci_scripts/install-quench.js
-
-      - name: Fix userdata ownership for felddy (uid 1000)
-        run: |
-          mkdir -p foundrydata docker/secret docker/container_cache
-          sudo chown -R 1000:1000 foundrydata docker/secret docker/container_cache
-
-      - name: Restart Foundry for world module list
-        run: docker restart foundry-modern-names-test
-
-      - name: Wait for Foundry (after restart)
-        run: node ci_scripts/wait-for-foundry.js
-
-      - name: Install Cypress binary
-        run: npm run cypress:install
-
-      - name: Install Chrome
-        uses: browser-actions/setup-chrome@v2
-
-      - name: Run Cypress E2E
-        run: npm run test:ci
-        env:
-          CYPRESS_CACHE_FOLDER: ~/.cache/Cypress
-          FOUNDRY_ADMIN_KEY: ${{ secrets.FOUNDRY_ADMIN_KEY }}
-          FOUNDRY_PASSWORD: ${{ secrets.FOUNDRY_PASSWORD }}
-
-      - name: Upload Cypress screenshots on failure
-        if: failure()
-        uses: actions/upload-artifact@v7
-        with:
-          name: cypress-screenshots
-          path: cypress/screenshots
-          if-no-files-found: ignore
+          foundry_version: '14.364'
+          foundry_world: modern-names-test
+          test_system_manifest_url: https://github.com/deltagreen-foundryvtt/delta-green-foundry-vtt-system/releases/download/v1.7.0/system.json
+          test_module_ids: quench,modern-names,modern-names-tests
+          build_script: |
+            npm run compendiums-build
+            npm run build
+            npm run build:tests
+            dest=foundrydata/Data/modules/modern-names
+            mkdir -p "$dest"
+            rsync -a --exclude '.git' build/ "$dest/"
+          quench_tests_path: ./tests/build
+          foundry_username: ${{ secrets.FOUNDRY_USERNAME }}
+          foundry_password: ${{ secrets.FOUNDRY_PASSWORD }}
+          foundry_admin_key: ${{ secrets.FOUNDRY_ADMIN_KEY }}
