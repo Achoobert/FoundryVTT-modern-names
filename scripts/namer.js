@@ -29,7 +29,7 @@ export async function drawFullName (culture, gender) {
   }
   const firstName = firstNameResult.results[0].name
   const lastName = lastNameResult.results[0].name
-  return `${firstName} ${lastName}`
+  return tables.surnameFirst ? `${lastName} ${firstName}` : `${firstName} ${lastName}`
 }
 
 /**

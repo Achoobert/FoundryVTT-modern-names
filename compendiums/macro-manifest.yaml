@@ -158,6 +158,174 @@ random:
     target: actor
     folder: osUcnVzKwmBGuZel
     img: icons/commodities/tech/electronics-button-skull-red.webp
+  - _id: SkO8JpII6ybbE2UO
+    gender: male
+    culture: chinese
+    target: token
+    folder: osUcnVzKwmAKuZel
+    img: icons/sundries/documents/passport-document-identification.webp
+  - _id: 2Tc1lGqWX9Kwa5lq
+    gender: male
+    culture: chinese
+    target: actor
+    folder: osUcnVzKwmBGuZel
+    img: icons/commodities/tech/electronics-button-skull-red.webp
+  - _id: dfH6GtrLLurGGyRo
+    gender: female
+    culture: chinese
+    target: token
+    folder: osUcnVzKwmAKuZel
+    img: icons/sundries/documents/passport-document-identification.webp
+  - _id: 1v8iyRX15cnpPZGa
+    gender: female
+    culture: chinese
+    target: actor
+    folder: osUcnVzKwmBGuZel
+    img: icons/commodities/tech/electronics-button-skull-red.webp
+  - _id: UP4RXhYNHSyZZBHF
+    gender: male
+    culture: southasian
+    target: token
+    folder: osUcnVzKwmAKuZel
+    img: icons/sundries/documents/passport-document-identification.webp
+  - _id: ck3A8JHR8aXzrMPc
+    gender: male
+    culture: southasian
+    target: actor
+    folder: osUcnVzKwmBGuZel
+    img: icons/commodities/tech/electronics-button-skull-red.webp
+  - _id: m4o8jyDCMV8FIxmA
+    gender: female
+    culture: southasian
+    target: token
+    folder: osUcnVzKwmAKuZel
+    img: icons/sundries/documents/passport-document-identification.webp
+  - _id: JiZRI66ooXUPLtAW
+    gender: female
+    culture: southasian
+    target: actor
+    folder: osUcnVzKwmBGuZel
+    img: icons/commodities/tech/electronics-button-skull-red.webp
+  - _id: 6kvpDMOtEgj8foAn
+    gender: male
+    culture: russian
+    target: token
+    folder: osUcnVzKwmAKuZel
+    img: icons/sundries/documents/passport-document-identification.webp
+  - _id: i9lbuzduotZIucei
+    gender: male
+    culture: russian
+    target: actor
+    folder: osUcnVzKwmBGuZel
+    img: icons/commodities/tech/electronics-button-skull-red.webp
+  - _id: 5Bz2wWNkZuigJtoX
+    gender: female
+    culture: russian
+    target: token
+    folder: osUcnVzKwmAKuZel
+    img: icons/sundries/documents/passport-document-identification.webp
+  - _id: AXjR1r7oFf629LT5
+    gender: female
+    culture: russian
+    target: actor
+    folder: osUcnVzKwmBGuZel
+    img: icons/commodities/tech/electronics-button-skull-red.webp
+  - _id: wKcPZd0mBdfjYgLk
+    gender: male
+    culture: italian
+    target: token
+    folder: osUcnVzKwmAKuZel
+    img: icons/sundries/documents/passport-document-identification.webp
+  - _id: h0SOjtk9rcKp1OCq
+    gender: male
+    culture: italian
+    target: actor
+    folder: osUcnVzKwmBGuZel
+    img: icons/commodities/tech/electronics-button-skull-red.webp
+  - _id: 1Wd9bObncopWp2GX
+    gender: female
+    culture: italian
+    target: token
+    folder: osUcnVzKwmAKuZel
+    img: icons/sundries/documents/passport-document-identification.webp
+  - _id: uqzjqHB7fzZ59CSA
+    gender: female
+    culture: italian
+    target: actor
+    folder: osUcnVzKwmBGuZel
+    img: icons/commodities/tech/electronics-button-skull-red.webp
+  - _id: En5SncdJ9l39I60N
+    gender: male
+    culture: japanese
+    target: token
+    folder: osUcnVzKwmAKuZel
+    img: icons/sundries/documents/passport-document-identification.webp
+  - _id: X1kb4hMsitioYApp
+    gender: male
+    culture: japanese
+    target: actor
+    folder: osUcnVzKwmBGuZel
+    img: icons/commodities/tech/electronics-button-skull-red.webp
+  - _id: IzooRN5jpEoav7Ay
+    gender: female
+    culture: japanese
+    target: token
+    folder: osUcnVzKwmAKuZel
+    img: icons/sundries/documents/passport-document-identification.webp
+  - _id: eIDj3OacBnw5AHKL
+    gender: female
+    culture: japanese
+    target: actor
+    folder: osUcnVzKwmBGuZel
+    img: icons/commodities/tech/electronics-button-skull-red.webp
+  - _id: ivQxWRDj7LyENEXR
+    gender: male
+    culture: australian
+    target: token
+    folder: osUcnVzKwmAKuZel
+    img: icons/sundries/documents/passport-document-identification.webp
+  - _id: 4Qs0dc6pOOp7HmFm
+    gender: male
+    culture: australian
+    target: actor
+    folder: osUcnVzKwmBGuZel
+    img: icons/commodities/tech/electronics-button-skull-red.webp
+  - _id: mPsB81RZBCTz0tw4
+    gender: female
+    culture: australian
+    target: token
+    folder: osUcnVzKwmAKuZel
+    img: icons/sundries/documents/passport-document-identification.webp
+  - _id: x2tRdzuERa8vxdfK
+    gender: female
+    culture: australian
+    target: actor
+    folder: osUcnVzKwmBGuZel
+    img: icons/commodities/tech/electronics-button-skull-red.webp
+  - _id: HiDRNjRPrNn7bDQn
+    gender: male
+    culture: arab
+    target: token
+    folder: osUcnVzKwmAKuZel
+    img: icons/sundries/documents/passport-document-identification.webp
+  - _id: vWiecQBkMaixZCmO
+    gender: male
+    culture: arab
+    target: actor
+    folder: osUcnVzKwmBGuZel
+    img: icons/commodities/tech/electronics-button-skull-red.webp
+  - _id: 6xZSNcV5lZHh2tPR
+    gender: female
+    culture: arab
+    target: token
+    folder: osUcnVzKwmAKuZel
+    img: icons/sundries/documents/passport-document-identification.webp
+  - _id: hLKEB4DIKkiEwC9D
+    gender: female
+    culture: arab
+    target: actor
+    folder: osUcnVzKwmBGuZel
+    img: icons/commodities/tech/electronics-button-skull-red.webp
 
 display:
   gender:
@@ -170,6 +338,13 @@ display:
     german: German
     egypt: Egypt
     kenyan: Kenyan
+    chinese: Chinese
+    southasian: South Asian
+    russian: Russian
+    italian: Italian
+    japanese: Japanese
+    australian: Australian
+    arab: Arab
   target:
     token: Token
     actor: Actor

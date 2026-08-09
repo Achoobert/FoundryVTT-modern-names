@@ -29,6 +29,42 @@ export const TABLE_IDS = {
     male: 'oRb99h0Ngh5DyWqc',
     female: 'lCm4CTt2kNpGczj9',
     last: 'SZjGHSm1d3HSbhMv'
+  },
+  chinese: {
+    male: 'pQFsIHRbr5K0eleq',
+    female: 'aE2zE8xYsCvDeYiX',
+    last: 'yQS09tIycQaEqa0r',
+    surnameFirst: true
+  },
+  southasian: {
+    male: 'XnCfIx2fv5qxMvAZ',
+    female: 'kvBq0eicq5F6uMNf',
+    last: 'gTI56PD6Lp7NlTzs'
+  },
+  russian: {
+    male: 'RrDWmvLCSbeCEHnD',
+    female: 'Sj8hkWExCeyjyWba',
+    last: 'zIazfUEjF5Yhinwu'
+  },
+  italian: {
+    male: '5IVX3nzTdJlkYe25',
+    female: '5vOtBTZcF0AAmnct',
+    last: 'c4rmzCDNYHBiydrg'
+  },
+  japanese: {
+    male: '0ghS1DqV89k47IH2',
+    female: 'XfKD7dhP6I4jGuEn',
+    last: 'gWyxCOn4qsAZ7ACh'
+  },
+  australian: {
+    male: 'SxTRwwvjm4rNm2Qa',
+    female: 'jVQ4jmWj6sELXLct',
+    last: 'hMDOG3kkin3KdtDo'
+  },
+  arab: {
+    male: 'ufC3RdHlFBhdwgSW',
+    female: 'fc1N8mnalhRaJEfd',
+    last: 'by4MbDLhWIJisFPT'
   }
 }
 

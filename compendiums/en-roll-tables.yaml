@@ -4136,3 +4136,1096 @@ flags:
       id: rt..last_name_kenyan
       lang: en
       priority: 0
+---
+name: Male first name, chinese
+_id: pQFsIHRbr5K0eleq
+folder: w2vkKXFHcbQVeB7H
+description: 'Male first names for use in various macros'
+results:
+  - type: text
+    name: 'Chia-pao'
+  - type: text
+    name: 'Chien-kuo'
+  - type: text
+    name: 'Chih-kang'
+  - type: text
+    name: 'Chih-ming'
+  - type: text
+    name: 'Chun-fa'
+  - type: text
+    name: 'Hsien-cheng'
+  - type: text
+    name: 'Hsueh-wen'
+  - type: text
+    name: 'Jui-lung'
+  - type: text
+    name: 'Kuang-hui'
+  - type: text
+    name: 'Kuo-hua'
+  - type: text
+    name: 'Kuo-wei'
+  - type: text
+    name: 'Ming-te'
+  - type: text
+    name: 'Po-wen'
+  - type: text
+    name: 'Shih-ch''ang'
+  - type: text
+    name: 'Te-ming'
+  - type: text
+    name: 'T''ien-ch''eng'
+  - type: text
+    name: 'Tsung-han'
+  - type: text
+    name: 'Wen-pin'
+  - type: text
+    name: 'Yu-heng'
+  - type: text
+    name: 'Yung-ch''ang'
+flags:
+  CoC7:
+    cocidFlag:
+      id: rt..male_first_name_chinese
+      lang: en
+      priority: 0
+---
+name: Female first name, chinese
+_id: aE2zE8xYsCvDeYiX
+folder: w2vkKXFHcbQVeB7H
+description: 'Female first names for use in various macros'
+results:
+  - type: text
+    name: 'Chin-hua'
+  - type: text
+    name: 'Chun-mei'
+  - type: text
+    name: 'Fang-yu'
+  - type: text
+    name: 'Feng-ying'
+  - type: text
+    name: 'Hsiang-yun'
+  - type: text
+    name: 'Hsiu-lan'
+  - type: text
+    name: 'Hsiu-ying'
+  - type: text
+    name: 'Hui-fang'
+  - type: text
+    name: 'Li-hua'
+  - type: text
+    name: 'Ling-ai'
+  - type: text
+    name: 'Mei-ling'
+  - type: text
+    name: 'Pao-chu'
+  - type: text
+    name: 'Pi-yu'
+  - type: text
+    name: 'Shu-fen'
+  - type: text
+    name: 'Su-chen'
+  - type: text
+    name: 'Wan-ju'
+  - type: text
+    name: 'Ya-wen'
+  - type: text
+    name: 'Yu-chen'
+  - type: text
+    name: 'Yueh-mei'
+  - type: text
+    name: 'Yun-fei'
+flags:
+  CoC7:
+    cocidFlag:
+      id: rt..female_first_name_chinese
+      lang: en
+      priority: 0
+---
+name: Last name, chinese
+_id: yQS09tIycQaEqa0r
+folder: w2vkKXFHcbQVeB7H
+description: 'Last names for use in various macros'
+results:
+  - type: text
+    name: 'Chang'
+  - type: text
+    name: 'Chao'
+  - type: text
+    name: 'Ch''en'
+  - type: text
+    name: 'Chou'
+  - type: text
+    name: 'Chu'
+  - type: text
+    name: 'Ho'
+  - type: text
+    name: 'Hsieh'
+  - type: text
+    name: 'Hsu'
+  - type: text
+    name: 'Hu'
+  - type: text
+    name: 'Huang'
+  - type: text
+    name: 'Kao'
+  - type: text
+    name: 'Kuo'
+  - type: text
+    name: 'Liang'
+  - type: text
+    name: 'Lin'
+  - type: text
+    name: 'Liu'
+  - type: text
+    name: 'Ma'
+  - type: text
+    name: 'Sun'
+  - type: text
+    name: 'Sung'
+  - type: text
+    name: 'Wang'
+  - type: text
+    name: 'Wu'
+flags:
+  CoC7:
+    cocidFlag:
+      id: rt..last_name_chinese
+      lang: en
+      priority: 0
+---
+name: Male first name, southasian
+_id: XnCfIx2fv5qxMvAZ
+folder: w2vkKXFHcbQVeB7H
+description: 'Male first names for use in various macros'
+results:
+  - type: text
+    name: 'Anand'
+  - type: text
+    name: 'Arjun'
+  - type: text
+    name: 'Ashok'
+  - type: text
+    name: 'Bhupendra'
+  - type: text
+    name: 'Chandra'
+  - type: text
+    name: 'Devendra'
+  - type: text
+    name: 'Dilip'
+  - type: text
+    name: 'Gopal'
+  - type: text
+    name: 'Govind'
+  - type: text
+    name: 'Harish'
+  - type: text
+    name: 'Kishore'
+  - type: text
+    name: 'Mahesh'
+  - type: text
+    name: 'Mohan'
+  - type: text
+    name: 'Narayan'
+  - type: text
+    name: 'Prakash'
+  - type: text
+    name: 'Rajendra'
+  - type: text
+    name: 'Ramesh'
+  - type: text
+    name: 'Ravi'
+  - type: text
+    name: 'Suresh'
+  - type: text
+    name: 'Vijay'
+flags:
+  CoC7:
+    cocidFlag:
+      id: rt..male_first_name_southasian
+      lang: en
+      priority: 0
+---
+name: Female first name, southasian
+_id: kvBq0eicq5F6uMNf
+folder: w2vkKXFHcbQVeB7H
+description: 'Female first names for use in various macros'
+results:
+  - type: text
+    name: 'Champa'
+  - type: text
+    name: 'Indira'
+  - type: text
+    name: 'Kamala'
+  - type: text
+    name: 'Kanta'
+  - type: text
+    name: 'Lakshmi'
+  - type: text
+    name: 'Leela'
+  - type: text
+    name: 'Malati'
+  - type: text
+    name: 'Meera'
+  - type: text
+    name: 'Padma'
+  - type: text
+    name: 'Pushpa'
+  - type: text
+    name: 'Radha'
+  - type: text
+    name: 'Rukmini'
+  - type: text
+    name: 'Sarojini'
+  - type: text
+    name: 'Savitri'
+  - type: text
+    name: 'Shanti'
+  - type: text
+    name: 'Sita'
+  - type: text
+    name: 'Sushila'
+  - type: text
+    name: 'Usha'
+  - type: text
+    name: 'Vidya'
+  - type: text
+    name: 'Vimala'
+flags:
+  CoC7:
+    cocidFlag:
+      id: rt..female_first_name_southasian
+      lang: en
+      priority: 0
+---
+name: Last name, southasian
+_id: gTI56PD6Lp7NlTzs
+folder: w2vkKXFHcbQVeB7H
+description: 'Last names for use in various macros'
+results:
+  - type: text
+    name: 'Banerjee'
+  - type: text
+    name: 'Bose'
+  - type: text
+    name: 'Chatterjee'
+  - type: text
+    name: 'Chaudhary'
+  - type: text
+    name: 'Chowdhury'
+  - type: text
+    name: 'Desai'
+  - type: text
+    name: 'Gupta'
+  - type: text
+    name: 'Iyer'
+  - type: text
+    name: 'Joshi'
+  - type: text
+    name: 'Kapoor'
+  - type: text
+    name: 'Kumar'
+  - type: text
+    name: 'Mehta'
+  - type: text
+    name: 'Mukherjee'
+  - type: text
+    name: 'Nair'
+  - type: text
+    name: 'Patel'
+  - type: text
+    name: 'Rao'
+  - type: text
+    name: 'Reddy'
+  - type: text
+    name: 'Sharma'
+  - type: text
+    name: 'Singh'
+  - type: text
+    name: 'Verma'
+flags:
+  CoC7:
+    cocidFlag:
+      id: rt..last_name_southasian
+      lang: en
+      priority: 0
+---
+name: Male first name, russian
+_id: RrDWmvLCSbeCEHnD
+folder: w2vkKXFHcbQVeB7H
+description: 'Male first names for use in various macros'
+results:
+  - type: text
+    name: 'Alexei'
+  - type: text
+    name: 'Anatoly'
+  - type: text
+    name: 'Andrei'
+  - type: text
+    name: 'Anton'
+  - type: text
+    name: 'Boris'
+  - type: text
+    name: 'Dmitri'
+  - type: text
+    name: 'Fyodor'
+  - type: text
+    name: 'Grigory'
+  - type: text
+    name: 'Igor'
+  - type: text
+    name: 'Ivan'
+  - type: text
+    name: 'Konstantin'
+  - type: text
+    name: 'Leonid'
+  - type: text
+    name: 'Mikhail'
+  - type: text
+    name: 'Nikolai'
+  - type: text
+    name: 'Pavel'
+  - type: text
+    name: 'Sergei'
+  - type: text
+    name: 'Stepan'
+  - type: text
+    name: 'Viktor'
+  - type: text
+    name: 'Vladimir'
+  - type: text
+    name: 'Yevgeny'
+flags:
+  CoC7:
+    cocidFlag:
+      id: rt..male_first_name_russian
+      lang: en
+      priority: 0
+---
+name: Female first name, russian
+_id: Sj8hkWExCeyjyWba
+folder: w2vkKXFHcbQVeB7H
+description: 'Female first names for use in various macros'
+results:
+  - type: text
+    name: 'Anna'
+  - type: text
+    name: 'Antonina'
+  - type: text
+    name: 'Galina'
+  - type: text
+    name: 'Irina'
+  - type: text
+    name: 'Klavdiya'
+  - type: text
+    name: 'Larisa'
+  - type: text
+    name: 'Ludmila'
+  - type: text
+    name: 'Marina'
+  - type: text
+    name: 'Nadezhda'
+  - type: text
+    name: 'Natalia'
+  - type: text
+    name: 'Nina'
+  - type: text
+    name: 'Olga'
+  - type: text
+    name: 'Raisa'
+  - type: text
+    name: 'Svetlana'
+  - type: text
+    name: 'Tatiana'
+  - type: text
+    name: 'Valentina'
+  - type: text
+    name: 'Vera'
+  - type: text
+    name: 'Yekaterina'
+  - type: text
+    name: 'Yelena'
+  - type: text
+    name: 'Zinaida'
+flags:
+  CoC7:
+    cocidFlag:
+      id: rt..female_first_name_russian
+      lang: en
+      priority: 0
+---
+name: Last name, russian
+_id: zIazfUEjF5Yhinwu
+folder: w2vkKXFHcbQVeB7H
+description: 'Last names for use in various macros'
+results:
+  - type: text
+    name: 'Belov'
+  - type: text
+    name: 'Egorov'
+  - type: text
+    name: 'Fedorov'
+  - type: text
+    name: 'Ivanov'
+  - type: text
+    name: 'Kozlov'
+  - type: text
+    name: 'Kuznetsov'
+  - type: text
+    name: 'Morozov'
+  - type: text
+    name: 'Nikitin'
+  - type: text
+    name: 'Novikov'
+  - type: text
+    name: 'Orlov'
+  - type: text
+    name: 'Pavlov'
+  - type: text
+    name: 'Petrov'
+  - type: text
+    name: 'Popov'
+  - type: text
+    name: 'Smirnov'
+  - type: text
+    name: 'Sokolov'
+  - type: text
+    name: 'Sorokin'
+  - type: text
+    name: 'Stepanov'
+  - type: text
+    name: 'Vasiliev'
+  - type: text
+    name: 'Volkov'
+  - type: text
+    name: 'Zaitsev'
+flags:
+  CoC7:
+    cocidFlag:
+      id: rt..last_name_russian
+      lang: en
+      priority: 0
+---
+name: Male first name, italian
+_id: 5IVX3nzTdJlkYe25
+folder: w2vkKXFHcbQVeB7H
+description: 'Male first names for use in various macros'
+results:
+  - type: text
+    name: 'Aldo'
+  - type: text
+    name: 'Alfonso'
+  - type: text
+    name: 'Angelo'
+  - type: text
+    name: 'Antonio'
+  - type: text
+    name: 'Carmine'
+  - type: text
+    name: 'Domenico'
+  - type: text
+    name: 'Francesco'
+  - type: text
+    name: 'Gennaro'
+  - type: text
+    name: 'Giovanni'
+  - type: text
+    name: 'Giuseppe'
+  - type: text
+    name: 'Luigi'
+  - type: text
+    name: 'Michele'
+  - type: text
+    name: 'Nicola'
+  - type: text
+    name: 'Pasquale'
+  - type: text
+    name: 'Renato'
+  - type: text
+    name: 'Rocco'
+  - type: text
+    name: 'Salvatore'
+  - type: text
+    name: 'Sebastiano'
+  - type: text
+    name: 'Umberto'
+  - type: text
+    name: 'Vincenzo'
+flags:
+  CoC7:
+    cocidFlag:
+      id: rt..male_first_name_italian
+      lang: en
+      priority: 0
+---
+name: Female first name, italian
+_id: 5vOtBTZcF0AAmnct
+folder: w2vkKXFHcbQVeB7H
+description: 'Female first names for use in various macros'
+results:
+  - type: text
+    name: 'Adele'
+  - type: text
+    name: 'Angela'
+  - type: text
+    name: 'Anna'
+  - type: text
+    name: 'Antonietta'
+  - type: text
+    name: 'Assunta'
+  - type: text
+    name: 'Carmela'
+  - type: text
+    name: 'Concetta'
+  - type: text
+    name: 'Elvira'
+  - type: text
+    name: 'Filomena'
+  - type: text
+    name: 'Giovanna'
+  - type: text
+    name: 'Giuseppina'
+  - type: text
+    name: 'Grazia'
+  - type: text
+    name: 'Immacolata'
+  - type: text
+    name: 'Lucia'
+  - type: text
+    name: 'Maria'
+  - type: text
+    name: 'Palma'
+  - type: text
+    name: 'Pasqualina'
+  - type: text
+    name: 'Rosa'
+  - type: text
+    name: 'Teresa'
+  - type: text
+    name: 'Vincenza'
+flags:
+  CoC7:
+    cocidFlag:
+      id: rt..female_first_name_italian
+      lang: en
+      priority: 0
+---
+name: Last name, italian
+_id: c4rmzCDNYHBiydrg
+folder: w2vkKXFHcbQVeB7H
+description: 'Last names for use in various macros'
+results:
+  - type: text
+    name: 'Amato'
+  - type: text
+    name: 'Barone'
+  - type: text
+    name: 'Bruno'
+  - type: text
+    name: 'Caruso'
+  - type: text
+    name: 'Colombo'
+  - type: text
+    name: 'Conti'
+  - type: text
+    name: 'Costa'
+  - type: text
+    name: 'De Luca'
+  - type: text
+    name: 'Esposito'
+  - type: text
+    name: 'Ferrara'
+  - type: text
+    name: 'Fontana'
+  - type: text
+    name: 'Gallo'
+  - type: text
+    name: 'Greco'
+  - type: text
+    name: 'Mancini'
+  - type: text
+    name: 'Marino'
+  - type: text
+    name: 'Pellegrino'
+  - type: text
+    name: 'Ricci'
+  - type: text
+    name: 'Rizzo'
+  - type: text
+    name: 'Russo'
+  - type: text
+    name: 'Serra'
+flags:
+  CoC7:
+    cocidFlag:
+      id: rt..last_name_italian
+      lang: en
+      priority: 0
+---
+name: Male first name, japanese
+_id: 0ghS1DqV89k47IH2
+folder: w2vkKXFHcbQVeB7H
+description: 'Male first names for use in various macros'
+results:
+  - type: text
+    name: 'Akira'
+  - type: text
+    name: 'Hideo'
+  - type: text
+    name: 'Hiroshi'
+  - type: text
+    name: 'Ichiro'
+  - type: text
+    name: 'Isamu'
+  - type: text
+    name: 'Jiro'
+  - type: text
+    name: 'Katsumi'
+  - type: text
+    name: 'Kazuo'
+  - type: text
+    name: 'Kenji'
+  - type: text
+    name: 'Kiyoshi'
+  - type: text
+    name: 'Masaru'
+  - type: text
+    name: 'Minoru'
+  - type: text
+    name: 'Saburo'
+  - type: text
+    name: 'Satoshi'
+  - type: text
+    name: 'Shigeru'
+  - type: text
+    name: 'Susumu'
+  - type: text
+    name: 'Tadashi'
+  - type: text
+    name: 'Takeshi'
+  - type: text
+    name: 'Toshio'
+  - type: text
+    name: 'Yoshio'
+flags:
+  CoC7:
+    cocidFlag:
+      id: rt..male_first_name_japanese
+      lang: en
+      priority: 0
+---
+name: Female first name, japanese
+_id: XfKD7dhP6I4jGuEn
+folder: w2vkKXFHcbQVeB7H
+description: 'Female first names for use in various macros'
+results:
+  - type: text
+    name: 'Ayako'
+  - type: text
+    name: 'Chiyo'
+  - type: text
+    name: 'Emiko'
+  - type: text
+    name: 'Fumiko'
+  - type: text
+    name: 'Hanako'
+  - type: text
+    name: 'Haruko'
+  - type: text
+    name: 'Hisako'
+  - type: text
+    name: 'Kazuko'
+  - type: text
+    name: 'Kimiko'
+  - type: text
+    name: 'Masako'
+  - type: text
+    name: 'Michiko'
+  - type: text
+    name: 'Ritsuko'
+  - type: text
+    name: 'Sachiko'
+  - type: text
+    name: 'Setsuko'
+  - type: text
+    name: 'Shizuko'
+  - type: text
+    name: 'Sumiko'
+  - type: text
+    name: 'Tomoko'
+  - type: text
+    name: 'Toshiko'
+  - type: text
+    name: 'Yoshiko'
+  - type: text
+    name: 'Yukiko'
+flags:
+  CoC7:
+    cocidFlag:
+      id: rt..female_first_name_japanese
+      lang: en
+      priority: 0
+---
+name: Last name, japanese
+_id: gWyxCOn4qsAZ7ACh
+folder: w2vkKXFHcbQVeB7H
+description: 'Last names for use in various macros'
+results:
+  - type: text
+    name: 'Hayashi'
+  - type: text
+    name: 'Inoue'
+  - type: text
+    name: 'Ito'
+  - type: text
+    name: 'Kato'
+  - type: text
+    name: 'Kimura'
+  - type: text
+    name: 'Kobayashi'
+  - type: text
+    name: 'Matsumoto'
+  - type: text
+    name: 'Nakamura'
+  - type: text
+    name: 'Saito'
+  - type: text
+    name: 'Sasaki'
+  - type: text
+    name: 'Sato'
+  - type: text
+    name: 'Shimizu'
+  - type: text
+    name: 'Suzuki'
+  - type: text
+    name: 'Takahashi'
+  - type: text
+    name: 'Tanaka'
+  - type: text
+    name: 'Watanabe'
+  - type: text
+    name: 'Yamada'
+  - type: text
+    name: 'Yamaguchi'
+  - type: text
+    name: 'Yamamoto'
+  - type: text
+    name: 'Yoshida'
+flags:
+  CoC7:
+    cocidFlag:
+      id: rt..last_name_japanese
+      lang: en
+      priority: 0
+---
+name: Male first name, australian
+_id: SxTRwwvjm4rNm2Qa
+folder: w2vkKXFHcbQVeB7H
+description: 'Male first names for use in various macros'
+results:
+  - type: text
+    name: 'Alan'
+  - type: text
+    name: 'Bruce'
+  - type: text
+    name: 'Cecil'
+  - type: text
+    name: 'Clive'
+  - type: text
+    name: 'Colin'
+  - type: text
+    name: 'Douglas'
+  - type: text
+    name: 'Gordon'
+  - type: text
+    name: 'Herbert'
+  - type: text
+    name: 'Jack'
+  - type: text
+    name: 'Keith'
+  - type: text
+    name: 'Leslie'
+  - type: text
+    name: 'Malcolm'
+  - type: text
+    name: 'Norman'
+  - type: text
+    name: 'Percy'
+  - type: text
+    name: 'Reginald'
+  - type: text
+    name: 'Roy'
+  - type: text
+    name: 'Rupert'
+  - type: text
+    name: 'Stan'
+  - type: text
+    name: 'Vernon'
+  - type: text
+    name: 'Wallace'
+flags:
+  CoC7:
+    cocidFlag:
+      id: rt..male_first_name_australian
+      lang: en
+      priority: 0
+---
+name: Female first name, australian
+_id: jVQ4jmWj6sELXLct
+folder: w2vkKXFHcbQVeB7H
+description: 'Female first names for use in various macros'
+results:
+  - type: text
+    name: 'Beryl'
+  - type: text
+    name: 'Doreen'
+  - type: text
+    name: 'Doris'
+  - type: text
+    name: 'Edna'
+  - type: text
+    name: 'Elsie'
+  - type: text
+    name: 'Enid'
+  - type: text
+    name: 'Ethel'
+  - type: text
+    name: 'Gladys'
+  - type: text
+    name: 'Iris'
+  - type: text
+    name: 'Ivy'
+  - type: text
+    name: 'Marjorie'
+  - type: text
+    name: 'Muriel'
+  - type: text
+    name: 'Myrtle'
+  - type: text
+    name: 'Nancy'
+  - type: text
+    name: 'Nellie'
+  - type: text
+    name: 'Olive'
+  - type: text
+    name: 'Phyllis'
+  - type: text
+    name: 'Thelma'
+  - type: text
+    name: 'Vera'
+  - type: text
+    name: 'Winifred'
+flags:
+  CoC7:
+    cocidFlag:
+      id: rt..female_first_name_australian
+      lang: en
+      priority: 0
+---
+name: Last name, australian
+_id: hMDOG3kkin3KdtDo
+folder: w2vkKXFHcbQVeB7H
+description: 'Last names for use in various macros'
+results:
+  - type: text
+    name: 'Anderson'
+  - type: text
+    name: 'Baxter'
+  - type: text
+    name: 'Campbell'
+  - type: text
+    name: 'Cartwright'
+  - type: text
+    name: 'Doyle'
+  - type: text
+    name: 'Fitzgerald'
+  - type: text
+    name: 'Kelly'
+  - type: text
+    name: 'Kennedy'
+  - type: text
+    name: 'McKenzie'
+  - type: text
+    name: 'Mitchell'
+  - type: text
+    name: 'Murphy'
+  - type: text
+    name: 'Nicholson'
+  - type: text
+    name: 'O''Brien'
+  - type: text
+    name: 'Ryan'
+  - type: text
+    name: 'Sheridan'
+  - type: text
+    name: 'Sinclair'
+  - type: text
+    name: 'Stewart'
+  - type: text
+    name: 'Sullivan'
+  - type: text
+    name: 'Walsh'
+  - type: text
+    name: 'Whitfield'
+flags:
+  CoC7:
+    cocidFlag:
+      id: rt..last_name_australian
+      lang: en
+      priority: 0
+---
+name: Male first name, arab
+_id: ufC3RdHlFBhdwgSW
+folder: w2vkKXFHcbQVeB7H
+description: 'Male first names for use in various macros'
+results:
+  - type: text
+    name: 'Abdullah'
+  - type: text
+    name: 'Ahmad'
+  - type: text
+    name: 'Anwar'
+  - type: text
+    name: 'Faisal'
+  - type: text
+    name: 'Farid'
+  - type: text
+    name: 'Hassan'
+  - type: text
+    name: 'Hussein'
+  - type: text
+    name: 'Ibrahim'
+  - type: text
+    name: 'Jamal'
+  - type: text
+    name: 'Kamal'
+  - type: text
+    name: 'Khalil'
+  - type: text
+    name: 'Mahmoud'
+  - type: text
+    name: 'Mustafa'
+  - type: text
+    name: 'Nabil'
+  - type: text
+    name: 'Omar'
+  - type: text
+    name: 'Rafiq'
+  - type: text
+    name: 'Rashid'
+  - type: text
+    name: 'Salim'
+  - type: text
+    name: 'Tariq'
+  - type: text
+    name: 'Youssef'
+flags:
+  CoC7:
+    cocidFlag:
+      id: rt..male_first_name_arab
+      lang: en
+      priority: 0
+---
+name: Female first name, arab
+_id: fc1N8mnalhRaJEfd
+folder: w2vkKXFHcbQVeB7H
+description: 'Female first names for use in various macros'
+results:
+  - type: text
+    name: 'Amal'
+  - type: text
+    name: 'Amina'
+  - type: text
+    name: 'Aziza'
+  - type: text
+    name: 'Fatima'
+  - type: text
+    name: 'Farida'
+  - type: text
+    name: 'Hana'
+  - type: text
+    name: 'Huda'
+  - type: text
+    name: 'Khadija'
+  - type: text
+    name: 'Layla'
+  - type: text
+    name: 'Nabila'
+  - type: text
+    name: 'Nadia'
+  - type: text
+    name: 'Najla'
+  - type: text
+    name: 'Rania'
+  - type: text
+    name: 'Salma'
+  - type: text
+    name: 'Samira'
+  - type: text
+    name: 'Suad'
+  - type: text
+    name: 'Widad'
+  - type: text
+    name: 'Yasmin'
+  - type: text
+    name: 'Zahra'
+  - type: text
+    name: 'Zainab'
+flags:
+  CoC7:
+    cocidFlag:
+      id: rt..female_first_name_arab
+      lang: en
+      priority: 0
+---
+name: Last name, arab
+_id: by4MbDLhWIJisFPT
+folder: w2vkKXFHcbQVeB7H
+description: 'Last names for use in various macros'
+results:
+  - type: text
+    name: 'Abboud'
+  - type: text
+    name: 'Aziz'
+  - type: text
+    name: 'Barakat'
+  - type: text
+    name: 'Chamoun'
+  - type: text
+    name: 'Daher'
+  - type: text
+    name: 'Fares'
+  - type: text
+    name: 'Ghannam'
+  - type: text
+    name: 'Haddad'
+  - type: text
+    name: 'Hakim'
+  - type: text
+    name: 'Homsi'
+  - type: text
+    name: 'Jaber'
+  - type: text
+    name: 'Karam'
+  - type: text
+    name: 'Kassab'
+  - type: text
+    name: 'Khoury'
+  - type: text
+    name: 'Malik'
+  - type: text
+    name: 'Mansour'
+  - type: text
+    name: 'Nassar'
+  - type: text
+    name: 'Sabbagh'
+  - type: text
+    name: 'Yazbek'
+  - type: text
+    name: 'Zogby'
+flags:
+  CoC7:
+    cocidFlag:
+      id: rt..last_name_arab
+      lang: en
+      priority: 0
+

@@ -28,20 +28,22 @@ jobs:
         run: npm ci
 
       - name: Run Foundry E2E
-        uses: Achoobert/FoundryvttTestEnv@0.0.11
+        uses: Achoobert/FoundryvttTestEnv@0.0.12
         with:
           foundry_version: '14.364'
           foundry_world: modern-names-test
           test_system_manifest_url: https://github.com/deltagreen-foundryvtt/delta-green-foundry-vtt-system/releases/download/v1.7.0/system.json
           test_module_ids: quench,modern-names,modern-names-tests
           build_script: |
+            set -e
+            userdata="$(pwd)/foundrydata"
+            export FOUNDRY_USERDATA_HOST="$userdata"
+            export FOUNDRY_WORLD=modern-names-test
+            node ci_scripts/write-ci-config.js
             npm run compendiums-build
             npm run build
             npm run build:tests
-            dest=foundrydata/Data/modules/modern-names
-            mkdir -p "$dest"
-            rsync -a --exclude '.git' build/ "$dest/"
-          quench_tests_path: ./tests/build
+          quench_tests_path: ./tests
           foundry_username: ${{ secrets.FOUNDRY_USERNAME }}
           foundry_password: ${{ secrets.FOUNDRY_PASSWORD }}
           foundry_admin_key: ${{ secrets.FOUNDRY_ADMIN_KEY }}
