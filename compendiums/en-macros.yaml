@@ -207,3 +207,227 @@ scope: global
 folder: osUcnVzKwmBGuZel
 img: icons/commodities/tech/electronics-button-skull-red.webp
 command: await game.modules.get("modern-names").api.applyRandomName("kenyan", "female", "actor");
+---
+_id: SkO8JpII6ybbE2UO
+name: Random Male Name Chinese (Token)
+type: script
+scope: global
+folder: osUcnVzKwmAKuZel
+img: icons/sundries/documents/passport-document-identification.webp
+command: await game.modules.get("modern-names").api.applyRandomName("chinese", "male", "token");
+---
+_id: 2Tc1lGqWX9Kwa5lq
+name: Random Male Name Chinese (Actor)
+type: script
+scope: global
+folder: osUcnVzKwmBGuZel
+img: icons/commodities/tech/electronics-button-skull-red.webp
+command: await game.modules.get("modern-names").api.applyRandomName("chinese", "male", "actor");
+---
+_id: dfH6GtrLLurGGyRo
+name: Random Female Name Chinese (Token)
+type: script
+scope: global
+folder: osUcnVzKwmAKuZel
+img: icons/sundries/documents/passport-document-identification.webp
+command: await game.modules.get("modern-names").api.applyRandomName("chinese", "female", "token");
+---
+_id: 1v8iyRX15cnpPZGa
+name: Random Female Name Chinese (Actor)
+type: script
+scope: global
+folder: osUcnVzKwmBGuZel
+img: icons/commodities/tech/electronics-button-skull-red.webp
+command: await game.modules.get("modern-names").api.applyRandomName("chinese", "female", "actor");
+---
+_id: UP4RXhYNHSyZZBHF
+name: Random Male Name South Asian (Token)
+type: script
+scope: global
+folder: osUcnVzKwmAKuZel
+img: icons/sundries/documents/passport-document-identification.webp
+command: await game.modules.get("modern-names").api.applyRandomName("southasian", "male", "token");
+---
+_id: ck3A8JHR8aXzrMPc
+name: Random Male Name South Asian (Actor)
+type: script
+scope: global
+folder: osUcnVzKwmBGuZel
+img: icons/commodities/tech/electronics-button-skull-red.webp
+command: await game.modules.get("modern-names").api.applyRandomName("southasian", "male", "actor");
+---
+_id: m4o8jyDCMV8FIxmA
+name: Random Female Name South Asian (Token)
+type: script
+scope: global
+folder: osUcnVzKwmAKuZel
+img: icons/sundries/documents/passport-document-identification.webp
+command: await game.modules.get("modern-names").api.applyRandomName("southasian", "female", "token");
+---
+_id: JiZRI66ooXUPLtAW
+name: Random Female Name South Asian (Actor)
+type: script
+scope: global
+folder: osUcnVzKwmBGuZel
+img: icons/commodities/tech/electronics-button-skull-red.webp
+command: await game.modules.get("modern-names").api.applyRandomName("southasian", "female", "actor");
+---
+_id: 6kvpDMOtEgj8foAn
+name: Random Male Name Russian (Token)
+type: script
+scope: global
+folder: osUcnVzKwmAKuZel
+img: icons/sundries/documents/passport-document-identification.webp
+command: await game.modules.get("modern-names").api.applyRandomName("russian", "male", "token");
+---
+_id: i9lbuzduotZIucei
+name: Random Male Name Russian (Actor)
+type: script
+scope: global
+folder: osUcnVzKwmBGuZel
+img: icons/commodities/tech/electronics-button-skull-red.webp
+command: await game.modules.get("modern-names").api.applyRandomName("russian", "male", "actor");
+---
+_id: 5Bz2wWNkZuigJtoX
+name: Random Female Name Russian (Token)
+type: script
+scope: global
+folder: osUcnVzKwmAKuZel
+img: icons/sundries/documents/passport-document-identification.webp
+command: await game.modules.get("modern-names").api.applyRandomName("russian", "female", "token");
+---
+_id: AXjR1r7oFf629LT5
+name: Random Female Name Russian (Actor)
+type: script
+scope: global
+folder: osUcnVzKwmBGuZel
+img: icons/commodities/tech/electronics-button-skull-red.webp
+command: await game.modules.get("modern-names").api.applyRandomName("russian", "female", "actor");
+---
+_id: wKcPZd0mBdfjYgLk
+name: Random Male Name Italian (Token)
+type: script
+scope: global
+folder: osUcnVzKwmAKuZel
+img: icons/sundries/documents/passport-document-identification.webp
+command: await game.modules.get("modern-names").api.applyRandomName("italian", "male", "token");
+---
+_id: h0SOjtk9rcKp1OCq
+name: Random Male Name Italian (Actor)
+type: script
+scope: global
+folder: osUcnVzKwmBGuZel
+img: icons/commodities/tech/electronics-button-skull-red.webp
+command: await game.modules.get("modern-names").api.applyRandomName("italian", "male", "actor");
+---
+_id: 1Wd9bObncopWp2GX
+name: Random Female Name Italian (Token)
+type: script
+scope: global
+folder: osUcnVzKwmAKuZel
+img: icons/sundries/documents/passport-document-identification.webp
+command: await game.modules.get("modern-names").api.applyRandomName("italian", "female", "token");
+---
+_id: uqzjqHB7fzZ59CSA
+name: Random Female Name Italian (Actor)
+type: script
+scope: global
+folder: osUcnVzKwmBGuZel
+img: icons/commodities/tech/electronics-button-skull-red.webp
+command: await game.modules.get("modern-names").api.applyRandomName("italian", "female", "actor");
+---
+_id: En5SncdJ9l39I60N
+name: Random Male Name Japanese (Token)
+type: script
+scope: global
+folder: osUcnVzKwmAKuZel
+img: icons/sundries/documents/passport-document-identification.webp
+command: await game.modules.get("modern-names").api.applyRandomName("japanese", "male", "token");
+---
+_id: X1kb4hMsitioYApp
+name: Random Male Name Japanese (Actor)
+type: script
+scope: global
+folder: osUcnVzKwmBGuZel
+img: icons/commodities/tech/electronics-button-skull-red.webp
+command: await game.modules.get("modern-names").api.applyRandomName("japanese", "male", "actor");
+---
+_id: IzooRN5jpEoav7Ay
+name: Random Female Name Japanese (Token)
+type: script
+scope: global
+folder: osUcnVzKwmAKuZel
+img: icons/sundries/documents/passport-document-identification.webp
+command: await game.modules.get("modern-names").api.applyRandomName("japanese", "female", "token");
+---
+_id: eIDj3OacBnw5AHKL
+name: Random Female Name Japanese (Actor)
+type: script
+scope: global
+folder: osUcnVzKwmBGuZel
+img: icons/commodities/tech/electronics-button-skull-red.webp
+command: await game.modules.get("modern-names").api.applyRandomName("japanese", "female", "actor");
+---
+_id: ivQxWRDj7LyENEXR
+name: Random Male Name Australian (Token)
+type: script
+scope: global
+folder: osUcnVzKwmAKuZel
+img: icons/sundries/documents/passport-document-identification.webp
+command: await game.modules.get("modern-names").api.applyRandomName("australian", "male", "token");
+---
+_id: 4Qs0dc6pOOp7HmFm
+name: Random Male Name Australian (Actor)
+type: script
+scope: global
+folder: osUcnVzKwmBGuZel
+img: icons/commodities/tech/electronics-button-skull-red.webp
+command: await game.modules.get("modern-names").api.applyRandomName("australian", "male", "actor");
+---
+_id: mPsB81RZBCTz0tw4
+name: Random Female Name Australian (Token)
+type: script
+scope: global
+folder: osUcnVzKwmAKuZel
+img: icons/sundries/documents/passport-document-identification.webp
+command: await game.modules.get("modern-names").api.applyRandomName("australian", "female", "token");
+---
+_id: x2tRdzuERa8vxdfK
+name: Random Female Name Australian (Actor)
+type: script
+scope: global
+folder: osUcnVzKwmBGuZel
+img: icons/commodities/tech/electronics-button-skull-red.webp
+command: await game.modules.get("modern-names").api.applyRandomName("australian", "female", "actor");
+---
+_id: HiDRNjRPrNn7bDQn
+name: Random Male Name Arab (Token)
+type: script
+scope: global
+folder: osUcnVzKwmAKuZel
+img: icons/sundries/documents/passport-document-identification.webp
+command: await game.modules.get("modern-names").api.applyRandomName("arab", "male", "token");
+---
+_id: vWiecQBkMaixZCmO
+name: Random Male Name Arab (Actor)
+type: script
+scope: global
+folder: osUcnVzKwmBGuZel
+img: icons/commodities/tech/electronics-button-skull-red.webp
+command: await game.modules.get("modern-names").api.applyRandomName("arab", "male", "actor");
+---
+_id: 6xZSNcV5lZHh2tPR
+name: Random Female Name Arab (Token)
+type: script
+scope: global
+folder: osUcnVzKwmAKuZel
+img: icons/sundries/documents/passport-document-identification.webp
+command: await game.modules.get("modern-names").api.applyRandomName("arab", "female", "token");
+---
+_id: hLKEB4DIKkiEwC9D
+name: Random Female Name Arab (Actor)
+type: script
+scope: global
+folder: osUcnVzKwmBGuZel
+img: icons/commodities/tech/electronics-button-skull-red.webp
+command: await game.modules.get("modern-names").api.applyRandomName("arab", "female", "actor");
