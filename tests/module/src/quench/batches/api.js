@@ -13,6 +13,7 @@ export default function register (quench) {
           assert.isObject(mod.api)
           assert.isFunction(mod.api.applyRandomName)
           assert.isFunction(mod.api.resetTokenNames)
+          assert.isFunction(mod.api.applyTraits)
         })
       })
     },

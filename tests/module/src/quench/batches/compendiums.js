@@ -2,6 +2,7 @@ import {
   PACK_ROLL_TABLES,
   PACK_MACROS,
   TABLE_AMERICAN_MALE,
+  TRAIT_TABLES,
   getTableDoc,
   requirePack,
   tableResultCount
@@ -34,6 +35,14 @@ export default function register (quench) {
             'American male table has more than 10 results'
           )
         })
+
+        for (const [kind, tableId] of Object.entries(TRAIT_TABLES)) {
+          it(`${kind} trait table has results`, async function () {
+            const table = await getTableDoc(PACK_ROLL_TABLES, tableId)
+            assert.equal(table.name, `Personality trait, ${kind}`)
+            assert.isAbove(tableResultCount(table), 50)
+          })
+        }
       })
     },
     { displayName: 'Compendiums' }

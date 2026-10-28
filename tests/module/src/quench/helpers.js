@@ -8,6 +8,13 @@ export const PACK_MACROS = `${MODULE_ID}.en-macros`
 export const TABLE_AMERICAN_MALE = 'yvXk3GTSA9adwv1z'
 export const TABLE_AMERICAN_LAST = 'QwGXBkSLea1sJEvK'
 
+/** Personality trait tables: negative, neutral, positive. */
+export const TRAIT_TABLES = {
+  negative: '5Bl9rIcDVYK6GhIp',
+  neutral: 'dahuMEmAVTq9uVeX',
+  positive: '9mdeofNXuBKWd2sV'
+}
+
 export function requirePack (collection) {
   const pack = game.packs.get(collection)
   if (!pack) {

@@ -70,3 +70,10 @@ export const TABLE_IDS = {
 
 export const MODULE_ID = 'modern-names'
 export const COMPENDIUM_PACK = 'en-roll-tables'
+
+/** Personality trait tables (negative, neutral, positive), drawn in order; add ids to roll more. */
+export const TRAIT_TABLE_IDS = [
+  '5Bl9rIcDVYK6GhIp',
+  'dahuMEmAVTq9uVeX',
+  '9mdeofNXuBKWd2sV'
+]

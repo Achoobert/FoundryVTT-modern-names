@@ -2,6 +2,7 @@ import {
   PACK_ROLL_TABLES,
   TABLE_AMERICAN_LAST,
   TABLE_AMERICAN_MALE,
+  TRAIT_TABLES,
   getTableDoc
 } from '../helpers.js'
 
@@ -23,6 +24,15 @@ export default function register (quench) {
           assert.isString(lastDraw.results[0].name)
           assert.isAbove(firstDraw.results[0].name.length, 0)
           assert.isAbove(lastDraw.results[0].name.length, 0)
+        })
+
+        it('draws one result from each trait table', async function () {
+          for (const tableId of Object.values(TRAIT_TABLES)) {
+            const table = await getTableDoc(PACK_ROLL_TABLES, tableId)
+            const draw = await table.draw({ displayChat: false })
+            assert.isAtLeast(draw.results.length, 1)
+            assert.isAbove(draw.results[0].name.length, 0)
+          }
         })
       })
     },

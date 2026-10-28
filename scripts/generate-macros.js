@@ -39,6 +39,14 @@ function main () {
     img: reset.img
   }).trimEnd())
 
+  const traits = manifest.traits
+  docs.push(substitute(templates.traits.trimEnd() + '\n', {
+    _id: traits._id,
+    name: traits.name,
+    folder: traits.folder,
+    img: traits.img
+  }).trimEnd())
+
   for (const row of manifest.random) {
     docs.push(substitute(templates.random.trimEnd() + '\n', {
       _id: row._id,
