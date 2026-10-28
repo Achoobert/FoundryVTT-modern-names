@@ -14,6 +14,15 @@ reset: |
   img: {{img}}
   command: await game.modules.get("modern-names").api.resetTokenNames();
 
+traits: |
+  _id: {{_id}}
+  name: {{name}}
+  type: script
+  scope: global
+  folder: {{folder}}
+  img: {{img}}
+  command: await game.modules.get("modern-names").api.applyTraits();
+
 random: |
   _id: {{_id}}
   name: Random {{genderLabel}} Name {{cultureLabel}} ({{targetLabel}})

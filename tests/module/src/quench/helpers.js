@@ -1,12 +1,26 @@
-/* global game, fromUuid */
+
 
 export const MODULE_ID = 'modern-names'
 export const PACK_ROLL_TABLES = `${MODULE_ID}.en-roll-tables`
 export const PACK_MACROS = `${MODULE_ID}.en-macros`
 
-/** American male first name table (stable _id from compendium YAML). */
+
 export const TABLE_AMERICAN_MALE = 'yvXk3GTSA9adwv1z'
 export const TABLE_AMERICAN_LAST = 'QwGXBkSLea1sJEvK'
+
+
+export const TRAIT_TABLES = {
+  negative: '5Bl9rIcDVYK6GhIp',
+  neutral: 'dahuMEmAVTq9uVeX',
+  positive: '9mdeofNXuBKWd2sV'
+}
+
+export const CHARACTER_TABLES = {
+  Look: '54l3EWfQe0lyXwH9',
+  Style: 'Qr62AKxmnjbWaUus',
+  Goal: 'jxmdtbzo5flZFS2Y',
+  Method: 'uEhjEaUCxreG3UGk'
+}
 
 export function requirePack (collection) {
   const pack = game.packs.get(collection)
@@ -16,10 +30,7 @@ export function requirePack (collection) {
   return pack
 }
 
-/**
- * Compendium RollTables store result ids in pack data; the live `results` collection
- * may be unset until the document is fully resolved (use fromUuid when possible).
- */
+
 export function tableResultCount(table) {
   const collection = table.results
   if (collection != null) {

@@ -5228,4 +5228,2462 @@ flags:
       id: rt..last_name_arab
       lang: en
       priority: 0
-
+---
+name: Traits
+type: folder
+_id: HpCKB51M99A9zsxf
+color: '#75844c'
+---
+name: Personality trait, negative
+_id: 5Bl9rIcDVYK6GhIp
+folder: HpCKB51M99A9zsxf
+description: 'Negative personality traits for use in various macros'
+results:
+  - type: text
+    name: 'Abrasive'
+  - type: text
+    name: 'Abrupt'
+  - type: text
+    name: 'Aggressive'
+  - type: text
+    name: 'Agonizing'
+  - type: text
+    name: 'Aimless'
+  - type: text
+    name: 'Airy'
+  - type: text
+    name: 'Aloof'
+  - type: text
+    name: 'Amoral'
+  - type: text
+    name: 'Angry'
+  - type: text
+    name: 'Anxious'
+  - type: text
+    name: 'Apathetic'
+  - type: text
+    name: 'Arbitrary'
+  - type: text
+    name: 'Argumentative'
+  - type: text
+    name: 'Arrogant'
+  - type: text
+    name: 'Arrogantt'
+  - type: text
+    name: 'Artificial'
+  - type: text
+    name: 'Asocial'
+  - type: text
+    name: 'Assertive'
+  - type: text
+    name: 'Astigmatic'
+  - type: text
+    name: 'Authoritarian'
+  - type: text
+    name: 'Avoidant'
+  - type: text
+    name: 'Barbaric'
+  - type: text
+    name: 'Belligerent'
+  - type: text
+    name: 'Bewildered'
+  - type: text
+    name: 'Bigoted'
+  - type: text
+    name: 'Biosterous'
+  - type: text
+    name: 'Bizarre'
+  - type: text
+    name: 'Bland'
+  - type: text
+    name: 'Blunt'
+  - type: text
+    name: 'Bossy'
+  - type: text
+    name: 'Brittle'
+  - type: text
+    name: 'Brutal'
+  - type: text
+    name: 'Calculating'
+  - type: text
+    name: 'Callous'
+  - type: text
+    name: 'Cantakerous'
+  - type: text
+    name: 'Capricious'
+  - type: text
+    name: 'Careless'
+  - type: text
+    name: 'Cautious'
+  - type: text
+    name: 'Chaotic'
+  - type: text
+    name: 'Charmless'
+  - type: text
+    name: 'Childish'
+  - type: text
+    name: 'Clumsy'
+  - type: text
+    name: 'Coarse'
+  - type: text
+    name: 'Cold'
+  - type: text
+    name: 'Colorless'
+  - type: text
+    name: 'Combative'
+  - type: text
+    name: 'Complacent'
+  - type: text
+    name: 'Complaintive'
+  - type: text
+    name: 'Compulsive'
+  - type: text
+    name: 'Conceited'
+  - type: text
+    name: 'Condemnatory'
+  - type: text
+    name: 'Condescending'
+  - type: text
+    name: 'Conformist'
+  - type: text
+    name: 'Confused'
+  - type: text
+    name: 'Contemptible'
+  - type: text
+    name: 'Controlling'
+  - type: text
+    name: 'Conventional'
+  - type: text
+    name: 'Corrupt'
+  - type: text
+    name: 'Cowardly'
+  - type: text
+    name: 'Crafty'
+  - type: text
+    name: 'Crass'
+  - type: text
+    name: 'Crazy'
+  - type: text
+    name: 'Criminal'
+  - type: text
+    name: 'Critical'
+  - type: text
+    name: 'Crude'
+  - type: text
+    name: 'Cruel'
+  - type: text
+    name: 'Cynical'
+  - type: text
+    name: 'Decadent'
+  - type: text
+    name: 'Deceitful'
+  - type: text
+    name: 'Defeatist'
+  - type: text
+    name: 'Defensive'
+  - type: text
+    name: 'Delicate'
+  - type: text
+    name: 'Delusional'
+  - type: text
+    name: 'Demanding'
+  - type: text
+    name: 'Dependent'
+  - type: text
+    name: 'Depressive'
+  - type: text
+    name: 'Derisive'
+  - type: text
+    name: 'Desperate'
+  - type: text
+    name: 'Destructive'
+  - type: text
+    name: 'Detached'
+  - type: text
+    name: 'Devious'
+  - type: text
+    name: 'Dictatorial'
+  - type: text
+    name: 'Difficult'
+  - type: text
+    name: 'Dirty'
+  - type: text
+    name: 'Disagreeable'
+  - type: text
+    name: 'Disconcerting'
+  - type: text
+    name: 'Discontented'
+  - type: text
+    name: 'Discouraging'
+  - type: text
+    name: 'Discourteous'
+  - type: text
+    name: 'Dishonest'
+  - type: text
+    name: 'Disloyal'
+  - type: text
+    name: 'Disobedient'
+  - type: text
+    name: 'Disorderly'
+  - type: text
+    name: 'Disorganized'
+  - type: text
+    name: 'Disputatious'
+  - type: text
+    name: 'Disrespectful'
+  - type: text
+    name: 'Disruptive'
+  - type: text
+    name: 'Dissolute'
+  - type: text
+    name: 'Dissonant'
+  - type: text
+    name: 'Distracted'
+  - type: text
+    name: 'Distractible'
+  - type: text
+    name: 'Disturbing'
+  - type: text
+    name: 'Dogmatic'
+  - type: text
+    name: 'Dominant'
+  - type: text
+    name: 'Domineering'
+  - type: text
+    name: 'Doubtful'
+  - type: text
+    name: 'Dramatic'
+  - type: text
+    name: 'Dull'
+  - type: text
+    name: 'Easily Discouraged'
+  - type: text
+    name: 'Egocentric'
+  - type: text
+    name: 'Egotistical'
+  - type: text
+    name: 'Enervated'
+  - type: text
+    name: 'Envious'
+  - type: text
+    name: 'Erratic'
+  - type: text
+    name: 'Escapist'
+  - type: text
+    name: 'Excitable'
+  - type: text
+    name: 'Expedient'
+  - type: text
+    name: 'Explosive'
+  - type: text
+    name: 'Extravagant'
+  - type: text
+    name: 'Extreme'
+  - type: text
+    name: 'Faithless'
+  - type: text
+    name: 'Fake'
+  - type: text
+    name: 'False'
+  - type: text
+    name: 'Fanatical'
+  - type: text
+    name: 'Fanciful'
+  - type: text
+    name: 'Fatalistic'
+  - type: text
+    name: 'Fault-finding'
+  - type: text
+    name: 'Fawning'
+  - type: text
+    name: 'Fearful'
+  - type: text
+    name: 'Fickle'
+  - type: text
+    name: 'Fiery'
+  - type: text
+    name: 'Fixed'
+  - type: text
+    name: 'Flaky'
+  - type: text
+    name: 'Flamboyant'
+  - type: text
+    name: 'Flippant'
+  - type: text
+    name: 'Foolish'
+  - type: text
+    name: 'Forgetful'
+  - type: text
+    name: 'Foul-mouthed'
+  - type: text
+    name: 'Fraudulent'
+  - type: text
+    name: 'Frightening'
+  - type: text
+    name: 'Frivolous'
+  - type: text
+    name: 'Gloomy'
+  - type: text
+    name: 'Gossipy'
+  - type: text
+    name: 'Graceless'
+  - type: text
+    name: 'Grand'
+  - type: text
+    name: 'Greedy'
+  - type: text
+    name: 'Grim'
+  - type: text
+    name: 'Gullible'
+  - type: text
+    name: 'Harsh'
+  - type: text
+    name: 'Hateful'
+  - type: text
+    name: 'Haughty'
+  - type: text
+    name: 'Hedonistic'
+  - type: text
+    name: 'Hesitant'
+  - type: text
+    name: 'Hidebound'
+  - type: text
+    name: 'High-handed'
+  - type: text
+    name: 'Hostile'
+  - type: text
+    name: 'Hypersensitive'
+  - type: text
+    name: 'Hypocritical'
+  - type: text
+    name: 'Ignorant'
+  - type: text
+    name: 'Imitative'
+  - type: text
+    name: 'Impatient'
+  - type: text
+    name: 'Impractical'
+  - type: text
+    name: 'Imprudent'
+  - type: text
+    name: 'Impulsive'
+  - type: text
+    name: 'Inattentive'
+  - type: text
+    name: 'Inconsiderate'
+  - type: text
+    name: 'Incurious'
+  - type: text
+    name: 'Indecisive'
+  - type: text
+    name: 'Indifferent'
+  - type: text
+    name: 'Indulgent'
+  - type: text
+    name: 'Inert'
+  - type: text
+    name: 'Inflexible'
+  - type: text
+    name: 'Inhibited'
+  - type: text
+    name: 'Insecure'
+  - type: text
+    name: 'Insensitive'
+  - type: text
+    name: 'Insincere'
+  - type: text
+    name: 'Insulting'
+  - type: text
+    name: 'Intolerant'
+  - type: text
+    name: 'Irascible'
+  - type: text
+    name: 'Irrational'
+  - type: text
+    name: 'Irresponsible'
+  - type: text
+    name: 'Irritable'
+  - type: text
+    name: 'Jealous'
+  - type: text
+    name: 'Judgmental'
+  - type: text
+    name: 'Lazy'
+  - type: text
+    name: 'Lethargic'
+  - type: text
+    name: 'Liar'
+  - type: text
+    name: 'Libidinous'
+  - type: text
+    name: 'Loquacious'
+  - type: text
+    name: 'Machiavellian'
+  - type: text
+    name: 'Malicious'
+  - type: text
+    name: 'Manipulative'
+  - type: text
+    name: 'Mannered'
+  - type: text
+    name: 'Mannerless'
+  - type: text
+    name: 'Mawkish'
+  - type: text
+    name: 'Mealymouthed'
+  - type: text
+    name: 'Mean'
+  - type: text
+    name: 'Mechanical'
+  - type: text
+    name: 'Meddlesome'
+  - type: text
+    name: 'Melancholic'
+  - type: text
+    name: 'Melodramatic'
+  - type: text
+    name: 'Meretricious'
+  - type: text
+    name: 'Messy'
+  - type: text
+    name: 'Miserable'
+  - type: text
+    name: 'Miserly'
+  - type: text
+    name: 'Misguided'
+  - type: text
+    name: 'Mistaken'
+  - type: text
+    name: 'Money-minded'
+  - type: text
+    name: 'Monstrous'
+  - type: text
+    name: 'Moody'
+  - type: text
+    name: 'Morbid'
+  - type: text
+    name: 'Muddle-headed'
+  - type: text
+    name: 'Naive'
+  - type: text
+    name: 'Narcissistic'
+  - type: text
+    name: 'Narrow'
+  - type: text
+    name: 'Narrow-minded'
+  - type: text
+    name: 'Natty'
+  - type: text
+    name: 'Needy'
+  - type: text
+    name: 'Negative'
+  - type: text
+    name: 'Negativistic'
+  - type: text
+    name: 'Neglectful'
+  - type: text
+    name: 'Nervous'
+  - type: text
+    name: 'Neurotic'
+  - type: text
+    name: 'Nihilistic'
+  - type: text
+    name: 'Noncommittal'
+  - type: text
+    name: 'Obnoxious'
+  - type: text
+    name: 'Obsessive'
+  - type: text
+    name: 'Obvious'
+  - type: text
+    name: 'Odd'
+  - type: text
+    name: 'Offhand'
+  - type: text
+    name: 'One-dimensional'
+  - type: text
+    name: 'One-sided'
+  - type: text
+    name: 'Opinionated'
+  - type: text
+    name: 'Opportunistic'
+  - type: text
+    name: 'Oppressed'
+  - type: text
+    name: 'Outrageous'
+  - type: text
+    name: 'Overimaginative'
+  - type: text
+    name: 'Paranoid'
+  - type: text
+    name: 'Passive'
+  - type: text
+    name: 'Pedantic'
+  - type: text
+    name: 'Perverse'
+  - type: text
+    name: 'Petty'
+  - type: text
+    name: 'Pharissical'
+  - type: text
+    name: 'Phlegmatic'
+  - type: text
+    name: 'Plodding'
+  - type: text
+    name: 'Pompous'
+  - type: text
+    name: 'Possessive'
+  - type: text
+    name: 'Power-hungry'
+  - type: text
+    name: 'Predatory'
+  - type: text
+    name: 'Prejudiced'
+  - type: text
+    name: 'Presumptuous'
+  - type: text
+    name: 'Pretentious'
+  - type: text
+    name: 'Prim'
+  - type: text
+    name: 'Procrastinating'
+  - type: text
+    name: 'Profligate'
+  - type: text
+    name: 'Provocative'
+  - type: text
+    name: 'Pugnacious'
+  - type: text
+    name: 'Puritanical'
+  - type: text
+    name: 'Quirky'
+  - type: text
+    name: 'Reactionary'
+  - type: text
+    name: 'Reactive'
+  - type: text
+    name: 'Regimental'
+  - type: text
+    name: 'Regretful'
+  - type: text
+    name: 'Repentant'
+  - type: text
+    name: 'Repressed'
+  - type: text
+    name: 'Resentful'
+  - type: text
+    name: 'Ridiculous'
+  - type: text
+    name: 'Rigid'
+  - type: text
+    name: 'Ritualistic'
+  - type: text
+    name: 'Rowdy'
+  - type: text
+    name: 'Ruined'
+  - type: text
+    name: 'Sadistic'
+  - type: text
+    name: 'Sanctimonious'
+  - type: text
+    name: 'Scheming'
+  - type: text
+    name: 'Scornful'
+  - type: text
+    name: 'Secretive'
+  - type: text
+    name: 'Sedentary'
+  - type: text
+    name: 'Self-indulgent'
+  - type: text
+    name: 'Selfish'
+  - type: text
+    name: 'Shallow'
+  - type: text
+    name: 'Shortsighted'
+  - type: text
+    name: 'Shy'
+  - type: text
+    name: 'Silly'
+  - type: text
+    name: 'Single-minded'
+  - type: text
+    name: 'Sloppy'
+  - type: text
+    name: 'Slow'
+  - type: text
+    name: 'Sly'
+  - type: text
+    name: 'Small-thinking'
+  - type: text
+    name: 'Softheaded'
+  - type: text
+    name: 'Sordid'
+  - type: text
+    name: 'Steely'
+  - type: text
+    name: 'Stiff'
+  - type: text
+    name: 'Strong-willed'
+  - type: text
+    name: 'Stupid'
+  - type: text
+    name: 'Submissive'
+  - type: text
+    name: 'Superficial'
+  - type: text
+    name: 'Superstitious'
+  - type: text
+    name: 'Suspicious'
+  - type: text
+    name: 'Tactless'
+  - type: text
+    name: 'Tasteless'
+  - type: text
+    name: 'Tense'
+  - type: text
+    name: 'Thievish'
+  - type: text
+    name: 'Thoughtless'
+  - type: text
+    name: 'Timid'
+  - type: text
+    name: 'Transparent'
+  - type: text
+    name: 'Treacherous'
+  - type: text
+    name: 'Trendy'
+  - type: text
+    name: 'Troublesome'
+  - type: text
+    name: 'Unappreciative'
+  - type: text
+    name: 'Uncaring'
+  - type: text
+    name: 'Uncharitable'
+  - type: text
+    name: 'Unconvincing'
+  - type: text
+    name: 'Uncooperative'
+  - type: text
+    name: 'Uncreative'
+  - type: text
+    name: 'Uncritical'
+  - type: text
+    name: 'Unctuous'
+  - type: text
+    name: 'Undisciplined'
+  - type: text
+    name: 'Unfriendly'
+  - type: text
+    name: 'Ungrateful'
+  - type: text
+    name: 'Unhealthy'
+  - type: text
+    name: 'Unimaginative'
+  - type: text
+    name: 'Unimpressive'
+  - type: text
+    name: 'Unlovable'
+  - type: text
+    name: 'Unpolished'
+  - type: text
+    name: 'Unprincipled'
+  - type: text
+    name: 'Unrealistic'
+  - type: text
+    name: 'Unreflective'
+  - type: text
+    name: 'Unreliable'
+  - type: text
+    name: 'Unrestrained'
+  - type: text
+    name: 'Unself-critical'
+  - type: text
+    name: 'Unstable'
+  - type: text
+    name: 'Vacuous'
+  - type: text
+    name: 'Vague'
+  - type: text
+    name: 'Venal'
+  - type: text
+    name: 'Venomous'
+  - type: text
+    name: 'Vindictive'
+  - type: text
+    name: 'Vulnerable'
+  - type: text
+    name: 'Weak'
+  - type: text
+    name: 'Weak-willed'
+  - type: text
+    name: 'Well-meaning'
+  - type: text
+    name: 'Willful'
+  - type: text
+    name: 'Wishful'
+  - type: text
+    name: 'Zany'
+---
+name: Personality trait, neutral
+_id: dahuMEmAVTq9uVeX
+folder: HpCKB51M99A9zsxf
+description: 'Neutral personality traits for use in various macros'
+results:
+  - type: text
+    name: 'Absent-minded'
+  - type: text
+    name: 'Absentminded'
+  - type: text
+    name: 'Accessible'
+  - type: text
+    name: 'Active'
+  - type: text
+    name: 'Adaptable'
+  - type: text
+    name: 'Adventurous'
+  - type: text
+    name: 'Aggressive'
+  - type: text
+    name: 'Agreeable'
+  - type: text
+    name: 'Aloof'
+  - type: text
+    name: 'Altruistic'
+  - type: text
+    name: 'Ambitious'
+  - type: text
+    name: 'Amusing'
+  - type: text
+    name: 'Analytical'
+  - type: text
+    name: 'Angry'
+  - type: text
+    name: 'Anxious'
+  - type: text
+    name: 'Approval-seeking'
+  - type: text
+    name: 'Artful'
+  - type: text
+    name: 'Ascetic'
+  - type: text
+    name: 'Assertive'
+  - type: text
+    name: 'Authoritarian'
+  - type: text
+    name: 'Big-thinking'
+  - type: text
+    name: 'Boyish'
+  - type: text
+    name: 'Breezy'
+  - type: text
+    name: 'Businesslike'
+  - type: text
+    name: 'Busy'
+  - type: text
+    name: 'Callous'
+  - type: text
+    name: 'Calm'
+  - type: text
+    name: 'Careless'
+  - type: text
+    name: 'Casual'
+  - type: text
+    name: 'Charismatic'
+  - type: text
+    name: 'Charming'
+  - type: text
+    name: 'Cheerful'
+  - type: text
+    name: 'Chummy'
+  - type: text
+    name: 'Circumspect'
+  - type: text
+    name: 'Clever'
+  - type: text
+    name: 'Compassionate'
+  - type: text
+    name: 'Competitive'
+  - type: text
+    name: 'Complex'
+  - type: text
+    name: 'Compliant'
+  - type: text
+    name: 'Confident'
+  - type: text
+    name: 'Confidential'
+  - type: text
+    name: 'Conforming'
+  - type: text
+    name: 'Conscientious'
+  - type: text
+    name: 'Conservative'
+  - type: text
+    name: 'Considerate'
+  - type: text
+    name: 'Contemplative'
+  - type: text
+    name: 'Contradictory'
+  - type: text
+    name: 'Courageous'
+  - type: text
+    name: 'Creative'
+  - type: text
+    name: 'Crebral'
+  - type: text
+    name: 'Crisp'
+  - type: text
+    name: 'Cruel'
+  - type: text
+    name: 'Curious'
+  - type: text
+    name: 'Cute'
+  - type: text
+    name: 'Cynical'
+  - type: text
+    name: 'Deceptive'
+  - type: text
+    name: 'Decisive'
+  - type: text
+    name: 'Determined'
+  - type: text
+    name: 'Dishonest'
+  - type: text
+    name: 'Dominating'
+  - type: text
+    name: 'Dramatic'
+  - type: text
+    name: 'Dreamy'
+  - type: text
+    name: 'Driving'
+  - type: text
+    name: 'Droll'
+  - type: text
+    name: 'Dry'
+  - type: text
+    name: 'Earthy'
+  - type: text
+    name: 'Effeminate'
+  - type: text
+    name: 'Emotional'
+  - type: text
+    name: 'Emotionally stable'
+  - type: text
+    name: 'Empathetic'
+  - type: text
+    name: 'Energetic'
+  - type: text
+    name: 'Enigmatic'
+  - type: text
+    name: 'Enthusiastic'
+  - type: text
+    name: 'Experimental'
+  - type: text
+    name: 'Extroverted'
+  - type: text
+    name: 'Familial'
+  - type: text
+    name: 'Folksy'
+  - type: text
+    name: 'Formal'
+  - type: text
+    name: 'Forthright'
+  - type: text
+    name: 'Freewheeling'
+  - type: text
+    name: 'Friendly'
+  - type: text
+    name: 'Frugal'
+  - type: text
+    name: 'Glamorous'
+  - type: text
+    name: 'Gregarious'
+  - type: text
+    name: 'Guileless'
+  - type: text
+    name: 'High-spirited'
+  - type: text
+    name: 'Honest'
+  - type: text
+    name: 'Huried'
+  - type: text
+    name: 'Hypnotic'
+  - type: text
+    name: 'Iconoclastic'
+  - type: text
+    name: 'Idiosyncratic'
+  - type: text
+    name: 'Impassive'
+  - type: text
+    name: 'Impersonal'
+  - type: text
+    name: 'Impressionable'
+  - type: text
+    name: 'Impulsive'
+  - type: text
+    name: 'Intense'
+  - type: text
+    name: 'Introverted'
+  - type: text
+    name: 'Invisible'
+  - type: text
+    name: 'Irreligious'
+  - type: text
+    name: 'Irreverent'
+  - type: text
+    name: 'Irritable'
+  - type: text
+    name: 'Kind'
+  - type: text
+    name: 'Loyal'
+  - type: text
+    name: 'Maternal'
+  - type: text
+    name: 'Mature'
+  - type: text
+    name: 'Mellow'
+  - type: text
+    name: 'Meticulous'
+  - type: text
+    name: 'Modern'
+  - type: text
+    name: 'Modest'
+  - type: text
+    name: 'Moody'
+  - type: text
+    name: 'Moralistic'
+  - type: text
+    name: 'Mystical'
+  - type: text
+    name: 'Narcissistic'
+  - type: text
+    name: 'Neat'
+  - type: text
+    name: 'Needy'
+  - type: text
+    name: 'Nervous'
+  - type: text
+    name: 'Neurotic'
+  - type: text
+    name: 'Neutral'
+  - type: text
+    name: 'Noncommittal'
+  - type: text
+    name: 'Noncompetitive'
+  - type: text
+    name: 'Obedient'
+  - type: text
+    name: 'Old-fashined'
+  - type: text
+    name: 'Open to experience'
+  - type: text
+    name: 'Opinionated'
+  - type: text
+    name: 'Optimistic'
+  - type: text
+    name: 'Orderly'
+  - type: text
+    name: 'Ordinary'
+  - type: text
+    name: 'Organized'
+  - type: text
+    name: 'Outspoken'
+  - type: text
+    name: 'Paternalistic'
+  - type: text
+    name: 'Peaceful'
+  - type: text
+    name: 'Perfectionistic'
+  - type: text
+    name: 'Physical'
+  - type: text
+    name: 'Placid'
+  - type: text
+    name: 'Playful'
+  - type: text
+    name: 'Political'
+  - type: text
+    name: 'Predictable'
+  - type: text
+    name: 'Preoccupied'
+  - type: text
+    name: 'Private'
+  - type: text
+    name: 'Progressive'
+  - type: text
+    name: 'Proud'
+  - type: text
+    name: 'Pure'
+  - type: text
+    name: 'Questioning'
+  - type: text
+    name: 'Quiet'
+  - type: text
+    name: 'Religious'
+  - type: text
+    name: 'Reserved'
+  - type: text
+    name: 'Resilient'
+  - type: text
+    name: 'Restrained'
+  - type: text
+    name: 'Retiring'
+  - type: text
+    name: 'Rigid'
+  - type: text
+    name: 'Risk-taking'
+  - type: text
+    name: 'Sarcastic'
+  - type: text
+    name: 'Self-conscious'
+  - type: text
+    name: 'Self-control'
+  - type: text
+    name: 'Selfish'
+  - type: text
+    name: 'Sensation-seeking'
+  - type: text
+    name: 'Sensual'
+  - type: text
+    name: 'Serious'
+  - type: text
+    name: 'Shy'
+  - type: text
+    name: 'Skeptical'
+  - type: text
+    name: 'Smooth'
+  - type: text
+    name: 'Sociable'
+  - type: text
+    name: 'Soft'
+  - type: text
+    name: 'Solemn'
+  - type: text
+    name: 'Solitary'
+  - type: text
+    name: 'Stern'
+  - type: text
+    name: 'Stoiid'
+  - type: text
+    name: 'Strict'
+  - type: text
+    name: 'Strong-willed'
+  - type: text
+    name: 'Stubborn'
+  - type: text
+    name: 'Stylish'
+  - type: text
+    name: 'Subjective'
+  - type: text
+    name: 'Surprising'
+  - type: text
+    name: 'Tidy'
+  - type: text
+    name: 'Timid'
+  - type: text
+    name: 'Tough'
+  - type: text
+    name: 'Trustworthy'
+  - type: text
+    name: 'Unaggressive'
+  - type: text
+    name: 'Unambitious'
+  - type: text
+    name: 'Unceremonious'
+  - type: text
+    name: 'Unchanging'
+  - type: text
+    name: 'Undemanding'
+  - type: text
+    name: 'Understanding'
+  - type: text
+    name: 'Unfathomable'
+  - type: text
+    name: 'Unhurried'
+  - type: text
+    name: 'Uninhibited'
+  - type: text
+    name: 'Unpatriotic'
+  - type: text
+    name: 'Unpredicatable'
+  - type: text
+    name: 'Unreligious'
+  - type: text
+    name: 'Unsentimental'
+  - type: text
+    name: 'Vindictive'
+  - type: text
+    name: 'Warm'
+  - type: text
+    name: 'Whimsical'
+---
+name: Personality trait, positive
+_id: 9mdeofNXuBKWd2sV
+folder: HpCKB51M99A9zsxf
+description: 'Positive personality traits for use in various macros'
+results:
+  - type: text
+    name: 'Accessible'
+  - type: text
+    name: 'Active'
+  - type: text
+    name: 'Adaptable'
+  - type: text
+    name: 'Admirable'
+  - type: text
+    name: 'Adventurous'
+  - type: text
+    name: 'Affable'
+  - type: text
+    name: 'Affectionate'
+  - type: text
+    name: 'Agreeable'
+  - type: text
+    name: 'Alert'
+  - type: text
+    name: 'Allocentric'
+  - type: text
+    name: 'Ambitious'
+  - type: text
+    name: 'Amiable'
+  - type: text
+    name: 'Anticipative'
+  - type: text
+    name: 'Appreciative'
+  - type: text
+    name: 'Articulate'
+  - type: text
+    name: 'Aspiring'
+  - type: text
+    name: 'Assertive'
+  - type: text
+    name: 'Athletic'
+  - type: text
+    name: 'Attentive'
+  - type: text
+    name: 'Attractive'
+  - type: text
+    name: 'Authentic'
+  - type: text
+    name: 'Balanced'
+  - type: text
+    name: 'Benevolent'
+  - type: text
+    name: 'Brave'
+  - type: text
+    name: 'Brilliant'
+  - type: text
+    name: 'Calm'
+  - type: text
+    name: 'Capable'
+  - type: text
+    name: 'Captivating'
+  - type: text
+    name: 'Careful'
+  - type: text
+    name: 'Caring'
+  - type: text
+    name: 'Challenging'
+  - type: text
+    name: 'Charismatic'
+  - type: text
+    name: 'Charming'
+  - type: text
+    name: 'Cheerful'
+  - type: text
+    name: 'Clean'
+  - type: text
+    name: 'Clear-headed'
+  - type: text
+    name: 'Clever'
+  - type: text
+    name: 'Colorful'
+  - type: text
+    name: 'Companionly'
+  - type: text
+    name: 'Compassionate'
+  - type: text
+    name: 'Conciliatory'
+  - type: text
+    name: 'Confident'
+  - type: text
+    name: 'Conscientious'
+  - type: text
+    name: 'Considerate'
+  - type: text
+    name: 'Constant'
+  - type: text
+    name: 'Contemplative'
+  - type: text
+    name: 'Cooperative'
+  - type: text
+    name: 'Courageous'
+  - type: text
+    name: 'Courteous'
+  - type: text
+    name: 'Creative'
+  - type: text
+    name: 'Cultured'
+  - type: text
+    name: 'Curious'
+  - type: text
+    name: 'Daring'
+  - type: text
+    name: 'Debonair'
+  - type: text
+    name: 'Decent'
+  - type: text
+    name: 'Decisive'
+  - type: text
+    name: 'Dedicated'
+  - type: text
+    name: 'Deep'
+  - type: text
+    name: 'Delightful'
+  - type: text
+    name: 'Dependable'
+  - type: text
+    name: 'Determined'
+  - type: text
+    name: 'Dignified'
+  - type: text
+    name: 'Diligent'
+  - type: text
+    name: 'Diplomatic'
+  - type: text
+    name: 'Directed'
+  - type: text
+    name: 'Disciplined'
+  - type: text
+    name: 'Discreet'
+  - type: text
+    name: 'Dramatic'
+  - type: text
+    name: 'Dutiful'
+  - type: text
+    name: 'Dynamic'
+  - type: text
+    name: 'Earnest'
+  - type: text
+    name: 'Easy-going'
+  - type: text
+    name: 'Ebullient'
+  - type: text
+    name: 'Educated'
+  - type: text
+    name: 'Efficient'
+  - type: text
+    name: 'Elegant'
+  - type: text
+    name: 'Eloquent'
+  - type: text
+    name: 'Empathetic'
+  - type: text
+    name: 'Energetic'
+  - type: text
+    name: 'Enthusiastic'
+  - type: text
+    name: 'Esthetic'
+  - type: text
+    name: 'Ethical'
+  - type: text
+    name: 'Excellent'
+  - type: text
+    name: 'Exciting'
+  - type: text
+    name: 'Expressive'
+  - type: text
+    name: 'Extraordinary'
+  - type: text
+    name: 'Fair'
+  - type: text
+    name: 'Faithful'
+  - type: text
+    name: 'Farsighted'
+  - type: text
+    name: 'Fearless'
+  - type: text
+    name: 'Felicific'
+  - type: text
+    name: 'Firm'
+  - type: text
+    name: 'Flexible'
+  - type: text
+    name: 'Focused'
+  - type: text
+    name: 'Forecful'
+  - type: text
+    name: 'Forgiving'
+  - type: text
+    name: 'Forthright'
+  - type: text
+    name: 'Freethinking'
+  - type: text
+    name: 'Friendly'
+  - type: text
+    name: 'Fun-loving'
+  - type: text
+    name: 'Gallant'
+  - type: text
+    name: 'Generous'
+  - type: text
+    name: 'Gentle'
+  - type: text
+    name: 'Genuine'
+  - type: text
+    name: 'Giving'
+  - type: text
+    name: 'Good-natured'
+  - type: text
+    name: 'Gracious'
+  - type: text
+    name: 'Happy'
+  - type: text
+    name: 'Hardworking'
+  - type: text
+    name: 'Healthy'
+  - type: text
+    name: 'Hearty'
+  - type: text
+    name: 'Helpful'
+  - type: text
+    name: 'Herioc'
+  - type: text
+    name: 'High-minded'
+  - type: text
+    name: 'Honest'
+  - type: text
+    name: 'Honorable'
+  - type: text
+    name: 'Humble'
+  - type: text
+    name: 'Humorous'
+  - type: text
+    name: 'Idealistic'
+  - type: text
+    name: 'Imaginative'
+  - type: text
+    name: 'Impressive'
+  - type: text
+    name: 'Incisive'
+  - type: text
+    name: 'Incorruptible'
+  - type: text
+    name: 'Independent'
+  - type: text
+    name: 'Individualistic'
+  - type: text
+    name: 'Industrious'
+  - type: text
+    name: 'Innovative'
+  - type: text
+    name: 'Inoffensive'
+  - type: text
+    name: 'Insightful'
+  - type: text
+    name: 'Insouciant'
+  - type: text
+    name: 'Inspiring'
+  - type: text
+    name: 'Intelligent'
+  - type: text
+    name: 'Intuitive'
+  - type: text
+    name: 'Invulnerable'
+  - type: text
+    name: 'Joyful'
+  - type: text
+    name: 'Kind'
+  - type: text
+    name: 'Knowledge'
+  - type: text
+    name: 'Knowledgeable'
+  - type: text
+    name: 'Leaderly'
+  - type: text
+    name: 'Leisurely'
+  - type: text
+    name: 'Liberal'
+  - type: text
+    name: 'Likable'
+  - type: text
+    name: 'Logical'
+  - type: text
+    name: 'Lovable'
+  - type: text
+    name: 'Loving'
+  - type: text
+    name: 'Loyal'
+  - type: text
+    name: 'Lyrical'
+  - type: text
+    name: 'Magnanimous'
+  - type: text
+    name: 'Many-sided'
+  - type: text
+    name: 'Masculine'
+  - type: text
+    name: 'Maticulous'
+  - type: text
+    name: 'Mature'
+  - type: text
+    name: 'Methodical'
+  - type: text
+    name: 'Meticulous'
+  - type: text
+    name: 'Moderate'
+  - type: text
+    name: 'Modest'
+  - type: text
+    name: 'Motivated'
+  - type: text
+    name: 'Multi-leveled'
+  - type: text
+    name: 'Neat'
+  - type: text
+    name: 'Nonauthoritarian'
+  - type: text
+    name: 'Objective'
+  - type: text
+    name: 'Observant'
+  - type: text
+    name: 'Open'
+  - type: text
+    name: 'Optimistic'
+  - type: text
+    name: 'Orderly'
+  - type: text
+    name: 'Organized'
+  - type: text
+    name: 'Original'
+  - type: text
+    name: 'Painstaking'
+  - type: text
+    name: 'Passionate'
+  - type: text
+    name: 'Patient'
+  - type: text
+    name: 'Patriotic'
+  - type: text
+    name: 'Peaceful'
+  - type: text
+    name: 'Perceptive'
+  - type: text
+    name: 'Perfectionist'
+  - type: text
+    name: 'Persevering'
+  - type: text
+    name: 'Persistent'
+  - type: text
+    name: 'Personable'
+  - type: text
+    name: 'Persuasive'
+  - type: text
+    name: 'Philosophical'
+  - type: text
+    name: 'Planful'
+  - type: text
+    name: 'Playful'
+  - type: text
+    name: 'Polished'
+  - type: text
+    name: 'Polite'
+  - type: text
+    name: 'Popular'
+  - type: text
+    name: 'Positive'
+  - type: text
+    name: 'Practical'
+  - type: text
+    name: 'Precise'
+  - type: text
+    name: 'Principled'
+  - type: text
+    name: 'Proactive'
+  - type: text
+    name: 'Productive'
+  - type: text
+    name: 'Profound'
+  - type: text
+    name: 'Protean'
+  - type: text
+    name: 'Protective'
+  - type: text
+    name: 'Proud'
+  - type: text
+    name: 'Providential'
+  - type: text
+    name: 'Prudent'
+  - type: text
+    name: 'Pruposeful'
+  - type: text
+    name: 'Punctual'
+  - type: text
+    name: 'Rational'
+  - type: text
+    name: 'Realistic'
+  - type: text
+    name: 'Reflective'
+  - type: text
+    name: 'Relaxed'
+  - type: text
+    name: 'Reliable'
+  - type: text
+    name: 'Resourceful'
+  - type: text
+    name: 'Respectful'
+  - type: text
+    name: 'Responsible'
+  - type: text
+    name: 'Responsive'
+  - type: text
+    name: 'Reverential'
+  - type: text
+    name: 'Romantic'
+  - type: text
+    name: 'Rustic'
+  - type: text
+    name: 'Sage'
+  - type: text
+    name: 'Sane'
+  - type: text
+    name: 'Scholarly'
+  - type: text
+    name: 'Scrupulous'
+  - type: text
+    name: 'Secure'
+  - type: text
+    name: 'Self-critical'
+  - type: text
+    name: 'Self-defacing'
+  - type: text
+    name: 'Self-denying'
+  - type: text
+    name: 'Self-reliant'
+  - type: text
+    name: 'Self-sufficent'
+  - type: text
+    name: 'Selfless'
+  - type: text
+    name: 'Sensitive'
+  - type: text
+    name: 'Sentimental'
+  - type: text
+    name: 'Seraphic'
+  - type: text
+    name: 'Serious'
+  - type: text
+    name: 'Sexy'
+  - type: text
+    name: 'Sharing'
+  - type: text
+    name: 'Shrewd'
+  - type: text
+    name: 'Simple'
+  - type: text
+    name: 'Skillful'
+  - type: text
+    name: 'Sober'
+  - type: text
+    name: 'Sociable'
+  - type: text
+    name: 'Solid'
+  - type: text
+    name: 'Sophisticated'
+  - type: text
+    name: 'Spontaneous'
+  - type: text
+    name: 'Sporting'
+  - type: text
+    name: 'Stable'
+  - type: text
+    name: 'Steadfast'
+  - type: text
+    name: 'Steady'
+  - type: text
+    name: 'Stoic'
+  - type: text
+    name: 'Strong'
+  - type: text
+    name: 'Studious'
+  - type: text
+    name: 'Suave'
+  - type: text
+    name: 'Subtle'
+  - type: text
+    name: 'Sweet'
+  - type: text
+    name: 'Sympathetic'
+  - type: text
+    name: 'Systematic'
+  - type: text
+    name: 'Tasteful'
+  - type: text
+    name: 'Teacherly'
+  - type: text
+    name: 'Thorough'
+  - type: text
+    name: 'Tidy'
+  - type: text
+    name: 'Tolerant'
+  - type: text
+    name: 'Tractable'
+  - type: text
+    name: 'Trusting'
+  - type: text
+    name: 'Uncomplaining'
+  - type: text
+    name: 'Understanding'
+  - type: text
+    name: 'Undogmatic'
+  - type: text
+    name: 'Unfoolable'
+  - type: text
+    name: 'Upright'
+  - type: text
+    name: 'Urbane'
+  - type: text
+    name: 'Venturesome'
+  - type: text
+    name: 'Vivacious'
+  - type: text
+    name: 'Warm'
+  - type: text
+    name: 'Well-bred'
+  - type: text
+    name: 'Well-read'
+  - type: text
+    name: 'Well-rounded'
+  - type: text
+    name: 'Winning'
+  - type: text
+    name: 'Wise'
+  - type: text
+    name: 'Witty'
+  - type: text
+    name: 'Youthful'
+---
+name: Look
+_id: 54l3EWfQe0lyXwH9
+folder: HpCKB51M99A9zsxf
+description: 'Physical looks for use in various macros'
+results:
+  - type: text
+    name: 'Afro'
+  - type: text
+    name: 'Athletic'
+  - type: text
+    name: 'Baby-faced'
+  - type: text
+    name: 'Bald'
+  - type: text
+    name: 'Big'
+  - type: text
+    name: 'Birthmark'
+  - type: text
+    name: 'Bleach blonde'
+  - type: text
+    name: 'Bony'
+  - type: text
+    name: 'Braided hair'
+  - type: text
+    name: 'Broad-shouldered'
+  - type: text
+    name: 'Broken nose'
+  - type: text
+    name: 'Burn scars'
+  - type: text
+    name: 'Buzz cut'
+  - type: text
+    name: 'Chiseled'
+  - type: text
+    name: 'Cleft chin'
+  - type: text
+    name: 'Crew cut'
+  - type: text
+    name: 'Crooked nose'
+  - type: text
+    name: 'Curly hair'
+  - type: text
+    name: 'Delicate'
+  - type: text
+    name: 'Dimpled'
+  - type: text
+    name: 'Dreadlocks'
+  - type: text
+    name: 'Droopy-eyed'
+  - type: text
+    name: 'Elegant'
+  - type: text
+    name: 'Eyepatch'
+  - type: text
+    name: 'Fair'
+  - type: text
+    name: 'Fashionable'
+  - type: text
+    name: 'Feathered hair'
+  - type: text
+    name: 'Flamboyant'
+  - type: text
+    name: 'Flushed'
+  - type: text
+    name: 'Freckled'
+  - type: text
+    name: 'Full beard'
+  - type: text
+    name: 'Gaunt'
+  - type: text
+    name: 'Glasses'
+  - type: text
+    name: 'Goatee'
+  - type: text
+    name: 'Gold tooth'
+  - type: text
+    name: 'Graceful'
+  - type: text
+    name: 'Greasy hair'
+  - type: text
+    name: 'Grimy'
+  - type: text
+    name: 'Hair in a bun'
+  - type: text
+    name: 'Handsome'
+  - type: text
+    name: 'Hawk nose'
+  - type: text
+    name: 'Heavy-browed'
+  - type: text
+    name: 'Hunched'
+  - type: text
+    name: 'Impressive'
+  - type: text
+    name: 'Languid'
+  - type: text
+    name: 'Lanky'
+  - type: text
+    name: 'Limping'
+  - type: text
+    name: 'Long hair'
+  - type: text
+    name: 'Lovely'
+  - type: text
+    name: 'Mismatched eyes'
+  - type: text
+    name: 'Missing finger'
+  - type: text
+    name: 'Missing tooth'
+  - type: text
+    name: 'Mohawk'
+  - type: text
+    name: 'Monocle'
+  - type: text
+    name: 'Muscular'
+  - type: text
+    name: 'Mustache'
+  - type: text
+    name: 'Mutton chops'
+  - type: text
+    name: 'Nose ring'
+  - type: text
+    name: 'Olive-skinned'
+  - type: text
+    name: 'Pageboy hair'
+  - type: text
+    name: 'Pale'
+  - type: text
+    name: 'Petite'
+  - type: text
+    name: 'Pierced ears'
+  - type: text
+    name: 'Piercing eyes'
+  - type: text
+    name: 'Pixie cut'
+  - type: text
+    name: 'Plump'
+  - type: text
+    name: 'Pockmarked'
+  - type: text
+    name: 'Ponytail'
+  - type: text
+    name: 'Pot-bellied'
+  - type: text
+    name: 'Prematurely gray'
+  - type: text
+    name: 'Red-haired'
+  - type: text
+    name: 'Rosy-cheeked'
+  - type: text
+    name: 'Rough'
+  - type: text
+    name: 'Ruddy'
+  - type: text
+    name: 'Scarred'
+  - type: text
+    name: 'Shag cut'
+  - type: text
+    name: 'Shaved head'
+  - type: text
+    name: 'Shifty'
+  - type: text
+    name: 'Short'
+  - type: text
+    name: 'Sickly'
+  - type: text
+    name: 'Sideburns'
+  - type: text
+    name: 'Silver-haired'
+  - type: text
+    name: 'Slicked-back hair'
+  - type: text
+    name: 'Soft'
+  - type: text
+    name: 'Square-jawed'
+  - type: text
+    name: 'Stern'
+  - type: text
+    name: 'Stocky'
+  - type: text
+    name: 'Stubble'
+  - type: text
+    name: 'Sunburned'
+  - type: text
+    name: 'Sweaty'
+  - type: text
+    name: 'Tall'
+  - type: text
+    name: 'Tattooed'
+  - type: text
+    name: 'Thinning hair'
+  - type: text
+    name: 'Tidy'
+  - type: text
+    name: 'Twitchy'
+  - type: text
+    name: 'Unkempt hair'
+  - type: text
+    name: 'Weathered'
+  - type: text
+    name: 'Wild-eyed'
+  - type: text
+    name: 'Wiry'
+  - type: text
+    name: 'Wrinkled'
+---
+name: Style
+_id: Qr62AKxmnjbWaUus
+folder: HpCKB51M99A9zsxf
+description: 'Clothing styles for use in various macros'
+results:
+  - type: text
+    name: 'A-line dress'
+  - type: text
+    name: 'Apron'
+  - type: text
+    name: 'Awkward suit'
+  - type: text
+    name: 'Ball gown'
+  - type: text
+    name: 'Band T-shirt'
+  - type: text
+    name: 'Bandana'
+  - type: text
+    name: 'Baseball cap'
+  - type: text
+    name: 'Bell-bottoms'
+  - type: text
+    name: 'Beret'
+  - type: text
+    name: 'Blazer'
+  - type: text
+    name: 'Bomber jacket'
+  - type: text
+    name: 'Bowler hat'
+  - type: text
+    name: 'Bowtie'
+  - type: text
+    name: 'Cardigan'
+  - type: text
+    name: 'Cargo pants'
+  - type: text
+    name: 'Catsuit'
+  - type: text
+    name: 'Cheongsam'
+  - type: text
+    name: 'Clerical collar'
+  - type: text
+    name: 'Cloche hat'
+  - type: text
+    name: 'Combat boots'
+  - type: text
+    name: 'Corduroy jacket'
+  - type: text
+    name: 'Cowboy boots'
+  - type: text
+    name: 'Cowboy hat'
+  - type: text
+    name: 'Cravat'
+  - type: text
+    name: 'Dark suit'
+  - type: text
+    name: 'Dashiki'
+  - type: text
+    name: 'Denim'
+  - type: text
+    name: 'Duster coat'
+  - type: text
+    name: 'Evening dress'
+  - type: text
+    name: 'Fedora'
+  - type: text
+    name: 'Fingerless gloves'
+  - type: text
+    name: 'Flannel shirt'
+  - type: text
+    name: 'Flapper dress'
+  - type: text
+    name: 'Flat cap'
+  - type: text
+    name: 'Fur coat'
+  - type: text
+    name: 'Goatskin vest'
+  - type: text
+    name: 'Goggles'
+  - type: text
+    name: 'Hawaiian shirt'
+  - type: text
+    name: 'Headscarf'
+  - type: text
+    name: 'Heavy coat'
+  - type: text
+    name: 'Hoodie'
+  - type: text
+    name: 'Jodhpurs'
+  - type: text
+    name: 'Jumpsuit'
+  - type: text
+    name: 'Kilt'
+  - type: text
+    name: 'Kimono'
+  - type: text
+    name: 'Knit cap'
+  - type: text
+    name: 'Lab coat'
+  - type: text
+    name: 'Leather jacket'
+  - type: text
+    name: 'Linen suit'
+  - type: text
+    name: 'Metallic dress'
+  - type: text
+    name: 'Military wear'
+  - type: text
+    name: 'Miniskirt'
+  - type: text
+    name: 'Nehru suit'
+  - type: text
+    name: 'Nurse uniform'
+  - type: text
+    name: 'Old suit'
+  - type: text
+    name: 'Overalls'
+  - type: text
+    name: 'Paisley shirt'
+  - type: text
+    name: 'Parka'
+  - type: text
+    name: 'Peacoat'
+  - type: text
+    name: 'Pearl necklace'
+  - type: text
+    name: 'Pencil skirt'
+  - type: text
+    name: 'Pillbox hat'
+  - type: text
+    name: 'Pinstripe suit'
+  - type: text
+    name: 'Pith helmet'
+  - type: text
+    name: 'Plaid pants'
+  - type: text
+    name: 'Pleated skirt'
+  - type: text
+    name: 'Pocket watch'
+  - type: text
+    name: 'Police uniform'
+  - type: text
+    name: 'Polo shirt'
+  - type: text
+    name: 'Poncho'
+  - type: text
+    name: 'Raincoat'
+  - type: text
+    name: 'Riding boots'
+  - type: text
+    name: 'Ruffled shirt'
+  - type: text
+    name: 'Sandals'
+  - type: text
+    name: 'Sari'
+  - type: text
+    name: 'Sarong'
+  - type: text
+    name: 'Scrubs'
+  - type: text
+    name: 'Seersucker suit'
+  - type: text
+    name: 'Sharp suit'
+  - type: text
+    name: 'Silk scarf'
+  - type: text
+    name: 'Smoking jacket'
+  - type: text
+    name: 'Sneakers'
+  - type: text
+    name: 'Sundress'
+  - type: text
+    name: 'Sunglasses'
+  - type: text
+    name: 'Suspenders'
+  - type: text
+    name: 'Sweater-vest'
+  - type: text
+    name: 'Tank top'
+  - type: text
+    name: 'Three-piece suit'
+  - type: text
+    name: 'Top hat'
+  - type: text
+    name: 'Tracksuit'
+  - type: text
+    name: 'Trench coat'
+  - type: text
+    name: 'Turtleneck'
+  - type: text
+    name: 'Tuxedo'
+  - type: text
+    name: 'Tweed jacket'
+  - type: text
+    name: 'Utilitarian'
+  - type: text
+    name: 'Velvet suit'
+  - type: text
+    name: 'Waistcoat'
+  - type: text
+    name: 'Wingtip shoes'
+  - type: text
+    name: 'Workwear'
+  - type: text
+    name: 'Zoot suit'
+---
+name: Goal
+_id: jxmdtbzo5flZFS2Y
+folder: HpCKB51M99A9zsxf
+description: 'Character goals for use in various macros'
+results:
+  - type: text
+    name: 'A fresh start'
+  - type: text
+    name: 'A home'
+  - type: text
+    name: 'Acceptance'
+  - type: text
+    name: 'Achievement'
+  - type: text
+    name: 'Adventure'
+  - type: text
+    name: 'Anarchy'
+  - type: text
+    name: 'Answers'
+  - type: text
+    name: 'Approval'
+  - type: text
+    name: 'Atonement'
+  - type: text
+    name: 'Attention'
+  - type: text
+    name: 'Authority'
+  - type: text
+    name: 'Beauty'
+  - type: text
+    name: 'Belonging'
+  - type: text
+    name: 'Change'
+  - type: text
+    name: 'Chaos and destruction'
+  - type: text
+    name: 'Charity'
+  - type: text
+    name: 'Children'
+  - type: text
+    name: 'Closure'
+  - type: text
+    name: 'Comfort'
+  - type: text
+    name: 'Community'
+  - type: text
+    name: 'Control'
+  - type: text
+    name: 'Cooperation'
+  - type: text
+    name: 'Creativity'
+  - type: text
+    name: 'Debt repaid'
+  - type: text
+    name: 'Discovery'
+  - type: text
+    name: 'Dominance'
+  - type: text
+    name: 'Duty'
+  - type: text
+    name: 'Enlightenment'
+  - type: text
+    name: 'Equality'
+  - type: text
+    name: 'Escape'
+  - type: text
+    name: 'Excitement'
+  - type: text
+    name: 'Faith'
+  - type: text
+    name: 'Family'
+  - type: text
+    name: 'Forgiveness'
+  - type: text
+    name: 'Freedom'
+  - type: text
+    name: 'Friendship'
+  - type: text
+    name: 'Glory'
+  - type: text
+    name: 'Happiness'
+  - type: text
+    name: 'Harmony'
+  - type: text
+    name: 'Health'
+  - type: text
+    name: 'Heroism'
+  - type: text
+    name: 'Honor'
+  - type: text
+    name: 'Immortality'
+  - type: text
+    name: 'Independence'
+  - type: text
+    name: 'Infamy and fear'
+  - type: text
+    name: 'Influence'
+  - type: text
+    name: 'Inheritance'
+  - type: text
+    name: 'Innovation'
+  - type: text
+    name: 'Justice'
+  - type: text
+    name: 'Knowledge'
+  - type: text
+    name: 'Land'
+  - type: text
+    name: 'Legacy'
+  - type: text
+    name: 'Liberation'
+  - type: text
+    name: 'Lost love'
+  - type: text
+    name: 'Love'
+  - type: text
+    name: 'Loyalty'
+  - type: text
+    name: 'Luxury'
+  - type: text
+    name: 'Marriage'
+  - type: text
+    name: 'Mastery'
+  - type: text
+    name: 'Meaning'
+  - type: text
+    name: 'Notoriety'
+  - type: text
+    name: 'Novelty'
+  - type: text
+    name: 'Order'
+  - type: text
+    name: 'Peace'
+  - type: text
+    name: 'Perfection'
+  - type: text
+    name: 'Pleasure'
+  - type: text
+    name: 'Power'
+  - type: text
+    name: 'Prestige and fame'
+  - type: text
+    name: 'Privacy'
+  - type: text
+    name: 'Progress'
+  - type: text
+    name: 'Protecting others'
+  - type: text
+    name: 'Purity'
+  - type: text
+    name: 'Purpose'
+  - type: text
+    name: 'Rebellion'
+  - type: text
+    name: 'Recognition'
+  - type: text
+    name: 'Redemption'
+  - type: text
+    name: 'Respect'
+  - type: text
+    name: 'Retirement'
+  - type: text
+    name: 'Revenge'
+  - type: text
+    name: 'Safety'
+  - type: text
+    name: 'Salvation'
+  - type: text
+    name: 'Secrets'
+  - type: text
+    name: 'Security'
+  - type: text
+    name: 'Self-expression'
+  - type: text
+    name: 'Self-improvement'
+  - type: text
+    name: 'Service'
+  - type: text
+    name: 'Simplicity'
+  - type: text
+    name: 'Solitude'
+  - type: text
+    name: 'Stability'
+  - type: text
+    name: 'Status'
+  - type: text
+    name: 'Survival'
+  - type: text
+    name: 'Territory'
+  - type: text
+    name: 'Tradition'
+  - type: text
+    name: 'Truth'
+  - type: text
+    name: 'Understanding'
+  - type: text
+    name: 'Victory'
+  - type: text
+    name: 'Vindication'
+  - type: text
+    name: 'Wealth'
+  - type: text
+    name: 'Wisdom'
+  - type: text
+    name: 'Youth'
+---
+name: Method
+_id: uEhjEaUCxreG3UGk
+folder: HpCKB51M99A9zsxf
+description: 'Preferred methods for use in various macros'
+results:
+  - type: text
+    name: 'Alchemy'
+  - type: text
+    name: 'Alliances'
+  - type: text
+    name: 'Ambush'
+  - type: text
+    name: 'Arcane'
+  - type: text
+    name: 'Arson'
+  - type: text
+    name: 'Assassination'
+  - type: text
+    name: 'Avoidance'
+  - type: text
+    name: 'Betrayal'
+  - type: text
+    name: 'Blackmail'
+  - type: text
+    name: 'Bribery'
+  - type: text
+    name: 'Brute force'
+  - type: text
+    name: 'Bureaucracy'
+  - type: text
+    name: 'Chaos'
+  - type: text
+    name: 'Charm'
+  - type: text
+    name: 'Coercion'
+  - type: text
+    name: 'Commerce'
+  - type: text
+    name: 'Compromise'
+  - type: text
+    name: 'Courage'
+  - type: text
+    name: 'Cunning'
+  - type: text
+    name: 'Debate'
+  - type: text
+    name: 'Deception'
+  - type: text
+    name: 'Delegation'
+  - type: text
+    name: 'Diplomacy'
+  - type: text
+    name: 'Disguise'
+  - type: text
+    name: 'Divination'
+  - type: text
+    name: 'Double-dealing'
+  - type: text
+    name: 'Eavesdropping'
+  - type: text
+    name: 'Engineering'
+  - type: text
+    name: 'Espionage'
+  - type: text
+    name: 'Experimentation'
+  - type: text
+    name: 'Extortion'
+  - type: text
+    name: 'Faith'
+  - type: text
+    name: 'Favors'
+  - type: text
+    name: 'Flattery'
+  - type: text
+    name: 'Forgery'
+  - type: text
+    name: 'Fraud'
+  - type: text
+    name: 'Gambling'
+  - type: text
+    name: 'Generosity'
+  - type: text
+    name: 'Gossip'
+  - type: text
+    name: 'Hacking'
+  - type: text
+    name: 'Hard work'
+  - type: text
+    name: 'Hiding'
+  - type: text
+    name: 'Hired muscle'
+  - type: text
+    name: 'Honesty'
+  - type: text
+    name: 'Hostages'
+  - type: text
+    name: 'Improvisation'
+  - type: text
+    name: 'Infiltration'
+  - type: text
+    name: 'Insurgency'
+  - type: text
+    name: 'Intimidation'
+  - type: text
+    name: 'Invention'
+  - type: text
+    name: 'Investment'
+  - type: text
+    name: 'Kidnapping'
+  - type: text
+    name: 'Kindness'
+  - type: text
+    name: 'Law and politics'
+  - type: text
+    name: 'Lawsuits'
+  - type: text
+    name: 'Leadership'
+  - type: text
+    name: 'Legal loopholes'
+  - type: text
+    name: 'Luck'
+  - type: text
+    name: 'Manipulation'
+  - type: text
+    name: 'Marriage alliances'
+  - type: text
+    name: 'Medicine'
+  - type: text
+    name: 'Mercenaries'
+  - type: text
+    name: 'Mob rule'
+  - type: text
+    name: 'Negotiation'
+  - type: text
+    name: 'Nepotism'
+  - type: text
+    name: 'Networking'
+  - type: text
+    name: 'Occult lore'
+  - type: text
+    name: 'Overwhelming numbers'
+  - type: text
+    name: 'Patience'
+  - type: text
+    name: 'Patronage'
+  - type: text
+    name: 'Persistence'
+  - type: text
+    name: 'Persuasion'
+  - type: text
+    name: 'Philanthropy'
+  - type: text
+    name: 'Planning'
+  - type: text
+    name: 'Poison'
+  - type: text
+    name: 'Prayer'
+  - type: text
+    name: 'Propaganda'
+  - type: text
+    name: 'Prophecy'
+  - type: text
+    name: 'Recruitment'
+  - type: text
+    name: 'Ritual'
+  - type: text
+    name: 'Rumors'
+  - type: text
+    name: 'Sabotage'
+  - type: text
+    name: 'Science'
+  - type: text
+    name: 'Seduction'
+  - type: text
+    name: 'Smuggling'
+  - type: text
+    name: 'Speculation'
+  - type: text
+    name: 'Stealth'
+  - type: text
+    name: 'Strategy'
+  - type: text
+    name: 'Study'
+  - type: text
+    name: 'Subterfuge'
+  - type: text
+    name: 'Superstition'
+  - type: text
+    name: 'Surveillance'
+  - type: text
+    name: 'Teamwork'
+  - type: text
+    name: 'Technology'
+  - type: text
+    name: 'Terror'
+  - type: text
+    name: 'Theft'
+  - type: text
+    name: 'Threats'
+  - type: text
+    name: 'Torture'
+  - type: text
+    name: 'Tradition'
+  - type: text
+    name: 'Violence'

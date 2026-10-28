@@ -9,12 +9,25 @@ name: Actor Namer
 type: folder
 color: '#75844c'
 ---
+_id: IJVR5NrpyCCUDWtM
+name: Traits
+type: folder
+color: '#75844c'
+---
 _id: coc7macrofixtok1
 name: Reset Token Name
 type: script
 scope: global
 img: icons/sundries/flags/banner-yellow.webp
 command: await game.modules.get("modern-names").api.resetTokenNames();
+---
+_id: mMyR79KO4vDTg8x3
+name: Random Traits
+type: script
+scope: global
+folder: IJVR5NrpyCCUDWtM
+img: icons/sundries/books/book-red-exclamation.webp
+command: await game.modules.get("modern-names").api.applyTraits();
 ---
 _id: coc7macrandmaleA
 name: Random Male Name American (Token)

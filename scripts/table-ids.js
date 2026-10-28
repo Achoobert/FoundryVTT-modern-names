@@ -1,4 +1,4 @@
-/** Roll table document _id by culture (first name male/female, last name). */
+
 export const TABLE_IDS = {
   american: {
     male: 'yvXk3GTSA9adwv1z',
@@ -70,3 +70,14 @@ export const TABLE_IDS = {
 
 export const MODULE_ID = 'modern-names'
 export const COMPENDIUM_PACK = 'en-roll-tables'
+
+
+export const TRAIT_TABLE_IDS = [
+  '5Bl9rIcDVYK6GhIp',
+  'dahuMEmAVTq9uVeX',
+  '9mdeofNXuBKWd2sV',
+  '54l3EWfQe0lyXwH9',
+  'Qr62AKxmnjbWaUus',
+  'jxmdtbzo5flZFS2Y',
+  'uEhjEaUCxreG3UGk'
+]

@@ -7,11 +7,20 @@ folders:
   - _id: osUcnVzKwmBGuZel
     name: Actor Namer
     color: '#75844c'
+  - _id: IJVR5NrpyCCUDWtM
+    name: Traits
+    color: '#75844c'
 
 reset:
   _id: coc7macrofixtok1
   name: Reset Token Name
   img: icons/sundries/flags/banner-yellow.webp
+
+traits:
+  _id: mMyR79KO4vDTg8x3
+  name: Random Traits
+  folder: IJVR5NrpyCCUDWtM
+  img: icons/sundries/books/book-red-exclamation.webp
 
 random:
   - _id: coc7macrandmaleA

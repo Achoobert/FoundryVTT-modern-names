@@ -1,6 +1,6 @@
 import { COMPENDIUM_PACK, MODULE_ID, TABLE_IDS } from './table-ids.js'
 
-function tableUuid (tableId) {
+export function tableUuid (tableId) {
   return `Compendium.${MODULE_ID}.${COMPENDIUM_PACK}.RollTable.${tableId}`
 }
 
