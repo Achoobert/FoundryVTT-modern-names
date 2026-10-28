@@ -2,6 +2,7 @@ import {
   PACK_ROLL_TABLES,
   TABLE_AMERICAN_LAST,
   TABLE_AMERICAN_MALE,
+  CHARACTER_TABLES,
   TRAIT_TABLES,
   getTableDoc
 } from '../helpers.js'
@@ -27,7 +28,7 @@ export default function register (quench) {
         })
 
         it('draws one result from each trait table', async function () {
-          for (const tableId of Object.values(TRAIT_TABLES)) {
+          for (const tableId of [...Object.values(TRAIT_TABLES), ...Object.values(CHARACTER_TABLES)]) {
             const table = await getTableDoc(PACK_ROLL_TABLES, tableId)
             const draw = await table.draw({ displayChat: false })
             assert.isAtLeast(draw.results.length, 1)

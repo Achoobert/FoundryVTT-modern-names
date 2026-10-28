@@ -26,12 +26,38 @@ jobs:
       - name: Build compendiums and module
         run: npm run compendiums-build && npm run build
 
-      - name: Get Version from module.json
+      # The previously released module.json is the source for the patch number:
+      # each push to main releases patch + 1. If the repo module.json bumps
+      # major.minor, that wins and patch restarts at 0. The repo file is not
+      # committed back.
+      - name: Compute Next Version
         id: get_version_from_manifest
         run: |
-          version=$(jq -r .version ./module.json)
+          repo_version=$(jq -r '.version' module.json)
+          IFS='.' read -r repo_major repo_minor _ <<< "$repo_version"
+
+          released_version=$(curl -fsSL \
+            "${{ github.server_url }}/${{ github.repository }}/releases/latest/download/module.json" \
+            | jq -r '.version // empty' || true)
+
+          if [ -n "$released_version" ]; then
+            IFS='.' read -r old_major old_minor old_patch <<< "$released_version"
+          fi
+
+          if [ "${old_major:-}" = "$repo_major" ] && [ "${old_minor:-}" = "$repo_minor" ]; then
+            version="${repo_major}.${repo_minor}.$((10#${old_patch:-0} + 1))"
+          else
+            version="${repo_major}.${repo_minor}.0"
+          fi
+
+          echo "Released version: ${released_version:-none}; repo: ${repo_version}; next: ${version}"
           echo "version=$version" >> $GITHUB_OUTPUT
           echo "tag=v$version" >> $GITHUB_OUTPUT
+
+          # Stamp the version before packaging so the zip and the release
+          # manifest both carry it.
+          jq --arg version "$version" '.version = $version' module.json > module.json.tmp
+          mv module.json.tmp module.json
 
       - name: Prepare release manifest and module archive
         run: |
@@ -58,6 +84,8 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           allowUpdates: true
+          makeLatest: true
+          commit: ${{ github.sha }}
           name: v${{ steps.get_version_from_manifest.outputs.version }}
           tag: v${{ steps.get_version_from_manifest.outputs.version }}
           artifacts: './module.json, ./module.zip'

@@ -6863,3 +6863,827 @@ results:
     name: 'Witty'
   - type: text
     name: 'Youthful'
+---
+name: Look
+_id: 54l3EWfQe0lyXwH9
+folder: HpCKB51M99A9zsxf
+description: 'Physical looks for use in various macros'
+results:
+  - type: text
+    name: 'Afro'
+  - type: text
+    name: 'Athletic'
+  - type: text
+    name: 'Baby-faced'
+  - type: text
+    name: 'Bald'
+  - type: text
+    name: 'Big'
+  - type: text
+    name: 'Birthmark'
+  - type: text
+    name: 'Bleach blonde'
+  - type: text
+    name: 'Bony'
+  - type: text
+    name: 'Braided hair'
+  - type: text
+    name: 'Broad-shouldered'
+  - type: text
+    name: 'Broken nose'
+  - type: text
+    name: 'Burn scars'
+  - type: text
+    name: 'Buzz cut'
+  - type: text
+    name: 'Chiseled'
+  - type: text
+    name: 'Cleft chin'
+  - type: text
+    name: 'Crew cut'
+  - type: text
+    name: 'Crooked nose'
+  - type: text
+    name: 'Curly hair'
+  - type: text
+    name: 'Delicate'
+  - type: text
+    name: 'Dimpled'
+  - type: text
+    name: 'Dreadlocks'
+  - type: text
+    name: 'Droopy-eyed'
+  - type: text
+    name: 'Elegant'
+  - type: text
+    name: 'Eyepatch'
+  - type: text
+    name: 'Fair'
+  - type: text
+    name: 'Fashionable'
+  - type: text
+    name: 'Feathered hair'
+  - type: text
+    name: 'Flamboyant'
+  - type: text
+    name: 'Flushed'
+  - type: text
+    name: 'Freckled'
+  - type: text
+    name: 'Full beard'
+  - type: text
+    name: 'Gaunt'
+  - type: text
+    name: 'Glasses'
+  - type: text
+    name: 'Goatee'
+  - type: text
+    name: 'Gold tooth'
+  - type: text
+    name: 'Graceful'
+  - type: text
+    name: 'Greasy hair'
+  - type: text
+    name: 'Grimy'
+  - type: text
+    name: 'Hair in a bun'
+  - type: text
+    name: 'Handsome'
+  - type: text
+    name: 'Hawk nose'
+  - type: text
+    name: 'Heavy-browed'
+  - type: text
+    name: 'Hunched'
+  - type: text
+    name: 'Impressive'
+  - type: text
+    name: 'Languid'
+  - type: text
+    name: 'Lanky'
+  - type: text
+    name: 'Limping'
+  - type: text
+    name: 'Long hair'
+  - type: text
+    name: 'Lovely'
+  - type: text
+    name: 'Mismatched eyes'
+  - type: text
+    name: 'Missing finger'
+  - type: text
+    name: 'Missing tooth'
+  - type: text
+    name: 'Mohawk'
+  - type: text
+    name: 'Monocle'
+  - type: text
+    name: 'Muscular'
+  - type: text
+    name: 'Mustache'
+  - type: text
+    name: 'Mutton chops'
+  - type: text
+    name: 'Nose ring'
+  - type: text
+    name: 'Olive-skinned'
+  - type: text
+    name: 'Pageboy hair'
+  - type: text
+    name: 'Pale'
+  - type: text
+    name: 'Petite'
+  - type: text
+    name: 'Pierced ears'
+  - type: text
+    name: 'Piercing eyes'
+  - type: text
+    name: 'Pixie cut'
+  - type: text
+    name: 'Plump'
+  - type: text
+    name: 'Pockmarked'
+  - type: text
+    name: 'Ponytail'
+  - type: text
+    name: 'Pot-bellied'
+  - type: text
+    name: 'Prematurely gray'
+  - type: text
+    name: 'Red-haired'
+  - type: text
+    name: 'Rosy-cheeked'
+  - type: text
+    name: 'Rough'
+  - type: text
+    name: 'Ruddy'
+  - type: text
+    name: 'Scarred'
+  - type: text
+    name: 'Shag cut'
+  - type: text
+    name: 'Shaved head'
+  - type: text
+    name: 'Shifty'
+  - type: text
+    name: 'Short'
+  - type: text
+    name: 'Sickly'
+  - type: text
+    name: 'Sideburns'
+  - type: text
+    name: 'Silver-haired'
+  - type: text
+    name: 'Slicked-back hair'
+  - type: text
+    name: 'Soft'
+  - type: text
+    name: 'Square-jawed'
+  - type: text
+    name: 'Stern'
+  - type: text
+    name: 'Stocky'
+  - type: text
+    name: 'Stubble'
+  - type: text
+    name: 'Sunburned'
+  - type: text
+    name: 'Sweaty'
+  - type: text
+    name: 'Tall'
+  - type: text
+    name: 'Tattooed'
+  - type: text
+    name: 'Thinning hair'
+  - type: text
+    name: 'Tidy'
+  - type: text
+    name: 'Twitchy'
+  - type: text
+    name: 'Unkempt hair'
+  - type: text
+    name: 'Weathered'
+  - type: text
+    name: 'Wild-eyed'
+  - type: text
+    name: 'Wiry'
+  - type: text
+    name: 'Wrinkled'
+---
+name: Style
+_id: Qr62AKxmnjbWaUus
+folder: HpCKB51M99A9zsxf
+description: 'Clothing styles for use in various macros'
+results:
+  - type: text
+    name: 'A-line dress'
+  - type: text
+    name: 'Apron'
+  - type: text
+    name: 'Awkward suit'
+  - type: text
+    name: 'Ball gown'
+  - type: text
+    name: 'Band T-shirt'
+  - type: text
+    name: 'Bandana'
+  - type: text
+    name: 'Baseball cap'
+  - type: text
+    name: 'Bell-bottoms'
+  - type: text
+    name: 'Beret'
+  - type: text
+    name: 'Blazer'
+  - type: text
+    name: 'Bomber jacket'
+  - type: text
+    name: 'Bowler hat'
+  - type: text
+    name: 'Bowtie'
+  - type: text
+    name: 'Cardigan'
+  - type: text
+    name: 'Cargo pants'
+  - type: text
+    name: 'Catsuit'
+  - type: text
+    name: 'Cheongsam'
+  - type: text
+    name: 'Clerical collar'
+  - type: text
+    name: 'Cloche hat'
+  - type: text
+    name: 'Combat boots'
+  - type: text
+    name: 'Corduroy jacket'
+  - type: text
+    name: 'Cowboy boots'
+  - type: text
+    name: 'Cowboy hat'
+  - type: text
+    name: 'Cravat'
+  - type: text
+    name: 'Dark suit'
+  - type: text
+    name: 'Dashiki'
+  - type: text
+    name: 'Denim'
+  - type: text
+    name: 'Duster coat'
+  - type: text
+    name: 'Evening dress'
+  - type: text
+    name: 'Fedora'
+  - type: text
+    name: 'Fingerless gloves'
+  - type: text
+    name: 'Flannel shirt'
+  - type: text
+    name: 'Flapper dress'
+  - type: text
+    name: 'Flat cap'
+  - type: text
+    name: 'Fur coat'
+  - type: text
+    name: 'Goatskin vest'
+  - type: text
+    name: 'Goggles'
+  - type: text
+    name: 'Hawaiian shirt'
+  - type: text
+    name: 'Headscarf'
+  - type: text
+    name: 'Heavy coat'
+  - type: text
+    name: 'Hoodie'
+  - type: text
+    name: 'Jodhpurs'
+  - type: text
+    name: 'Jumpsuit'
+  - type: text
+    name: 'Kilt'
+  - type: text
+    name: 'Kimono'
+  - type: text
+    name: 'Knit cap'
+  - type: text
+    name: 'Lab coat'
+  - type: text
+    name: 'Leather jacket'
+  - type: text
+    name: 'Linen suit'
+  - type: text
+    name: 'Metallic dress'
+  - type: text
+    name: 'Military wear'
+  - type: text
+    name: 'Miniskirt'
+  - type: text
+    name: 'Nehru suit'
+  - type: text
+    name: 'Nurse uniform'
+  - type: text
+    name: 'Old suit'
+  - type: text
+    name: 'Overalls'
+  - type: text
+    name: 'Paisley shirt'
+  - type: text
+    name: 'Parka'
+  - type: text
+    name: 'Peacoat'
+  - type: text
+    name: 'Pearl necklace'
+  - type: text
+    name: 'Pencil skirt'
+  - type: text
+    name: 'Pillbox hat'
+  - type: text
+    name: 'Pinstripe suit'
+  - type: text
+    name: 'Pith helmet'
+  - type: text
+    name: 'Plaid pants'
+  - type: text
+    name: 'Pleated skirt'
+  - type: text
+    name: 'Pocket watch'
+  - type: text
+    name: 'Police uniform'
+  - type: text
+    name: 'Polo shirt'
+  - type: text
+    name: 'Poncho'
+  - type: text
+    name: 'Raincoat'
+  - type: text
+    name: 'Riding boots'
+  - type: text
+    name: 'Ruffled shirt'
+  - type: text
+    name: 'Sandals'
+  - type: text
+    name: 'Sari'
+  - type: text
+    name: 'Sarong'
+  - type: text
+    name: 'Scrubs'
+  - type: text
+    name: 'Seersucker suit'
+  - type: text
+    name: 'Sharp suit'
+  - type: text
+    name: 'Silk scarf'
+  - type: text
+    name: 'Smoking jacket'
+  - type: text
+    name: 'Sneakers'
+  - type: text
+    name: 'Sundress'
+  - type: text
+    name: 'Sunglasses'
+  - type: text
+    name: 'Suspenders'
+  - type: text
+    name: 'Sweater-vest'
+  - type: text
+    name: 'Tank top'
+  - type: text
+    name: 'Three-piece suit'
+  - type: text
+    name: 'Top hat'
+  - type: text
+    name: 'Tracksuit'
+  - type: text
+    name: 'Trench coat'
+  - type: text
+    name: 'Turtleneck'
+  - type: text
+    name: 'Tuxedo'
+  - type: text
+    name: 'Tweed jacket'
+  - type: text
+    name: 'Utilitarian'
+  - type: text
+    name: 'Velvet suit'
+  - type: text
+    name: 'Waistcoat'
+  - type: text
+    name: 'Wingtip shoes'
+  - type: text
+    name: 'Workwear'
+  - type: text
+    name: 'Zoot suit'
+---
+name: Goal
+_id: jxmdtbzo5flZFS2Y
+folder: HpCKB51M99A9zsxf
+description: 'Character goals for use in various macros'
+results:
+  - type: text
+    name: 'A fresh start'
+  - type: text
+    name: 'A home'
+  - type: text
+    name: 'Acceptance'
+  - type: text
+    name: 'Achievement'
+  - type: text
+    name: 'Adventure'
+  - type: text
+    name: 'Anarchy'
+  - type: text
+    name: 'Answers'
+  - type: text
+    name: 'Approval'
+  - type: text
+    name: 'Atonement'
+  - type: text
+    name: 'Attention'
+  - type: text
+    name: 'Authority'
+  - type: text
+    name: 'Beauty'
+  - type: text
+    name: 'Belonging'
+  - type: text
+    name: 'Change'
+  - type: text
+    name: 'Chaos and destruction'
+  - type: text
+    name: 'Charity'
+  - type: text
+    name: 'Children'
+  - type: text
+    name: 'Closure'
+  - type: text
+    name: 'Comfort'
+  - type: text
+    name: 'Community'
+  - type: text
+    name: 'Control'
+  - type: text
+    name: 'Cooperation'
+  - type: text
+    name: 'Creativity'
+  - type: text
+    name: 'Debt repaid'
+  - type: text
+    name: 'Discovery'
+  - type: text
+    name: 'Dominance'
+  - type: text
+    name: 'Duty'
+  - type: text
+    name: 'Enlightenment'
+  - type: text
+    name: 'Equality'
+  - type: text
+    name: 'Escape'
+  - type: text
+    name: 'Excitement'
+  - type: text
+    name: 'Faith'
+  - type: text
+    name: 'Family'
+  - type: text
+    name: 'Forgiveness'
+  - type: text
+    name: 'Freedom'
+  - type: text
+    name: 'Friendship'
+  - type: text
+    name: 'Glory'
+  - type: text
+    name: 'Happiness'
+  - type: text
+    name: 'Harmony'
+  - type: text
+    name: 'Health'
+  - type: text
+    name: 'Heroism'
+  - type: text
+    name: 'Honor'
+  - type: text
+    name: 'Immortality'
+  - type: text
+    name: 'Independence'
+  - type: text
+    name: 'Infamy and fear'
+  - type: text
+    name: 'Influence'
+  - type: text
+    name: 'Inheritance'
+  - type: text
+    name: 'Innovation'
+  - type: text
+    name: 'Justice'
+  - type: text
+    name: 'Knowledge'
+  - type: text
+    name: 'Land'
+  - type: text
+    name: 'Legacy'
+  - type: text
+    name: 'Liberation'
+  - type: text
+    name: 'Lost love'
+  - type: text
+    name: 'Love'
+  - type: text
+    name: 'Loyalty'
+  - type: text
+    name: 'Luxury'
+  - type: text
+    name: 'Marriage'
+  - type: text
+    name: 'Mastery'
+  - type: text
+    name: 'Meaning'
+  - type: text
+    name: 'Notoriety'
+  - type: text
+    name: 'Novelty'
+  - type: text
+    name: 'Order'
+  - type: text
+    name: 'Peace'
+  - type: text
+    name: 'Perfection'
+  - type: text
+    name: 'Pleasure'
+  - type: text
+    name: 'Power'
+  - type: text
+    name: 'Prestige and fame'
+  - type: text
+    name: 'Privacy'
+  - type: text
+    name: 'Progress'
+  - type: text
+    name: 'Protecting others'
+  - type: text
+    name: 'Purity'
+  - type: text
+    name: 'Purpose'
+  - type: text
+    name: 'Rebellion'
+  - type: text
+    name: 'Recognition'
+  - type: text
+    name: 'Redemption'
+  - type: text
+    name: 'Respect'
+  - type: text
+    name: 'Retirement'
+  - type: text
+    name: 'Revenge'
+  - type: text
+    name: 'Safety'
+  - type: text
+    name: 'Salvation'
+  - type: text
+    name: 'Secrets'
+  - type: text
+    name: 'Security'
+  - type: text
+    name: 'Self-expression'
+  - type: text
+    name: 'Self-improvement'
+  - type: text
+    name: 'Service'
+  - type: text
+    name: 'Simplicity'
+  - type: text
+    name: 'Solitude'
+  - type: text
+    name: 'Stability'
+  - type: text
+    name: 'Status'
+  - type: text
+    name: 'Survival'
+  - type: text
+    name: 'Territory'
+  - type: text
+    name: 'Tradition'
+  - type: text
+    name: 'Truth'
+  - type: text
+    name: 'Understanding'
+  - type: text
+    name: 'Victory'
+  - type: text
+    name: 'Vindication'
+  - type: text
+    name: 'Wealth'
+  - type: text
+    name: 'Wisdom'
+  - type: text
+    name: 'Youth'
+---
+name: Method
+_id: uEhjEaUCxreG3UGk
+folder: HpCKB51M99A9zsxf
+description: 'Preferred methods for use in various macros'
+results:
+  - type: text
+    name: 'Alchemy'
+  - type: text
+    name: 'Alliances'
+  - type: text
+    name: 'Ambush'
+  - type: text
+    name: 'Arcane'
+  - type: text
+    name: 'Arson'
+  - type: text
+    name: 'Assassination'
+  - type: text
+    name: 'Avoidance'
+  - type: text
+    name: 'Betrayal'
+  - type: text
+    name: 'Blackmail'
+  - type: text
+    name: 'Bribery'
+  - type: text
+    name: 'Brute force'
+  - type: text
+    name: 'Bureaucracy'
+  - type: text
+    name: 'Chaos'
+  - type: text
+    name: 'Charm'
+  - type: text
+    name: 'Coercion'
+  - type: text
+    name: 'Commerce'
+  - type: text
+    name: 'Compromise'
+  - type: text
+    name: 'Courage'
+  - type: text
+    name: 'Cunning'
+  - type: text
+    name: 'Debate'
+  - type: text
+    name: 'Deception'
+  - type: text
+    name: 'Delegation'
+  - type: text
+    name: 'Diplomacy'
+  - type: text
+    name: 'Disguise'
+  - type: text
+    name: 'Divination'
+  - type: text
+    name: 'Double-dealing'
+  - type: text
+    name: 'Eavesdropping'
+  - type: text
+    name: 'Engineering'
+  - type: text
+    name: 'Espionage'
+  - type: text
+    name: 'Experimentation'
+  - type: text
+    name: 'Extortion'
+  - type: text
+    name: 'Faith'
+  - type: text
+    name: 'Favors'
+  - type: text
+    name: 'Flattery'
+  - type: text
+    name: 'Forgery'
+  - type: text
+    name: 'Fraud'
+  - type: text
+    name: 'Gambling'
+  - type: text
+    name: 'Generosity'
+  - type: text
+    name: 'Gossip'
+  - type: text
+    name: 'Hacking'
+  - type: text
+    name: 'Hard work'
+  - type: text
+    name: 'Hiding'
+  - type: text
+    name: 'Hired muscle'
+  - type: text
+    name: 'Honesty'
+  - type: text
+    name: 'Hostages'
+  - type: text
+    name: 'Improvisation'
+  - type: text
+    name: 'Infiltration'
+  - type: text
+    name: 'Insurgency'
+  - type: text
+    name: 'Intimidation'
+  - type: text
+    name: 'Invention'
+  - type: text
+    name: 'Investment'
+  - type: text
+    name: 'Kidnapping'
+  - type: text
+    name: 'Kindness'
+  - type: text
+    name: 'Law and politics'
+  - type: text
+    name: 'Lawsuits'
+  - type: text
+    name: 'Leadership'
+  - type: text
+    name: 'Legal loopholes'
+  - type: text
+    name: 'Luck'
+  - type: text
+    name: 'Manipulation'
+  - type: text
+    name: 'Marriage alliances'
+  - type: text
+    name: 'Medicine'
+  - type: text
+    name: 'Mercenaries'
+  - type: text
+    name: 'Mob rule'
+  - type: text
+    name: 'Negotiation'
+  - type: text
+    name: 'Nepotism'
+  - type: text
+    name: 'Networking'
+  - type: text
+    name: 'Occult lore'
+  - type: text
+    name: 'Overwhelming numbers'
+  - type: text
+    name: 'Patience'
+  - type: text
+    name: 'Patronage'
+  - type: text
+    name: 'Persistence'
+  - type: text
+    name: 'Persuasion'
+  - type: text
+    name: 'Philanthropy'
+  - type: text
+    name: 'Planning'
+  - type: text
+    name: 'Poison'
+  - type: text
+    name: 'Prayer'
+  - type: text
+    name: 'Propaganda'
+  - type: text
+    name: 'Prophecy'
+  - type: text
+    name: 'Recruitment'
+  - type: text
+    name: 'Ritual'
+  - type: text
+    name: 'Rumors'
+  - type: text
+    name: 'Sabotage'
+  - type: text
+    name: 'Science'
+  - type: text
+    name: 'Seduction'
+  - type: text
+    name: 'Smuggling'
+  - type: text
+    name: 'Speculation'
+  - type: text
+    name: 'Stealth'
+  - type: text
+    name: 'Strategy'
+  - type: text
+    name: 'Study'
+  - type: text
+    name: 'Subterfuge'
+  - type: text
+    name: 'Superstition'
+  - type: text
+    name: 'Surveillance'
+  - type: text
+    name: 'Teamwork'
+  - type: text
+    name: 'Technology'
+  - type: text
+    name: 'Terror'
+  - type: text
+    name: 'Theft'
+  - type: text
+    name: 'Threats'
+  - type: text
+    name: 'Torture'
+  - type: text
+    name: 'Tradition'
+  - type: text
+    name: 'Violence'

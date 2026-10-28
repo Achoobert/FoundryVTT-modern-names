@@ -2,6 +2,7 @@ import {
   PACK_ROLL_TABLES,
   PACK_MACROS,
   TABLE_AMERICAN_MALE,
+  CHARACTER_TABLES,
   TRAIT_TABLES,
   getTableDoc,
   requirePack,
@@ -41,6 +42,14 @@ export default function register (quench) {
             const table = await getTableDoc(PACK_ROLL_TABLES, tableId)
             assert.equal(table.name, `Personality trait, ${kind}`)
             assert.isAbove(tableResultCount(table), 50)
+          })
+        }
+
+        for (const [name, tableId] of Object.entries(CHARACTER_TABLES)) {
+          it(`${name} table has 100 results`, async function () {
+            const table = await getTableDoc(PACK_ROLL_TABLES, tableId)
+            assert.equal(table.name, name)
+            assert.equal(tableResultCount(table), 100)
           })
         }
       })
