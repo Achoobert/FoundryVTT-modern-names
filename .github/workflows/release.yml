@@ -75,7 +75,7 @@ jobs:
           staging=$(mktemp -d)
           jq 'del(.manifest, .download)' ./module.json > "$staging/module.json"
           cp LICENSE "$staging/"
-          cp -r scripts packs "$staging/"
+          cp -r scripts packs assets "$staging/"
           (cd "$staging" && zip -r "$GITHUB_WORKSPACE/module.zip" .)
 
           mv ./module-release.json ./module.json
