@@ -15,6 +15,27 @@ Also it helps reduce player bloodthirstyness when it looks like they are killing
 
 https://github.com/user-attachments/assets/8ca4f94c-9d2e-4f4d-98bc-4bb39ec908a7
 
+### Token status effects
+
+When the module is active, these show up in every token's **Assign Status Effects** menu: Drinking, Inebriated, High, Caffeinated, Hungover, Disguised, Smoking, Joint, Downers, Medicated, Cigar and Aroused. They work in any system, including Call of Cthulhu.
+
+Icons are from [game-icons.net](https://game-icons.net/), licensed [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/):
+
+| Effect | Icon | Artist |
+| --- | --- | --- |
+| Drinking | [drinking](https://game-icons.net/1x1/delapouite/drinking.html) | Delapouite |
+| Inebriated | [knockout](https://game-icons.net/1x1/skoll/knockout.html) | Skoll |
+| High | [powder](https://game-icons.net/1x1/lorc/powder.html) | Lorc |
+| Caffeinated | [coffee-cup](https://game-icons.net/1x1/delapouite/coffee-cup.html) | Delapouite |
+| Hungover | [vomiting](https://game-icons.net/1x1/lorc/vomiting.html) | Lorc |
+| Disguised | [prank-glasses](https://game-icons.net/1x1/caro-asercion/prank-glasses.html) | Caro Asercion |
+| Smoking | [cigarette](https://game-icons.net/1x1/delapouite/cigarette.html) | Delapouite |
+| Joint | edited from [cigarette](https://game-icons.net/1x1/delapouite/cigarette.html) | Delapouite |
+| Downers | [square-bottle](https://game-icons.net/1x1/lorc/square-bottle.html) | Lorc |
+| Medicated | [pill](https://game-icons.net/1x1/lorc/pill.html) | Lorc |
+| Cigar | [cigar](https://game-icons.net/1x1/delapouite/cigar.html) | Delapouite |
+| Aroused | [smitten](https://game-icons.net/1x1/lorc/smitten.html) | Lorc |
+
 The module itself is tiny: roll tables, macros, one init hook. The repo around it exists for **GitHub CI** and **local DevX** so we can answer:
 
 > Is it safe to upgrade to v14?
@@ -93,7 +114,10 @@ Quench + Delta Green: separate `e2e-deps` cache in CI.
 | `modern-names.api` | Module API surface |
 | `modern-names.compendiums` | Roll table and macro packs |
 | `modern-names.rolls` | Draw from name tables |
+| `modern-names.status-effects` | Token status effects and icons |
 
 ## License
 
 GPL-3.0
+
+Status effect icons in [`assets/icons/`](assets/icons/) are from [game-icons.net](https://game-icons.net/) under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/).
