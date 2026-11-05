@@ -16,6 +16,7 @@ const NODE_ONLY_SCRIPTS = new Set([
   'generate-macros.js',
   'sync-env-from-fvtt-config.js',
   'namer.js',
+  'status-effects.js',
   'table-ids.js'
 ])
 
@@ -59,6 +60,9 @@ function copyList() {
     { from: 'module.json', to: 'module.json' },
     { from: 'LICENSE', to: 'LICENSE', toType: 'file' }
   ]
+  if (fs.existsSync(path.join(rootFolder, 'assets'))) {
+    list.push({ from: 'assets', to: 'assets' })
+  }
   if (fs.existsSync(path.join(rootFolder, 'packs'))) {
     list.push({ from: 'packs', to: 'packs' })
   }
