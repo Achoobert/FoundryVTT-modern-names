@@ -72,8 +72,10 @@ jobs:
             '.manifest = $manifest | .download = $download' \
             ./module.json > ./module-release.json
 
+          # Ship the manifest URL inside the zip too, so the installed module
+          # can check releases/latest for updates.
           staging=$(mktemp -d)
-          jq 'del(.manifest, .download)' ./module.json > "$staging/module.json"
+          cp ./module-release.json "$staging/module.json"
           cp LICENSE "$staging/"
           cp -r scripts packs assets "$staging/"
           (cd "$staging" && zip -r "$GITHUB_WORKSPACE/module.zip" .)
